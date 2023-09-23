@@ -1,5 +1,6 @@
 # theCouncilApp
 
+- yarn install
 - yarn dev - Next dev
 - yarn analyze - Generate bundle-analyzer
 - yarn lint - Audit code quality
