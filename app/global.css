@@ -21,3 +21,55 @@
     font-family: "Plus Jakarta Sans", sans-serif;
   }
 }
+
+
+/* Finale Page */
+.end-content {
+	padding-bottom: 700px;
+}
+
+.end-title {
+	text-align: center;
+}
+.end-h1 {
+	font-size: 64px;
+	font-weight: 900;
+	color: #ffffff;
+
+	/* top: 200px; */
+	padding-top: 200px;
+	padding-bottom: 20px;
+}
+
+.end-h2 {
+	font-size: 24px;
+	font-weight: 900;
+	color: #ffffff;
+}
+
+.endpage-gradient-text {
+	background-image: linear-gradient(to right, #12e9f1, #bf7fea);
+	background-clip: text;
+	color: transparent;
+	margin-left: 5px;
+}
+
+.refresh-button {
+	display: inline-flex;
+	height: 48px;
+	padding: 0px 24px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+
+	border-radius: 6px;
+
+	margin-top: 16px;
+	z-index: 10;
+}
+
+#refresh {
+	border-radius: 6px;
+	background: var(--Blue-Gradient, linear-gradient(99deg, #12E9F1 0%, #BF7FEA 100%));
+}
