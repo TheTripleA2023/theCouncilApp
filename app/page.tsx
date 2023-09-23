@@ -32,7 +32,7 @@ export default function Page() {
         <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
           <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
             <p className='w-full uppercase'>In a Dilemma?</p>
-            <h1 className='my-4 text-5xl font-bold leading-tight'>Consult the Council!</h1>
+            <h1 className='my-4 text-5xl font-bold leading-tight'>Consulted the Council!</h1>
             <p className='mb-8 text-2xl leading-normal'>The bear is always watching!!</p>
           </div>
 

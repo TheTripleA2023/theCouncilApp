@@ -2,7 +2,7 @@
   "name": "the-council",
   "version": "1.0.0",
   "authors": [
-    "Asitya Poluri",
+    "Aditya Poluri",
     "Taryn Wou",
     "Alan Wang",
     "Alex Hernandez"
@@ -13,11 +13,17 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.1.5",
+    "@chakra-ui/react": "^2.8.1",
     "@ducanh2912/next-pwa": "^9.4.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@react-three/drei": "^9.80.2",
     "@react-three/fiber": "^8.13.6",
+    "@splinetool/loader": "^0.9.455",
     "@splinetool/r3f-spline": "^1.0.2",
     "@types/three": "^0.156.0",
+    "framer-motion": "^10.16.4",
     "glsl-random": "^0.0.5",
     "next": "^13.4.13",
     "react": "^18.2.0",
