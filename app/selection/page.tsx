@@ -29,7 +29,6 @@ export default function Page() {
           <p className='mb-8 text-2xl leading-normal'>Hi!</p>
         </div>
       </div>
-      
 
       <View className='absolute top-0 flex h-screen w-full flex-col items-center justify-center'>
         <Blob />
