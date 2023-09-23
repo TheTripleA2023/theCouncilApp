@@ -3,21 +3,48 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
+	* {
+		box-sizing: border-box;
+	}
 
-  html,
-  body,
-  #root {
-    background-image: url("/img/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: "Plus Jakarta Sans", sans-serif;
-  }
+	html,
+	body,
+	#root {
+		background-image: url("/img/background.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		font-family: "Plus Jakarta Sans", sans-serif;
+		color: #ffffff;
+	}
+
+	.homepage-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.homepage-title {
+		margin-top: 60px;
+	}
+
+	.homepage-h1 {
+		font-size: 80px;
+		font-weight: 900;
+		color: #ffffff;
+		line-height: 90px;
+		text-align: center;
+	}
+
+	.homepage-gradient-text {
+		background-image: linear-gradient(to right, #12e9f1, #bf7fea);
+		background-clip: text;
+		color: transparent;
+		margin-left: 16px;
+	}
 }
