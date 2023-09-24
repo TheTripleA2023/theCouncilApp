@@ -1,6 +1,7 @@
 'use client'
 
 import { Text, Button, Image } from '@chakra-ui/react'
+
 // import DiscoGif from "./../../public/img/Disco1.gif"
 import dynamic from 'next/dynamic'
 
@@ -26,7 +27,9 @@ export default function Page() {
   return (
     <div className="end-content">
       <div className="end-title">
-        {/* <Image className="disco-gif" src={DiscoGif}/> */}
+        <div className='disco-container'>
+          <Image className="disco-gif" src="./img/Disco1.gif"/>
+        </div>
         <Text className="end-h1">
           The Council thanks you!
         </Text>
@@ -49,54 +52,10 @@ export default function Page() {
           Ask another question
         </Button>
 
-      {/* <Image className="disco-gif" src={DiscoGif}/>
-      <Image className="green-floor" src={GreenFloor}/>
-      <Image className="animals" src={Animals}/> */}
+        <Image className="pink-floor" src="./img/Pinkfloor.svg"/>
+
       </div>
     </div>
-    // <>
-    //   <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-    //     <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-    //       <h1 className='my-4 text-5xl font-bold leading-tight'>The Council thanks you!</h1>
-    //       <p className='mb-8 text-2xl leading-normal'>Thank you for choosing The Council.</p>
-    //       <p className='mb-8 text-2xl leading-normal'>We hope our advice helped.</p>
 
-    //       <div className="end-content">
-    //         <div className="end-title">
-    //           <Text className="end-h1">
-		// 						The Council thanks you!
-		// 					</Text>
-		// 					<Text className="end-h2">
-		// 						Thank you for choosing 
-		// 						<span className="endpage-gradient-text">
-		// 							The Council
-		// 						</span>
-		// 						.
-		// 					</Text>
-
-    //           <Text className="end-h2">
-		// 						We hope our advice helped.
-		// 					</Text>
-		// 					<Button
-		// 						className="refresh-button"
-		// 						id="refresh"
-		// 						onClick={refreshPage}
-		// 					>
-		// 						Ask another question
-		// 					</Button>
-
-		// 					<Image className="disco-gif" src={DiscoGif}/>
-		// 					<Image className="green-floor" src={GreenFloor}/>
-		// 					<Image className="animals" src={Animals}/>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    //   {/* <View className='absolute top-0 flex h-screen w-full flex-col items-center justify-center'>
-    //     <Blob />
-    //     <Common />
-    //   </View> */}
-    // </>
   )
 }
