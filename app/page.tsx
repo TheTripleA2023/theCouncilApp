@@ -49,7 +49,7 @@ export default function Page() {
         {/* Table Components */}   
       
         <div className='relative mt-auto h-1/2 w-full pt-6'>
-            <View orbit className='relative animate-pulse h-full sm:w-full'>
+            <View className='relative animate-pulse h-full sm:w-full'>
               <Suspense fallback={null}>
                 <CouncilTable route='/about' scale={2} position={[0, -0.5, 0]} />
                 <Common />
