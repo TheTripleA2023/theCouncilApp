@@ -1,7 +1,8 @@
 'use client'
 
 import { Text, Button, Image } from '@chakra-ui/react'
-import DiscoGif from "./img/Disco1.gif"
+
+// import DiscoGif from "./../../public/img/Disco1.gif"
 import dynamic from 'next/dynamic'
 
 const Blob = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Blob), { ssr: false })
@@ -55,5 +56,6 @@ export default function Page() {
 
       </div>
     </div>
+
   )
 }
