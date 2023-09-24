@@ -7,14 +7,41 @@ import { useMemo, useRef, useState } from 'react'
 import { Line, useCursor, MeshDistortMaterial } from '@react-three/drei'
 import { useRouter } from 'next/navigation'
 import Table from './Table'
+import { TextureLoader } from 'three'
+import { useLoader } from '@react-three/fiber'
 
 
+//Default Model Component 
 export default function Model({ ...props }) {
-  const fbx = useFBX("/models/"+props.name+".fbx");
+  const fbx = useFBX("/models/"+props.name+".fbx") as THREE.Group;
+  const mapT = useLoader(TextureLoader, '/img/T_'+props.name+'.png');
+
+  const customMaterial = new THREE.MeshToonMaterial({
+    color: 0x777777, // Set the color of the material to white
+    emissive: 0x111111, // Set the emissive color of the material
+    map: mapT, // Assign the alpha map texture
+    emissiveMap: mapT, // Assign the emissive map texture
+    alphaMap: mapT, // Assign the alpha map texture
+    wireframe: props.wireframe?props.wireframe:false,
+    transparent: props.transparent?props.transparent:false, // Set the material to transparent
+  });
+
+  // Assign the custom material to the FBX model
+  fbx.traverse((child: THREE.Mesh) => {
+    if (child.isMesh) {
+      child.material = customMaterial;
+    }
+  });
+
+  const ref = useRef(null);
+
+	useFrame((state, delta) => {
+	 	ref.current.position.y = (props.height?props.height:0) + Math.sin((props.offset?props.offset:0) + Math.PI * state.clock.getElapsedTime()) * 0.075;
+	});
 
   return (
       <>
-        <group {...props} dispose={null}>
+        <group ref={ref} {...props} dispose={null}>
           <primitive object={fbx} scale={0.01} />;
         </group>
       </>
@@ -83,14 +110,16 @@ export function Dog(props) {
   return <primitive object={scene} {...props} />
 }
 
+
 export function CouncilTable(props) {
 	// This reference gives us direct access to the THREE.Mesh object
 	const ref = useRef(null);
 
 	useFrame((state, delta) => {
 	 	ref.current.rotation.y += delta / 4;
+    ref.current.rotation.x = 0.3;
 	});
-
+  
 	// Return the view, these are regular Threejs elements expressed in JSX
 	return (
     <group ref={ref} {...props}>
@@ -99,44 +128,61 @@ export function CouncilTable(props) {
         scale={1.00}
       >
         <Table position={[0, 0, 0]} scale={0.012} />
-        <Model position={[0, 0, -1.8]} scale={1.75} name="Panda" />
+        <Model 
+          position={[0, 0, -1.8]} 
+          scale={1.75} 
+          offset={0}
+          name="Panda" 
+        />
+        <Model
+          position={[1.2, 0, -1.2]}
+          scale={1.2}
+          rotation={[0, -Math.PI / 4, 0]}
+          offset={Math.PI/4}
+          name="Tiger"
+        />
         <Model
           position={[1.4, 0, 0]}
           rotation={[0, Math.PI / -2, 0]}
+          offset={Math.PI/2}
           name="Flamingo"
-        />
+        /> 
         <Model
-          position={[0, 0, 1.4]}
+          position={[1, 0.4, 1]}
+          scale={0.8}
+          rotation={[0.2, (-3 * Math.PI) / 4, 0]}
+          height={0.4}
+          offset={3*Math.PI/4}
+          name="Possum"
+        />      
+        <Model
+          position={[0, 0.1, 1.4]}
           rotation={[0, Math.PI, 0]}
+          height={0.1}
+          offset={Math.PI}
           name="Cat"
         />
         <Model
-          position={[-1.6, 0, 0]}
-          rotation={[0, Math.PI / 2, 0]}
-          name="Platypus"
-        />
-        <Model
-          position={[-1, 0, -1]}
-          scale={0.9}
-          rotation={[0, Math.PI / 4, 0]}
-          name="Frog"
-        />
-        <Model
-          position={[1, 0, 1]}
-          scale={0.8}
-          rotation={[0, (-3 * Math.PI) / 4, 0]}
-          name="Possum"
-        />
-        <Model
-          position={[-1.1, 0, 1.1]}
+          position={[-1.1, 0.2, 1.1]}
           rotation={[0, (3 * Math.PI) / 4, 0]}
+          height={0.2}
+          offset={5*Math.PI/4}
           name="Hornbill"
         />
         <Model
-          position={[1.4, 0, -1.4]}
-          scale={1.2}
-          rotation={[0, -Math.PI / 4, 0]}
-          name="Tiger"
+          position={[-1.7, 0.35, 0]}
+          rotation={[0, Math.PI / 2, 0]}
+          height={0.35}
+          offset={3*Math.PI/2}
+          name="Platypus"
+        />
+        <Model
+          position={[-1, 0.35, -1]}
+          scale={0.9}
+          rotation={[0, Math.PI / 4, 0]}
+          height={0.35}
+          offset={7*Math.PI/4}
+          name="Frog"
         />
       </mesh>
     </group>
