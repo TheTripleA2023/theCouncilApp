@@ -1,7 +1,17 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import {
+	Box,
+	Button,
+	ChakraProvider,
+	Input,
+	Text,
+	Textarea,
+} from "@chakra-ui/react";
+import { useRef, useState, Suspense, useEffect } from "react";
+import { AiOutlineCheck } from "react-icons/ai";
+import HomeComponent from "@/components/homecomponent/HomeComponent";
 // import "./global.css";
 
 const Logo = dynamic(
@@ -55,55 +65,38 @@ const Common = dynamic(
 );
 
 export default function Page() {
+	const [pageStage, setPageStage] = useState(0);
+	const [inputValue, setInputValue] = useState("");
+	const [replyValue, setReplyValue] = useState("");
+	const [detailsPageBool, setdetailsPageBool] = useState(false);
+	const [data, setData] = useState(null);
+	const [isLoading, setLoading] = useState(false);
+	const [memberName, setMemberName] = useState("");
+	const [memberPic, setMemberPic] = useState("");
+	const [memberConvo, setMemberConvo] = useState([]);
+	const [councilList, setCouncilList] = useState([]);
+
+	const ref = useRef();
+
+	const handleSubmit = async () => {
+		// setInputValue(document.querySelector(".prompt-input").value);
+		if (inputValue === "") {
+			return;
+		}
+		setLoading(true);
+		// setPageStage(3);
+		// const response = await AIHandler.askTheCouncil(inputValue);
+		// console.log(response);
+		// setData(AIHandler.godJson);
+		setPageStage(1);
+		setLoading(false);
+		console.log("submit button clicked");
+	};
+
 	return (
 		<>
-			<div className="flex flex-col h-screen justify-between">
-				{/* Header Components */}
-				<div className="homepage-content">
-					<div className="homepage-title">
-						<h1 className="homepage-h1">In a Dilemma?</h1>
-						<h1 className="homepage-h1">
-							Consult
-							<span className="homepage-gradient-text">
-								the Council.
-							</span>
-						</h1>
-						<p className="mb-8 text-2xl leading-normal">
-							The bear is always watching!!
-						</p>
-					</div>
-
-					{/* <div className="w-full text-center md:w-3/5">
-						<View className="flex h-96 w-full flex-col items-center justify-center">
-							<Suspense fallback={null}>
-								<Logo
-									route="/about"
-									scale={0.6}
-									position={[0, 0, 0]}
-								/>
-								<Common />
-							</Suspense>
-						</View>
-					</div> */}
-				</div>
-
-				{/* Table Components */}
-
-				<div className="relative mt-auto h-1/2 w-full pt-6">
-					<View
-						orbit
-						className="relative animate-pulse h-full sm:w-full"
-					>
-						<Suspense fallback={null}>
-							<CouncilTable
-								route="/about"
-								scale={2}
-								position={[0, -0.5, 0]}
-							/>
-							<Common />
-						</Suspense>
-					</View>
-				</div>
+			<div>
+				<HomeComponent onButtonClick={handleSubmit} />
 			</div>
 		</>
 	);

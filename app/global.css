@@ -47,4 +47,31 @@
 		color: transparent;
 		margin-left: 16px;
 	}
+
+	.homepage-prompt {
+		display: flex;
+		align-items: center;
+		margin-top: 36px;
+	}
+
+	.council-button {
+		display: flex;
+		align-items: center;
+		margin-top: 36px;
+		color: transparent;
+		margin-left: 16px;
+		height: 100%;
+	}
+
+	.prompt-input {
+		min-width: 488px;
+		vertical-align: middle;
+		/* flex-grow: 1; */
+		margin-right: 12px;
+		z-index: 11;
+	}
+
+	.submit-button {
+		vertical-align: middle;
+	}
 }
