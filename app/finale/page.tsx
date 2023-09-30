@@ -1,5 +1,8 @@
 'use client'
 
+import { Text, Button, Image } from '@chakra-ui/react'
+
+// import DiscoGif from "./../../public/img/Disco1.gif"
 import dynamic from 'next/dynamic'
 
 const Blob = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Blob), { ssr: false })
@@ -22,18 +25,37 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 
 export default function Page() {
   return (
-    <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>We are team Triple A</h1>
-          <p className='mb-8 text-2xl leading-normal'>Hi!</p>
+    <div className="end-content">
+      <div className="end-title">
+        <div className='disco-container'>
+          <Image className="disco-gif" src="./img/Disco1.gif"/>
         </div>
-      </div>
+        <Text className="end-h1">
+          The Council thanks you!
+        </Text>
+        <Text className="end-h2">
+          Thank you for choosing 
+          <span className="endpage-gradient-text">
+            The Council
+          </span>
+        .
+        </Text>
 
-      <View className='absolute top-0 flex h-screen w-full flex-col items-center justify-center'>
-        <Blob />
-        <Common />
-      </View>
-    </>
+        <Text className="end-h2">
+          We hope our advice helped.
+        </Text>
+        <Button
+          className="refresh-button"
+          id="refresh"
+          // onClick={refreshPage}
+        >
+          Ask another question
+        </Button>
+
+        <Image className="pink-floor" src="./img/Pinkfloor.svg"/>
+
+      </div>
+    </div>
+
   )
 }

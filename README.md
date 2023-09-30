@@ -6,3 +6,7 @@
 - yarn lint - Audit code quality
 - yarn build - Next build
 - yarn start - Next start
+
+
+IF yarn.lock has conflicts do this !!!
+git checkout --theirs yarn.lock
