@@ -2,6 +2,7 @@
 
 import { Text, Button, Image } from '@chakra-ui/react'
 import DiscoGif from "./img/Disco1.gif"
+
 import dynamic from 'next/dynamic'
 
 const Blob = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Blob), { ssr: false })
@@ -23,6 +24,11 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
+  const refreshPage = async () => {
+		// window.location.reload();
+    window.location.href = '/';
+	};
+
   return (
     <div className="end-content">
       <div className="end-title">
@@ -46,7 +52,7 @@ export default function Page() {
         <Button
           className="refresh-button"
           id="refresh"
-          // onClick={refreshPage}
+          onClick={refreshPage}
         >
           Ask another question
         </Button>
@@ -55,5 +61,6 @@ export default function Page() {
 
       </div>
     </div>
+
   )
 }
