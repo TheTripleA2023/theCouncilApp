@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation'
 import Table from './Table'
 import { TextureLoader } from 'three'
 import { useLoader } from '@react-three/fiber'
+import { useTransition, useSpring } from '@react-spring/core'
+import { a } from '@react-spring/three'
 
 
 //Default Model Component 
@@ -111,21 +113,28 @@ export function Dog(props) {
 }
 
 
-export function CouncilTable(props) {
+export function CouncilTable({ route = '/', ...props }) {
 	// This reference gives us direct access to the THREE.Mesh object
 	const ref = useRef(null);
+  const router = useRouter()
+  const [hovered, hover] = useState(false)
+  useCursor(hovered)
 
 	useFrame((state, delta) => {
 	 	ref.current.rotation.y += delta / 4;
     ref.current.rotation.x = 0.3;
 	});
-  
+
+
 	// Return the view, these are regular Threejs elements expressed in JSX
 	return (
     <group ref={ref} {...props}>
       <mesh
         {...props}
-        scale={1.00}
+        scale={1.0}
+        onClick={() => router.push(route)}
+        onPointerOver={() => hover(true)}
+        onPointerOut={() => hover(false)}
       >
         <Table position={[0, 0, 0]} scale={0.012} />
         <Model 
