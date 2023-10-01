@@ -2182,6 +2182,7 @@
   resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.7.3.tgz#ea78fd447cbc2612c1f5d55852e3c331e8172a0b"
   integrity sha512-Kpx/fQ/ZFX31OtlqVEFfgaD1ACzul4NksrvIgYfIFq9JpDHFwQkMVZ10tbo0FU/grje4rcL4EIrjekl3kYwgWw==
 
+
 "@react-three/drei@^9.80.2":
   version "9.86.3"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-9.86.3.tgz#c7dc403fcee456f715b5000c31f0672de0cd211d"
