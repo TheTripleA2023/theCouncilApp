@@ -1,7 +1,7 @@
 import { Layout } from '@/components/dom/Layout'
 import { ChakraProvider } from '@chakra-ui/react'
 import '@/global.css'
-import { Providers } from '@/providers'
+import { Providers } from '@/components/dom/Providers'
 
 export const metadata = {
   title: 'The Council',
