@@ -10,10 +10,13 @@ const supabase = createClientComponentClient();
 export default function Page() {
   return (
     <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>We are team Triple A</h1>
-          <p className='mb-8 text-2xl leading-normal'>Hi!</p>
+      <div className='login mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
+        <div className='login-page flex w-full flex-col items-start justify-center p-12 text-center md:text-left'>
+          <div className='reflection'>
+            <h1 className='login-header my-4 text-5xl font-bold leading-tight'>The Council.</h1>
+            <h1 className='login-header my-4 text-5xl font-bold leading-tight'>The Council.</h1>
+          </div>
+          {/* <p className='mb-8 text-2xl leading-normal'>Hi!</p> */}
           <Auth
             supabaseClient={supabase}
             providers={['google']}

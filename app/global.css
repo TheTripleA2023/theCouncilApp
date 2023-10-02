@@ -23,6 +23,42 @@
 }
 
 
+/* Login Page */
+.login {
+  /* background-image: url("/img/birdbirdbird.png");
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.login-page {
+  align-items: center;
+  padding-top: 20%;
+}
+
+.login-header {
+  color: #F2F6FF;
+  text-align: center;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 80px;
+
+  background-image: linear-gradient(to right, #12e9f1, #bf7fea);
+	background-clip: text;
+	color: transparent;
+}
+
+.reflection >:last-child {
+  transform: 
+    rotateX(180deg)
+    translateY(28px);
+  mask-image:
+    linear-gradient(
+      transparent 50%, white 90%
+    );
+  opacity: 0.3;
+}
+
 /* Finale Page */
 
 .disco-container {
