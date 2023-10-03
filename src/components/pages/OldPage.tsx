@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import LogoutButton from './LogoutButton'
+import { Council } from '@/controller/council'
 
 const Logo = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Logo), { ssr: false })
 const Dog = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Dog), { ssr: false })
@@ -25,33 +26,41 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
+
 export default async function OldPage() {
-  return (
-    <>
-      <div className='flex flex-col h-screen justify-between'>
-        {/* Header Components */}
-        <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-          <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-            <p className='w-full uppercase'>In a Dilemma?</p>
-            <h1 className='my-4 text-5xl font-bold leading-tight'>Consulted the Council!</h1>
-            <p className='mb-8 text-2xl leading-normal'>The bear is always watching!!</p>
-            <LogoutButton />
-          </div>
-        </div>
-              
-        {/* Table Components */}   
-      
-        <div className='relative mt-auto h-1/2 w-full pt-6'>
-            <View className='relative animate-pulse h-full sm:w-full'>
-              <Suspense fallback={null}>
-                <CouncilTable route='/about' scale={2} position={[0, -0.5, 0]} />
-                <Common />
-              </Suspense>
-            </View>
-        </div>
-      </div> 
-    </>
-  )
+
+    const getStuff = async () => {         
+        const CouncilController = new Council()
+        const res = await CouncilController.consultCouncil('I WANT TO EAT MY FRIENDS')
+        const res2 = await CouncilController.consultCouncil('I WANT TO EAT MY FRIENDS WHAT DO I DO')
+        console.log(res2)
+    }
+    return (
+        <>
+        <div className='flex flex-col h-screen justify-between'>
+            {/* Header Components */}
+            <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
+            <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
+                <p className='w-full uppercase'>In a Dilemma?</p>
+                <h1 className='my-4 text-5xl font-bold leading-tight'>Consulted the Council!</h1>
+                <p className='mb-8 text-2xl leading-normal'>The bear is always watching!!</p>
+                <LogoutButton />
+            </div>
+            </div>
+                
+            {/* Table Components */}   
+        
+            <div className='relative mt-auto h-1/2 w-full pt-6' onClick={getStuff}>
+                <View className='relative animate-pulse h-full sm:w-full'>
+                <Suspense fallback={null}>
+                    <CouncilTable route='/about' scale={2} position={[0, -0.5, 0]} />
+                    <Common />
+                </Suspense>
+                </View>
+            </div>
+        </div> 
+        </>
+    )
 }
 
 

@@ -5,6 +5,7 @@ import { cookies } from 'next/headers'
 import OldPage from '@/components/pages/OldPage'
 import Link from 'next/link'
 import { Button } from '@chakra-ui/react'
+import { Council } from '@/controller/council'
 
 export default async function Page() {
   return (
