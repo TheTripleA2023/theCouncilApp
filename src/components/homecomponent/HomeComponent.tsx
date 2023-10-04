@@ -2,22 +2,11 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
+import { useRef, useState } from "react";
 import { Input, Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import { Suspense } from "react";
 
-const Logo = dynamic(
-	() => import("@/components/canvas/Models").then((mod) => mod.Logo),
-	{ ssr: false }
-);
-const Dog = dynamic(
-	() => import("@/components/canvas/Models").then((mod) => mod.Dog),
-	{ ssr: false }
-);
-const Duck = dynamic(
-	() => import("@/components/canvas/Models").then((mod) => mod.Duck),
-	{ ssr: false }
-);
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
 	{ ssr: false }
@@ -56,32 +45,19 @@ const Common = dynamic(
 	{ ssr: false }
 );
 
-// export default function Page() {
-//   return (
-//     <>
-//       <div className='flex flex-col h-screen justify-between'>
-
-//         {/* Table Components */}
-
-//         <div className='relative mt-auto h-1/2 w-full pt-6'>
-//             <View className='relative animate-pulse h-full sm:w-full'>
-//               <Suspense fallback={null}>
-//                 <CouncilTable route='/about' scale={2} position={[0, -0.5, 0]} />
-//                 <Common />
-//               </Suspense>
-//             </View>
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
 function HomeComponent(props) {
+	const [inputField, setInputField] = useState("");
+
+	const handleInputChange = (e) => {
+		setInputField(e.target.value);
+	};
+
 	const handleSubmit = () => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
 		if (props.onButtonClick) {
-			props.onButtonClick();
+			props.onButtonClick(inputField);
+			console.log("inner handleSubmit");
 		}
 	};
 
@@ -115,6 +91,8 @@ function HomeComponent(props) {
 							overflowY: "auto",
 							resize: "vertical",
 						}}
+						value={inputField}
+						onChange={handleInputChange}
 					/>
 					<Button
 						className="submit-button"

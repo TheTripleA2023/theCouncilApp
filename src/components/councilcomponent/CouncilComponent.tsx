@@ -1,0 +1,102 @@
+"use client";
+
+import React from "react";
+import { Input, Button, Text } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
+import CouncilCard from "@/components/councilcardcomponent/CouncilCard";
+
+function CouncilComponent(props) {
+	const handleReply = () => {
+		// Handle button click logic here
+		// Call the callback function passed from the main page
+		if (props.handleReply) {
+			props.handleReply();
+		}
+	};
+
+	const handleDone = () => {
+		// Handle button click logic here
+		// Call the callback function passed from the main page
+		if (props.handleDone) {
+			props.handleDone();
+		}
+	};
+
+	const handleMoreDetails = (name, index) => {
+		// Handle button click logic here
+		// Call the callback function passed from the main page
+		if (props.handleMoreDetails) {
+			props.handleMoreDetails(name, index);
+		}
+	};
+
+	return (
+		<div className="flex flex-col h-screen justify-between">
+			<div className="council-content">
+				<Text className="council-title">The Council says...</Text>
+				<Text className="council-query-label">You said:</Text>
+				{props.data ? (
+					<Text className="council-query">
+						{props.data.questions[props.data.questions.length - 1]}
+					</Text>
+				) : (
+					<div>Loading...</div> // Display a loading message while data is loading
+				)}
+				<div className="council-cards">
+					{props.data ? (
+						props.data.members.map((councilMember, index) => (
+							<CouncilCard
+								key={index}
+								name={councilMember.name}
+								imagePath={councilMember.imagePath}
+								onCardClick={() =>
+									handleMoreDetails(councilMember.name, index)
+								}
+								message={
+									councilMember.conversation &&
+									councilMember.conversation.length
+										? councilMember.conversation[
+												councilMember.conversation
+													.length - 1
+										  ]?.content || ""
+										: ""
+								}
+							/>
+						))
+					) : (
+						<div>Loading...</div> // Display a loading message while data is loading
+					)}
+				</div>
+				<div className="council-reply-prompt">
+					<Input
+						className="council-reply-prompt-input"
+						placeholder="I'm thinking about..."
+						style={{ width: "488px" }}
+						variant="filled"
+						_focus={{
+							borderColor: "gray", // Set the border color when the input is focused
+							textColor: "gray",
+							bg: "white",
+							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)", // Add a focus shadow
+						}}
+					/>
+					<Button
+						className="reply-button"
+						colorScheme="teal"
+						rightIcon={<AiOutlineCheck />}
+						variant="solid"
+						ml={2} // Add margin-left to create space between the input and button
+						onClick={handleReply} // Call the handleSubmit function on button click
+					>
+						OK
+					</Button>
+				</div>
+				<Text className="done-text" onClick={handleDone}>
+					No thanks, I’m all done!
+				</Text>
+			</div>
+		</div>
+	);
+}
+
+export default CouncilComponent;
