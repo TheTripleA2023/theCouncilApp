@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import dynamic from "next/dynamic";
 import { Input, Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
@@ -53,6 +55,26 @@ const Common = dynamic(
 	() => import("@/components/canvas/View").then((mod) => mod.Common),
 	{ ssr: false }
 );
+
+// export default function Page() {
+//   return (
+//     <>
+//       <div className='flex flex-col h-screen justify-between'>
+
+//         {/* Table Components */}
+
+//         <div className='relative mt-auto h-1/2 w-full pt-6'>
+//             <View className='relative animate-pulse h-full sm:w-full'>
+//               <Suspense fallback={null}>
+//                 <CouncilTable route='/about' scale={2} position={[0, -0.5, 0]} />
+//                 <Common />
+//               </Suspense>
+//             </View>
+//         </div>
+//       </div>
+//     </>
+//   )
+// }
 
 function HomeComponent(props) {
 	const handleSubmit = () => {
@@ -113,9 +135,14 @@ function HomeComponent(props) {
 			{/* Table Components */}
 
 			<div className="relative mt-auto h-1/2 w-full pt-6">
-				<View orbit className="relative animate-pulse h-full sm:w-full">
+				<View className="relative animate-pulse h-full sm:w-full">
 					<Suspense fallback={null}>
-						{/* Include CouncilTable and Common components here */}
+						<CouncilTable
+							route="/about"
+							scale={2}
+							position={[0, -0.5, 0]}
+						/>
+						<Common />
 					</Suspense>
 				</View>
 			</div>
