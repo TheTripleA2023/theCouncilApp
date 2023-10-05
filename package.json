@@ -18,6 +18,8 @@
     "@ducanh2912/next-pwa": "^9.4.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@react-spring/core": "^9.7.3",
+    "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.80.2",
     "@react-three/fiber": "^8.13.6",
     "@splinetool/loader": "^0.9.455",
