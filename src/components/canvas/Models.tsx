@@ -118,20 +118,25 @@ export function CouncilTable({ route = '/', ...props }) {
 	const ref = useRef(null);
   const router = useRouter()
   const [hovered, hover] = useState(false)
+  const [scale, setScale] = useState(0)
   useCursor(hovered)
+
 
 	useFrame((state, delta) => {
 	 	ref.current.rotation.y += delta / 4;
     ref.current.rotation.x = 0.3;
+    ref.current.scale.x =
+    ref.current.scale.y =
+    ref.current.scale.z =
+      THREE.MathUtils.lerp(ref.current.scale.z, 1.0, 0.05);
+    //if(scale<1){setScale(Math.min(scale+delta,1))}
 	});
-
 
 	// Return the view, these are regular Threejs elements expressed in JSX
 	return (
     <group ref={ref} {...props}>
       <mesh
         {...props}
-        scale={1.0}
         onClick={() => router.push(route)}
         onPointerOver={() => hover(true)}
         onPointerOut={() => hover(false)}
