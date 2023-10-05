@@ -76,6 +76,7 @@ export default function Page() {
 					<CouncilComponent
 						handleReply={handleReply}
 						handleMoreDetails={handleMoreDetails}
+						inputValue={inputValue}
 					/>
 				)}
 			</div>

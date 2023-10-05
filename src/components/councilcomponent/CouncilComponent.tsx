@@ -27,15 +27,20 @@ function CouncilComponent(props) {
 			<div className="council-content">
 				<Text className="council-title">The Council says...</Text>
 				<Text className="council-query-label">You said:</Text>
-				{props.data ? (
+
+				{/* commented out for now while we don't have data connected */}
+				{/* {props.data ? (
 					<Text className="council-query">
 						{props.data.questions[props.data.questions.length - 1]}
 					</Text>
 				) : (
 					<div>Loading...</div> // Display a loading message while data is loading
-				)}
+				)} */}
+				<Text className="council-query">{props.inputValue}</Text>
+
 				<div className="council-cards">
-					{props.data ? (
+					{/* commented out for now while we don't have data connected */}
+					{/* {props.data ? (
 						props.data.members.map((councilMember, index) => (
 							<CouncilCard
 								key={index}
@@ -57,7 +62,36 @@ function CouncilComponent(props) {
 						))
 					) : (
 						<div>Loading...</div> // Display a loading message while data is loading
-					)}
+					)} */}
+					{/* for testing purposes */}
+					<CouncilCard
+						key={1}
+						name="wolf"
+						imagePath=""
+						onCardClick={() => handleMoreDetails("wolf", 1)}
+						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
+					/>
+					<CouncilCard
+						key={1}
+						name="wolf"
+						imagePath=""
+						onCardClick={() => handleMoreDetails("wolf", 1)}
+						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
+					/>
+					<CouncilCard
+						key={1}
+						name="wolf"
+						imagePath=""
+						onCardClick={() => handleMoreDetails("wolf", 1)}
+						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
+					/>
+					<CouncilCard
+						key={1}
+						name="wolf"
+						imagePath=""
+						onCardClick={() => handleMoreDetails("wolf", 1)}
+						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
+					/>
 				</div>
 				<div className="council-reply-prompt">
 					<Input
