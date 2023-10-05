@@ -66,11 +66,6 @@ export default function Page() {
 		console.log("handleMoreDetails pressed");
 	};
 
-	const handleDone = () => {
-		// setPageStage(2);
-		console.log("handleDone pressed");
-	};
-
 	return (
 		<>
 			<div>
@@ -80,7 +75,6 @@ export default function Page() {
 				{pageStage === "council" && (
 					<CouncilComponent
 						handleReply={handleReply}
-						handleDone={handleDone}
 						handleMoreDetails={handleMoreDetails}
 					/>
 				)}

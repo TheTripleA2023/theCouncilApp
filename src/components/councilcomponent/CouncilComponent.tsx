@@ -14,14 +14,6 @@ function CouncilComponent(props) {
 		}
 	};
 
-	const handleDone = () => {
-		// Handle button click logic here
-		// Call the callback function passed from the main page
-		if (props.handleDone) {
-			props.handleDone();
-		}
-	};
-
 	const handleMoreDetails = (name, index) => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
@@ -83,6 +75,10 @@ function CouncilComponent(props) {
 					<Button
 						className="reply-button"
 						colorScheme="teal"
+						style={{
+							background:
+								"linear-gradient(to right, #12e9f1, #bf7fea)",
+						}}
 						rightIcon={<AiOutlineCheck />}
 						variant="solid"
 						ml={2} // Add margin-left to create space between the input and button
@@ -91,9 +87,12 @@ function CouncilComponent(props) {
 						OK
 					</Button>
 				</div>
-				<Text className="done-text" onClick={handleDone}>
-					No thanks, I’m all done!
-				</Text>
+				<a
+					href="http://localhost:3001/finale"
+					rel="noopener noreferrer"
+				>
+					<Text className="done-text">No thanks, I’m all done!</Text>
+				</a>
 			</div>
 		</div>
 	);
