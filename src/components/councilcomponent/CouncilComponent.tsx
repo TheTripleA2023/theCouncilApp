@@ -1,11 +1,14 @@
 "use client";
 
 import React from "react";
+import { useState } from "react";
 import { Input, Button, Text } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import CouncilCard from "@/components/councilcardcomponent/CouncilCard";
 
 function CouncilComponent(props) {
+	// const [data, setData] = useState("");
+
 	const handleReply = () => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page

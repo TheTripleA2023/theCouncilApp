@@ -46,13 +46,16 @@ export default function Page() {
 		if (inputValue === "") {
 			return;
 		}
+		setLoading(true);
 
-		setPageStage("council");
 		const CouncilController = new Council();
 		const response = await CouncilController.consultCouncil(inputValue);
-		setData(response);
-		console.log(response);
-		console.log(data);
+
+		console.log(response); // prints responses
+		setData(response); // sets data = response
+		setPageStage("council");
+		setLoading(false);
+		console.log(data); // prints null
 
 		// setLoading(true);
 		// setPageStage(3);
