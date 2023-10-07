@@ -48,25 +48,12 @@ export default function Page() {
 		setLoading(true);
 		console.log(CouncilController.getMembers());
 		console.log(data);
-		// CouncilController.setMembers(data);
+		CouncilController.setMembers(data);
 		const boop = await CouncilController.consultCouncil(replyValue);
 		console.log(boop);
 		setData(boop);
+		console.log(data);
 		setLoading(false);
-
-		// setReplyValue(
-		// 	document.querySelector(".council-reply-prompt-input").value
-		// );
-		// if (replyValue === "") {
-		// 	return;
-		// }
-		// setLoading(true);
-		// setPageStage(3);
-		// // const response = await AIHandler.askTheCouncil(replyValue);
-		// console.log(response);
-		// // setData(AIHandler.godJson);
-		// setPageStage(1);
-		// setLoading(false);
 	};
 
 	const handleMoreDetails = (memberName, index) => {
