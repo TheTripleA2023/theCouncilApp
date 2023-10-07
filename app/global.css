@@ -22,6 +22,10 @@
 		color: #ffffff;
 	}
 
+	body {
+		font-family: "Plus Jakarta Sans", sans-serif;
+	}
+
 	.homepage-content {
 		display: flex;
 		flex-direction: column;
@@ -45,7 +49,7 @@
 		background-image: linear-gradient(to right, #12e9f1, #bf7fea);
 		background-clip: text;
 		color: transparent;
-		margin-left: 28px;
+		margin-left: 20px;
 	}
 
 	.homepage-prompt {
@@ -269,6 +273,124 @@
 		margin-bottom: 16px;
 		display: inline-block;
 	}
+}
+
+/* HERO COMPONENT */
+
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.hero-text {
+	margin-left: 10%;
+}
+
+.hero-title {
+	margin-top: 20%;
+	text-align: left;
+}
+
+.hero-swappable-line {
+	display: flex;
+	align-items: centre;
+	/* justify-content: center; */
+}
+
+.hero-h2,
+.hero-swappable {
+	margin: 0 10px;
+	white-space: nowrap;
+	font-size: 48px;
+	font-weight: 900;
+}
+
+.hero-swappable-1 {
+	background-image: linear-gradient(to bottom, #ff8e90, #ffa95c);
+	background-clip: text;
+	color: transparent;
+}
+.hero-swappable-2 {
+	background-image: linear-gradient(to bottom, #9efd69, #12e9f1);
+	background-clip: text;
+	color: transparent;
+}
+.hero-swappable-3 {
+	background-image: linear-gradient(to bottom, #bf7fea, #ff8e90);
+	background-clip: text;
+	color: transparent;
+}
+
+.hero-h1 {
+	font-size: 80px;
+	font-weight: 900;
+	color: #ffffff;
+	line-height: 90px;
+	margin-bottom: 16px;
+	margin-top: -8px;
+	text-align: left;
+}
+
+.hero-h3 {
+	font-size: 20px;
+	font-weight: 900;
+	color: #ffffff;
+	line-height: 20px;
+	text-align: left;
+	margin-bottom: 24px;
+	margin-left: 6px;
+}
+
+.hero-gradient-text {
+	background-image: linear-gradient(to right, #12e9f1, #bf7fea);
+	background-clip: text;
+	color: transparent;
+	margin-left: 20px;
+}
+
+@keyframes rotateWords {
+	0% {
+		opacity: 0;
+		transform: translateY(-70%);
+	}
+
+	7%,
+	24% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	43%,
+	100% {
+		opacity: 0;
+		transform: translateY(70%);
+	}
+}
+ul {
+	position: relative;
+	width: 100%; /* Set the width of the parent ul */
+	height: 64px; /* Set the height of the parent ul */
+	overflow: hidden; /* Hide overflow to prevent stacking */
+}
+
+li {
+	position: absolute; /* Use absolute positioning */
+	top: 0;
+	animation: rotateWords 9s ease-in-out infinite backwards;
+
+	white-space: nowrap;
+
+	&:nth-child(2) {
+		animation-delay: 3s;
+	}
+	&:nth-child(3) {
+		animation-delay: 6s;
+	}
+}
+
+.hero-button {
 }
 
 /* Finale Page */
