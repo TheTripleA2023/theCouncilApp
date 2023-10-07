@@ -28,18 +28,6 @@ export default function Page() {
 
 	const ref = useRef();
 
-	// const getStuff = async () => {
-	// 	const CouncilController = new Council();
-	// 	const res = await CouncilController.consultCouncil(
-	// 		"I WANT TO EAT MY FRIENDS"
-	// 	);
-	// 	const res2 = await CouncilController.consultCouncil(
-	// 		"I WANT TO EAT MY FRIENDS WHAT DO I DO"
-	// 	);
-	// 	console.log(res2);
-	// };
-	// getStuff();
-
 	const handleSubmit = async (value) => {
 		console.log("submit button clicked");
 		setInputValue(value);
