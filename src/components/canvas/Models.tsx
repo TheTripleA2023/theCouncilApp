@@ -118,8 +118,8 @@ export function CouncilTable({ route = '/', ...props }) {
 	const ref = useRef(null);
   const router = useRouter()
   const [hovered, hover] = useState(false)
-  const [scale, setScale] = useState(0)
   useCursor(hovered)
+  //const [scale, setScale] = useState(0)
 
 
 	useFrame((state, delta) => {
@@ -128,7 +128,7 @@ export function CouncilTable({ route = '/', ...props }) {
     ref.current.scale.x =
     ref.current.scale.y =
     ref.current.scale.z =
-      THREE.MathUtils.lerp(ref.current.scale.z, 1.0, 0.05);
+      THREE.MathUtils.lerp(ref.current.scale.z, 1.0, 0.025);
     //if(scale<1){setScale(Math.min(scale+delta,1))}
 	});
 
