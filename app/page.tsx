@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { Council } from "@/controller/council";
 import HomeComponent from "@/components/homecomponent/HomeComponent";
 import CouncilComponent from "@/components/councilcomponent/CouncilComponent";
+import LoadingComponent from "@/components/loadingcomponent/LoadingComponent";
 
 // import { notFound, redirect } from 'next/navigation'
 // import { createClientComponentClient,createServerComponentClient } from '@supabase/auth-helpers-nextjs'
@@ -43,7 +44,6 @@ export default function Page() {
 		setData(response); // sets data = response
 		setPageStage("council");
 		setLoading(false);
-		console.log(data); // prints null
 
 		// setLoading(true);
 		// setPageStage(3);
@@ -84,16 +84,22 @@ export default function Page() {
 	return (
 		<>
 			<div>
-				{pageStage === "home" && (
+				{!isLoading && pageStage === "home" && (
 					<HomeComponent onButtonClick={handleSubmit} />
 				)}
-				{pageStage === "council" && (
+				{!isLoading && pageStage === "council" && (
 					<CouncilComponent
 						handleReply={handleReply}
 						handleMoreDetails={handleMoreDetails}
 						inputValue={inputValue}
 						data={data}
 					/>
+				)}
+				{isLoading && replyValue === "" && (
+					<LoadingComponent prompt={inputValue} />
+				)}
+				{isLoading && replyValue !== "" && (
+					<LoadingComponent prompt={replyValue} />
 				)}
 			</div>
 		</>
