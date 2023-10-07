@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Council } from "@/controller/council";
 import HomeComponent from "@/components/homecomponent/HomeComponent";
 import CouncilComponent from "@/components/councilcomponent/CouncilComponent";
@@ -19,9 +19,10 @@ export default function Page() {
 	const [memberPic, setMemberPic] = useState("");
 	const [memberConvo, setMemberConvo] = useState([]);
 	const [councilList, setCouncilList] = useState([]);
-	const CouncilController = new Council();
+	let CouncilController = useRef(new Council())
 
 	const ref = useRef();
+
 
 	const handleSubmit = async (value) => {
 		console.log("submit button clicked");
@@ -30,8 +31,8 @@ export default function Page() {
 			return;
 		}
 		setLoading(true);
-		const response = await CouncilController.consultCouncil(inputValue);
-		const test = await CouncilController.consultCouncil(inputValue);
+		const response = await CouncilController.current.consultCouncil(inputValue);
+		const test = await CouncilController.current.consultCouncil(inputValue);
 		console.log(response);
 		console.log(test);
 		setData(response);
@@ -46,10 +47,10 @@ export default function Page() {
 			return;
 		}
 		setLoading(true);
-		console.log(CouncilController.getMembers());
+		console.log(CouncilController.current.getMembers());
 		console.log(data);
 		// CouncilController.setMembers(data);
-		const boop = await CouncilController.consultCouncil(replyValue);
+		const boop = await CouncilController.current.consultCouncil(replyValue);
 		console.log(boop);
 		setData(boop);
 		setLoading(false);
