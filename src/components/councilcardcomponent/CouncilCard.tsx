@@ -7,10 +7,7 @@ function CouncilCard(props) {
 	};
 	return (
 		<div className="council-card" onClick={handleClick}>
-			<Text className="council-card-message">
-				{/* {props.message} */}
-				Testing testing
-			</Text>
+			<Text className="council-card-message">{props.message}</Text>
 			<div className="council-card-member">
 				<div className="council-card-member-image">
 					<Image borderRadius="full" src={props.imagePath} />

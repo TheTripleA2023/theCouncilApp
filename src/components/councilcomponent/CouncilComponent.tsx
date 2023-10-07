@@ -72,21 +72,21 @@ function CouncilComponent(props) {
 						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
 					/>
 					<CouncilCard
-						key={1}
+						key={2}
 						name="wolf"
 						imagePath=""
 						onCardClick={() => handleMoreDetails("wolf", 1)}
 						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
 					/>
 					<CouncilCard
-						key={1}
+						key={3}
 						name="wolf"
 						imagePath=""
 						onCardClick={() => handleMoreDetails("wolf", 1)}
 						message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi nullam vehicula ipsum a arcu. Neque viverra justo nec ultrices dui sapien eget mi."
 					/>
 					<CouncilCard
-						key={1}
+						key={4}
 						name="wolf"
 						imagePath=""
 						onCardClick={() => handleMoreDetails("wolf", 1)}

@@ -1,106 +1,122 @@
 export class Council {
-    private trial: number;
-    private credits: number;
-    private members: Map<string, Member>;
-    private activeMembers: Member[] = [];
+	private trial: number;
+	private credits: number;
+	private members: Map<string, Member>;
+	private activeMembers: Member[] = [];
 
-    constructor() {
-        this.trial = 0;
-        this.initMembers();
-        this.setDefaultMembers();
-    }
+	constructor() {
+		this.trial = 0;
+		this.initMembers();
+		this.setDefaultMembers();
+	}
 
-    
-    public getTrial(): number {
-        return this.trial;
-    }
+	public getTrial(): number {
+		return this.trial;
+	}
 
-    public getCredit(): number {
-        return this.credits;
-    }
+	public getCredit(): number {
+		return this.credits;
+	}
 
-    public setTrial(trial: number): void {
-        this.trial = trial;
-    }
+	public setTrial(trial: number): void {
+		this.trial = trial;
+	}
 
-    public setCredit(credit: number): void {
-        this.credits = credit;
-    }
+	public setCredit(credit: number): void {
+		this.credits = credit;
+	}
 
-    private initMembers() {
-        this.members = new Map<string, Member>();
-        TrialMembers.forEach((member) => {
-            this.members.set(member.name, new Member(member.name, member.settings, member.description, member.objPath, member.imagePath, Category["N/A"]));
-        });
-    }
+	private initMembers() {
+		this.members = new Map<string, Member>();
+		TrialMembers.forEach((member) => {
+			this.members.set(
+				member.name,
+				new Member(
+					member.name,
+					member.settings,
+					member.description,
+					member.objPath,
+					member.imagePath,
+					Category["N/A"]
+				)
+			);
+		});
+	}
 
-    private setDefaultMembers() {
-        this.activeMembers = [];
-        const defaultMembers = ["Platypus", "Possum", "Cat", "Reindeer"];
-        this.activeMembers = defaultMembers.map((name) => this.members.get(name));
-    }
+	private setDefaultMembers() {
+		this.activeMembers = [];
+		const defaultMembers = ["Platypus", "Possum", "Cat", "Reindeer"];
+		this.activeMembers = defaultMembers.map((name) =>
+			this.members.get(name)
+		);
+	}
 
-    public getMembers(): Member[] {
-        return this.activeMembers;
-    }
+	public getMembers(): Member[] {
+		return this.activeMembers;
+	}
 
-    public setMembers(members: string[]): void {
-        members.slice(0,4)
-        this.activeMembers = members.map((name) => this.members.get(name));
-    }
+	public setMembers(members: string[]): void {
+		members.slice(0, 4);
+		this.activeMembers = members.map((name) => this.members.get(name));
+	}
 
-    public async consultCouncil(question: string): Promise<Member[]> {
-        const body = { question: question, members: this.activeMembers }
-        const res = await fetch('http://localhost:3000/api/council', {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            body: JSON.stringify(body),
-        })
-        if(res.ok) {
-            const data = await res.json();
-            this.activeMembers = data.data;
-        } else {
-            console.log("Error Occurred Processing Query")
-        }
-        console.log("HEREE")
+	public async consultCouncil(question: string): Promise<Member[]> {
+		const body = { question: question, members: this.activeMembers };
+		const res = await fetch("http://localhost:3002/api/council", {
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "POST",
+			body: JSON.stringify(body),
+		});
+		if (res.ok) {
+			const data = await res.json();
+			this.activeMembers = data.data;
+		} else {
+			console.log("Error Occurred Processing Query");
+		}
+		console.log("HEREE");
 
-        return this.activeMembers;
-    }
+		return this.activeMembers;
+	}
 }
 
-
 export class Member {
-    name: string;
-    settings: string;
-    description: string;
-    objPath:string;
-    imagePath:string;
-    category:Category;
-    conversation:[];
-    
-    constructor(name:string, settings:string, description:string, objPath:string, imagePath:string, category:Category) {
-        this.name = name;
-        this.settings = settings;
-        this.description = description;
-        this.objPath = objPath;
-        this.imagePath = imagePath;
-        this.category = category;
-        this.conversation = [];
-    }
+	name: string;
+	settings: string;
+	description: string;
+	objPath: string;
+	imagePath: string;
+	category: Category;
+	conversation: [];
+
+	constructor(
+		name: string,
+		settings: string,
+		description: string,
+		objPath: string,
+		imagePath: string,
+		category: Category
+	) {
+		this.name = name;
+		this.settings = settings;
+		this.description = description;
+		this.objPath = objPath;
+		this.imagePath = imagePath;
+		this.category = category;
+		this.conversation = [];
+	}
 }
 
 export enum Category {
-    "N/A",
-    "Serious",
-    "Funny"
+	"N/A",
+	"Serious",
+	"Funny",
 }
 
-
 class Message {
-    role: string;
-    content: string;
+	role: string;
+	content: string;
 }
 
 export const TrialMembers = [
@@ -116,7 +132,7 @@ export const TrialMembers = [
 		name: "Possum",
 		settings:
 			"You’re sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. Try to give sensitive and empathetic solutions to the user's problem. Your response should be no longer than 50 words.",
-        description: "Sensitive and Empathetic",
+		description: "Sensitive and Empathetic",
 		objPath: "Possum.fbx",
 		imagePath: "PossumAvatar.png",
 	},
@@ -124,7 +140,7 @@ export const TrialMembers = [
 		name: "Cat",
 		settings:
 			"You're a member sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. Pick a side, give direct advice, and share relevant stories or anecdotes to illustrate points. Your response should be no longer than 50 words.",
-        description: "Storyteller Anecdotal",
+		description: "Storyteller Anecdotal",
 		objPath: "Cat.fbx",
 		imagePath: "CatAvatar.png",
 	},
@@ -132,7 +148,7 @@ export const TrialMembers = [
 		name: "Reindeer",
 		settings:
 			"You're a member sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. Pick a side and motivate the user with positive and uplifting advice, focusing on a can-do attitude. Your response should be no longer than 50 words.",
-        description: "Optimistic Motivator",
+		description: "Optimistic Motivator",
 		objPath: "Reindeer.fbx",
 		imagePath: "ReindeerAvatar.png",
 	},
@@ -140,7 +156,7 @@ export const TrialMembers = [
 		name: "Flamingo",
 		settings:
 			"You're a member sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. Pick a side and gaslight them with a gatekeep girlboss mentality. Your response should be no longer than 50 words.",
-        description: "Gatekeep Gaslight Girlboss",
+		description: "Gatekeep Gaslight Girlboss",
 		objPath: "Flamingo.fbx",
 		imagePath: "FlamingoAvatar.png",
 	},
@@ -148,7 +164,7 @@ export const TrialMembers = [
 		name: "Panda",
 		settings:
 			"You’re sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. You're a 21-year-old political science major. Be a little aggressive. Pick a side and point out potential flaws. Your response should be no longer than 50 words.",
-        description: "Skeptical Critic",
+		description: "Skeptical Critic",
 		objPath: "Panda.fbx",
 		imagePath: "PandaAvatar.png",
 		conversation: [],
@@ -157,7 +173,7 @@ export const TrialMembers = [
 		name: "Tiger",
 		settings:
 			"You’re sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. Feed into the user’s delusions in an aggressively supportive way. Avoid cheesy or girly responses. Your response should be no longer than 30 words.",
-        description: "Delulu Bestie",
+		description: "Delulu Bestie",
 		objPath: "Tiger.fbx",
 		imagePath: "TigerAvatar.png",
 	},
@@ -165,7 +181,7 @@ export const TrialMembers = [
 		name: "Hornbill",
 		settings:
 			"You’re sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. You're the best friend who knows what’s best for the user. Provide curt answers to the user's problems. Do not feed into their delusions. Your response should be no longer than 50 words.",
-        description: "Best Friend",
+		description: "Best Friend",
 		objPath: "Hornbill.fbx",
 		imagePath: "HornbillAvatar.png",
 	},
@@ -173,7 +189,7 @@ export const TrialMembers = [
 		name: "Frog",
 		settings:
 			"You’re sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. You give very passionately crazy answers to the problem. You do not think through the consequences of an idea. Your response should be no longer than 50 words.",
-        description: "Confidently Chaotic",
+		description: "Confidently Chaotic",
 		objPath: "Frog.fbx",
 		imagePath: "FrogAvatar.png",
 	},
@@ -181,7 +197,7 @@ export const TrialMembers = [
 		name: "Orca",
 		settings:
 			"You’re sitting on a council of different perspectives, ready to give your opinion on the user's problem or question. Act like the user's mom. Your response should be no longer than 50 words.",
-        description: "Your Mom",
+		description: "Your Mom",
 		objPath: "Orca.fbx",
 		imagePath: "OrcaAvatar.png",
 	},
