@@ -97,7 +97,7 @@ function HeroComponent() {
 			{/* Table Components */}
 
 			<div className="relative mt-auto h-1/2 w-full pt-6">
-				<View className="relative animate-pulse h-full sm:w-full">
+				<View className="relative h-full sm:w-full">
 					<Suspense fallback={null}>
 						<CouncilTable
 							route="/about"
