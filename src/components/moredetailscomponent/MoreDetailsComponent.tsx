@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Image, Text } from "@chakra-ui/react";
+import { Image, Stack, Text } from "@chakra-ui/react";
 
 function UserMessage(props) {
 	return (
@@ -48,6 +48,7 @@ function MoreDetailsComponent(props) {
 						objectFit="cover"
 					/>
 					<div className="pop-up-convo">
+						<Stack spacing='8px'>
 						{memberConvo ? (
 							// Check if memberConvo is not null
 							memberConvo.map((message, index) => {
@@ -70,6 +71,7 @@ function MoreDetailsComponent(props) {
 						) : (
 							<div>No conversation available</div> // Render a message if memberConvo is null
 						)}
+						</Stack>
 					</div>
 				</div>
 			</div>
