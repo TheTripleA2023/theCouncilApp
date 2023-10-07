@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Council } from "@/controller/council";
 import HomeComponent from "@/components/homecomponent/HomeComponent";
 import CouncilComponent from "@/components/councilcomponent/CouncilComponent";
@@ -32,9 +31,8 @@ export default function Page() {
 		setLoading(true);
 		const response =
 			await CouncilController.current.consultCouncil(inputValue);
-		const test = await CouncilController.current.consultCouncil(inputValue);
 		console.log(response);
-		console.log(test);
+
 		setData(response);
 		setPageStage("council");
 		setLoading(false);
@@ -47,13 +45,11 @@ export default function Page() {
 			return;
 		}
 		setLoading(true);
-		console.log(CouncilController.current.getMembers());
-		console.log(data);
-		// CouncilController.setMembers(data);
-		const boop = await CouncilController.current.consultCouncil(replyValue);
-		console.log(boop);
-		setData(boop);
-		console.log(data);
+
+		const response =
+			await CouncilController.current.consultCouncil(replyValue);
+		console.log(response);
+		setData(response);
 		setLoading(false);
 	};
 
