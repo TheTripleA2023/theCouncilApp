@@ -57,7 +57,6 @@ function HomeComponent(props) {
 		// Call the callback function passed from the main page
 		if (props.onButtonClick) {
 			props.onButtonClick(inputField);
-			console.log("inner handleSubmit");
 		}
 	};
 

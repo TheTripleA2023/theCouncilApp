@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Image, Text } from "@chakra-ui/react";
 
 function LoadingComponent(props) {

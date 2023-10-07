@@ -6,14 +6,7 @@ import { Council } from "@/controller/council";
 import HomeComponent from "@/components/homecomponent/HomeComponent";
 import CouncilComponent from "@/components/councilcomponent/CouncilComponent";
 import LoadingComponent from "@/components/loadingcomponent/LoadingComponent";
-
-// import { notFound, redirect } from 'next/navigation'
-// import { createClientComponentClient,createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-// import { cookies } from 'next/headers'
-// import OldPage from '@/components/pages/OldPage'
-// import Link from 'next/link'
-// import { Button } from '@chakra-ui/react'
-// import { Council } from '@/controller/council'
+import MoreDetailsComponent from "@/components/moredetailscomponent/MoreDetailsComponent";
 
 export default function Page() {
 	const [pageStage, setPageStage] = useState("home");
@@ -26,6 +19,7 @@ export default function Page() {
 	const [memberPic, setMemberPic] = useState("");
 	const [memberConvo, setMemberConvo] = useState([]);
 	const [councilList, setCouncilList] = useState([]);
+	const CouncilController = new Council();
 
 	const ref = useRef();
 
@@ -36,25 +30,30 @@ export default function Page() {
 			return;
 		}
 		setLoading(true);
-
-		const CouncilController = new Council();
 		const response = await CouncilController.consultCouncil(inputValue);
-
-		console.log(response); // prints responses
-		setData(response); // sets data = response
+		const test = await CouncilController.consultCouncil(inputValue);
+		console.log(response);
+		console.log(test);
+		setData(response);
 		setPageStage("council");
 		setLoading(false);
-
-		// setLoading(true);
-		// setPageStage(3);
-		// const response = await AIHandler.askTheCouncil(inputValue);
-		// console.log(response);
-		// setData(AIHandler.godJson);
-
-		// setLoading(false);
 	};
 
-	const handleReply = async () => {
+	const handleReply = async (value) => {
+		console.log("handleReply pressed");
+		setReplyValue(value);
+		if (replyValue === "") {
+			return;
+		}
+		setLoading(true);
+		console.log(CouncilController.getMembers());
+		console.log(data);
+		// CouncilController.setMembers(data);
+		const boop = await CouncilController.consultCouncil(replyValue);
+		console.log(boop);
+		setData(boop);
+		setLoading(false);
+
 		// setReplyValue(
 		// 	document.querySelector(".council-reply-prompt-input").value
 		// );
@@ -68,17 +67,17 @@ export default function Page() {
 		// // setData(AIHandler.godJson);
 		// setPageStage(1);
 		// setLoading(false);
-		console.log("handleReply pressed");
 	};
 
 	const handleMoreDetails = (memberName, index) => {
-		// setMemberName(memberName);
-		// setdetailsPageBool(true);
-		// setMemberConvo(data.members[index].conversation);
-		// setMemberPic(data.members[index].imagePath);
-		// console.log(memberName);
-		// console.log(data.members[index].conversation);
-		console.log("handleMoreDetails pressed");
+		setMemberName(memberName);
+		setMemberConvo(data[index].conversation);
+		setMemberPic(data[index].imagePath);
+		setdetailsPageBool(true);
+	};
+
+	const handleClose = () => {
+		setdetailsPageBool(false);
 	};
 
 	return (
@@ -100,6 +99,14 @@ export default function Page() {
 				)}
 				{isLoading && replyValue !== "" && (
 					<LoadingComponent prompt={replyValue} />
+				)}
+				{detailsPageBool && (
+					<MoreDetailsComponent
+						memberName={memberName}
+						memberPic={memberPic}
+						memberConvo={memberConvo}
+						handleClose={handleClose}
+					/>
 				)}
 			</div>
 		</>

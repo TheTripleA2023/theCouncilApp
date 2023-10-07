@@ -7,19 +7,19 @@ import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import CouncilCard from "@/components/councilcardcomponent/CouncilCard";
 
 function CouncilComponent(props) {
-	// const [data, setData] = useState("");
+	const [inputField, setInputField] = useState("");
+
+	const handleInputChange = (e) => {
+		setInputField(e.target.value);
+	};
 
 	const handleReply = () => {
-		// Handle button click logic here
-		// Call the callback function passed from the main page
 		if (props.handleReply) {
-			props.handleReply();
+			props.handleReply(inputField);
 		}
 	};
 
 	const handleMoreDetails = (name, index) => {
-		// Handle button click logic here
-		// Call the callback function passed from the main page
 		if (props.handleMoreDetails) {
 			props.handleMoreDetails(name, index);
 		}
@@ -79,6 +79,7 @@ function CouncilComponent(props) {
 							bg: "white",
 							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)", // Add a focus shadow
 						}}
+						onChange={handleInputChange}
 					/>
 					<Button
 						className="reply-button"
