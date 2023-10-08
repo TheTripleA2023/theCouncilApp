@@ -26,7 +26,7 @@
 
 	body {
 		font-family: "Plus Jakarta Sans", sans-serif;
-	}	
+	}
 }
 
 .body {
@@ -39,7 +39,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	
 }
 
 .homepage-title {
@@ -408,114 +407,160 @@ li {
 	width: 80%;
 	margin: 0px;
 	padding: 0px;
-	
+}
 /* Login Page */
 
 .usage-landingpage {
-  background-color: #21234B;
+	background-color: #21234b;
 }
 
 .usage-container {
-  padding: 64px 128px;
+	padding: 64px 128px;
 }
 
 .usage-container h1 {
-  color: #F2F6FF;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+	color: #f2f6ff;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
 }
 
 .usage-container p {
-  padding-top: 16px;
-  color: #FFF;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
+	padding-top: 16px;
+	color: #fff;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
 }
-
 
 /* Horizontal Scrollers */
 .quote {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-  color: white;
-  display: inline-block;
-  padding-left: 16px;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px;
+	color: white;
+	display: inline-block;
+	padding-left: 16px;
 }
 
 @keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
 }
 
 .scroller {
-  overflow: hidden;
-  padding: 24px 0;
-  /* background: white; */
-  white-space: nowrap;
-  position: relative;
+	overflow: hidden;
+	padding: 24px 0;
+	/* background: white; */
+	white-space: nowrap;
+	position: relative;
 
-  border-top: 2px solid var(--Blue-Gradient, #12E9F1);
-  border-bottom: 2px solid var(--Blue-Gradient, #12E9F1);
-  background: var(--Dark-Background-Color, #000822);
+	border-top: 2px solid var(--Blue-Gradient, #12e9f1);
+	border-bottom: 2px solid var(--Blue-Gradient, #12e9f1);
+	background: var(--Dark-Background-Color, #000822);
 }
 
 .upper-scroller {
-  margin-bottom: 50px;
+	/* margin-bottom: 50px; */
 }
 
 .scroller:before,
 .scroller:after {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  content: "";
-  z-index: 2;
+	position: absolute;
+	top: 0;
+	width: 250px;
+	height: 100%;
+	content: "";
+	z-index: 2;
 }
 
 .scroller:hover .quotes-scroller {
-  animation-play-state: paused;
+	animation-play-state: paused;
 }
 
 .quotes-scroller {
-  display: inline-block;
-  animation: 20s slide infinite linear;
+	display: inline-block;
+	animation: 20s slide infinite linear;
 }
 
+/* ABOUT THE COUNCIL */
+.about-council-component {
+	background-color: #21234b;
+}
 
+.about-council-content {
+	background: url("/img/choose-council.png") top right no-repeat;
+}
+
+.about-council-div {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-left: 10%;
+	/* margin-bottom: 48px; */
+}
+
+.how-it-works-div {
+	display: flex;
+	justify-content: flex-start;
+	margin-right: 10%;
+	margin-bottom: 48px;
+	/* align-items: center;  */
+}
+
+.how-it-works-image {
+	margin-right: 10%;
+}
+
+.how-we-started-div {
+	margin-left: 10%;
+}
+
+.about-council-h2 {
+	font-size: 48px;
+	font-weight: 900;
+	margin-bottom: 24px;
+}
+
+.about-council-p2 {
+	margin-top: 5%;
+}
+
+.about-council-p1,
+.about-council-p2,
+.about-council-p3 {
+	width: 40%;
+	font-size: 20px;
+}
 /* Footer */
 .footer-landingpage {
-  background-color: #000822;
+	background-color: #000822;
 }
 
 .footer-container {
-  padding: 100px 300px 100px 128px;
+	padding: 100px 300px 100px 128px;
 }
 
 .footer-title {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 40px;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 40px;
 
-  background: linear-gradient(93deg, #12E9F1 24.27%, #BF7FEA 112.43%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+	background: linear-gradient(93deg, #12e9f1 24.27%, #bf7fea 112.43%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .footer-text {
-  color: #fff;
+	color: #fff;
 }
 
 /* Finale Page */
