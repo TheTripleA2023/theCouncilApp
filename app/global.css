@@ -523,9 +523,148 @@ li {
 	animation: 20s slide infinite linear;
 }
 
+.team-landingpage {
+	background-color: #111637;
+}
+
+.team-container {
+	padding: 100px 118px 100px 118px;
+}
+
+.team-header {
+	color: #f2f6ff;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.team-text {
+	color: #fff;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px; /* 140% */
+}
+
+.council-member-card {
+	border-radius: 16px;
+	background: var(--Background-Color, #21234b);
+	backdrop-filter: blur(2px);
+
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 12px; */
+	flex: 1 0 0;
+
+	width: 200px;
+	height: 200px;
+}
+
+@media (max-width: 800px) {
+	/* .member-card-container {
+    display: grid;
+  } */
+
+	.council-member-card {
+		width: 50%; /* Two columns per row */
+		padding-bottom: 10px;
+		display: inline-block; /* To ensure proper alignment */
+	}
+}
+
+.team-name {
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.team-role {
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
 /* ABOUT THE COUNCIL */
 .about-council-component {
 	background-color: #21234b;
+}
+.team-landingpage {
+	background-color: #111637;
+}
+
+.team-container {
+	padding: 100px 118px 100px 118px;
+}
+
+.team-header {
+	color: #f2f6ff;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.team-text {
+	color: #fff;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px; /* 140% */
+}
+
+.council-member-card {
+	border-radius: 16px;
+	background: var(--Background-Color, #21234b);
+	backdrop-filter: blur(2px);
+
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 12px; */
+	flex: 1 0 0;
+
+	width: 200px;
+	height: 200px;
+}
+
+@media (max-width: 800px) {
+	/* .member-card-container {
+    display: grid;
+  } */
+
+	.council-member-card {
+		width: 50%; /* Two columns per row */
+		padding-bottom: 10px;
+		display: inline-block; /* To ensure proper alignment */
+	}
+}
+
+.team-name {
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.team-role {
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
 }
 
 .about-council-content {
