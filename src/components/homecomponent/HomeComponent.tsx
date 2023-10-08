@@ -3,7 +3,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Input, Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Input, Button, Center } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import { Suspense } from "react";
 import LogoutButton from "../pages/LogoutButton";
@@ -62,59 +62,61 @@ function HomeComponent(props) {
 	};
 
 	return (
-		<div className="flex flex-col h-screen justify-between">
+		<div className="flex flex-col relative h-screen justify-between overflow-hidden overscroll-none">
 			{/* Header Components */}
-			<div className="homepage-content">
-				<div className="homepage-title">
-					<h1 className="homepage-h1">In a dilemma?</h1>
-					<h1 className="homepage-h1">
-						Consult
-						<span className="homepage-gradient-text">
-							the Council.
-						</span>
-					</h1>
+			<Center>
+				<div className="homepage-content">
+					<div className="homepage-title">
+						<h1 className="homepage-h1">In a dilemma?</h1>
+						<h1 className="homepage-h1">
+							Consult
+							<span className="homepage-gradient-text">
+								the Council.
+							</span>
+						</h1>
+					</div>
+					<div className="homepage-prompt">
+						<Input
+							className="prompt-input"
+							placeholder="Tell us what's going on"
+							style={{
+								width: "488px",
+							}}
+							colorScheme="gray"
+							variant="filled"
+							_focus={{
+								borderColor: "gray",
+								textColor: "gray",
+								bg: "white",
+								boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
+								overflowY: "auto",
+								resize: "vertical",
+							}}
+							value={inputField}
+							onChange={handleInputChange}
+						/>
+						<Button
+							className="submit-button"
+							style={{
+								background:
+									"linear-gradient(to right, #12e9f1, #bf7fea)",
+							}}
+							rightIcon={<AiOutlineCheck />}
+							variant="solid"
+							ml={2}
+							onClick={handleSubmit}
+						>
+							OK
+						</Button>
+					</div>
 				</div>
-				<div className="homepage-prompt">
-					<Input
-						className="prompt-input"
-						placeholder="Tell us what's going on"
-						style={{
-							width: "488px",
-						}}
-						colorScheme="gray"
-						variant="filled"
-						_focus={{
-							borderColor: "gray",
-							textColor: "gray",
-							bg: "white",
-							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
-							overflowY: "auto",
-							resize: "vertical",
-						}}
-						value={inputField}
-						onChange={handleInputChange}
-					/>
-					<Button
-						className="submit-button"
-						style={{
-							background:
-								"linear-gradient(to right, #12e9f1, #bf7fea)",
-						}}
-						rightIcon={<AiOutlineCheck />}
-						variant="solid"
-						ml={2}
-						onClick={handleSubmit}
-					>
-						OK
-					</Button>
-				</div>
-				<LogoutButton></LogoutButton>
-			</div>
+			</Center>
+
 
 			{/* Table Components */}
 
-			<div className="relative mt-auto h-1/2 w-full pt-6">
-				<View className="relative animate-pulse h-full sm:w-full">
+			<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
+				<View className="relative animate-pulse h-full sm:w-full overflow-hidden overscroll-none">
 					<Suspense fallback={null}>
 						<CouncilTable
 							route="/about"
