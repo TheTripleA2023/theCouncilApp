@@ -55,15 +55,14 @@ export default function Navbar() {
   useEffect(() => {
     const getSession = async () => {
       const { data: { session }} = await supabase.auth.getSession()
-
-      if (session) {
-        setSession(session !== undefined)
-        setLoading(true)
-      }
+      setSession(session !== null)
+      setLoading(true)
+      
     }
 
     getSession()
   }, [supabase, setSession])
+
 
   return (
     <>
