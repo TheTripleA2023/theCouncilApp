@@ -2,7 +2,7 @@ import { Layout } from '@/components/dom/Layout'
 import '@/global.css'
 import { Providers } from '@/components/dom/Providers'
 import Background from '@/components/canvas/Background'
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 
 export const metadata = {
 	title: "The Council",
