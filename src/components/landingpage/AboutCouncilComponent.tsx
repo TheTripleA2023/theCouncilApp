@@ -33,7 +33,7 @@ function AboutCouncilComponent(props) {
 				</div>
 			</div>
 			<div className="how-we-started-div">
-				<div>
+				<div className="how-we-started-content">
 					<Text className="about-council-h2">How we started</Text>
 					<Text className="about-council-p3">
 						The Council was born out of a hackathon project! It was
@@ -43,12 +43,25 @@ function AboutCouncilComponent(props) {
 						the amazing reception and feedback from the judges, we
 						decided to bring the Council to life!
 					</Text>
-					<Button>Watch our demo at HTN 2023</Button>
+					<Button
+						className="watch-demo-button"
+						// colorScheme="teal"
+						style={{
+							background:
+								"linear-gradient(to right, #12e9f1, #bf7fea)",
+						}}
+						variant="solid"
+						ml={2}
+					>
+						Watch our demo at HTN 2023
+					</Button>
 				</div>
-				<Image
-					className="how-we-started-image"
-					src="/img/how-we-started.png"
-				/>
+				<div className="image-container">
+					<Image
+						className="how-we-started-image"
+						src="/img/how-we-started.png"
+					/>
+				</div>
 			</div>
 		</div>
 	);
