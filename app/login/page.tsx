@@ -8,6 +8,7 @@ import LowerScroll from '@/components/LowerScroll'
 import UsageDisclaimer from '@/components/UsageDisclaimer'
 import Footer from '@/components/Footer'
 
+
 const supabase = createClientComponentClient();
 
 export default function Page() {
@@ -34,13 +35,10 @@ export default function Page() {
               />
           </div>
         </div>
-
         <UpperScroll/>
         <LowerScroll/>
         <UsageDisclaimer/>
         <Footer/>
-
-
       </div>
     </>
   )
