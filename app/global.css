@@ -393,6 +393,15 @@ li {
 .hero-button {
 }
 
+.council-model-container {
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+	width: 80%;
+	margin: 0px;
+	padding: 0px;
+}
+
 /* Finale Page */
 
 .disco-container {
