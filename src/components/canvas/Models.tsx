@@ -38,12 +38,18 @@ export default function Model({ ...props }) {
   const ref = useRef(null);
 
 	useFrame((state, delta) => {
-	 	ref.current.position.y = (props.height?props.height:0) + Math.sin((props.offset?props.offset:0) + Math.PI * state.clock.getElapsedTime()) * 0.075;
-	});
-
+	 	ref.current.position.y = (props.height?props.height:0) + Math.sin((props.offset?props.offset:0) + Math.PI * state.clock.getElapsedTime()) * 0.015;
+	}); 
+  
+  const vec = new THREE.Vector3(props.position[0], props.offset?props.offset:0+props.offset+5, props.position[2])
   return (
       <>
         <group ref={ref} {...props} dispose={null}>
+          {props.chosen?          
+            <spotLight color='red' intensity={500} angle={0.4} penumbra={0.1} />
+              :
+              null 
+          }
           <primitive object={fbx} scale={0.01} />;
         </group>
       </>
