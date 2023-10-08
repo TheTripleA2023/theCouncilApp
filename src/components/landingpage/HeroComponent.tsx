@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { Suspense } from "react";
+import LetsGoButton from "./LetsGoButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -79,7 +80,10 @@ function HeroComponent() {
 							need.
 						</h1>
 					</div>
-					<Button
+					<LetsGoButton>
+						Let's go!
+					</LetsGoButton>
+					{/* <Button
 						className="hero-button"
 						style={{
 							background:
@@ -90,7 +94,7 @@ function HeroComponent() {
 						// onClick={}
 					>
 						Let's go!
-					</Button>
+					</Button> */}
 				</div>
 			</div>
 

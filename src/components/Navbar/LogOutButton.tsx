@@ -18,6 +18,7 @@ export default function LogOutButton(props: Props) {
       className='navbar-button'
       borderWidth={'2px'}
       borderColor={'RGBA(0,0,0,0.5)'}
+      textColor={'black'}
       _hover={{
           borderColor: 'white',
       }}
