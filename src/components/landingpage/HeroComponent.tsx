@@ -46,7 +46,7 @@ const Common = dynamic(
 
 function HeroComponent() {
 	return (
-		<div className="flex flex-col h-screen justify-between">
+		<div className="flex flex-col h-screen ">
 			{/* Header Components */}
 			<div className="hero-content">
 				<div className="hero-text">
@@ -94,10 +94,10 @@ function HeroComponent() {
 				</div>
 			</div>
 
-			{/* Table Components */}
+			{/* Model Components */}
 
-			<div className="relative mt-auto h-1/2 w-full pt-6">
-				<View className="relative h-full sm:w-full">
+			<div className="council-model-container relative mt-auto h-1/2 pt-6">
+				<View className="council-model relative h-full sm:w-full">
 					<Suspense fallback={null}>
 						<CouncilTable
 							route="/about"

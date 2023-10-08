@@ -26,7 +26,7 @@
 
 	body {
 		font-family: "Plus Jakarta Sans", sans-serif;
-	}	
+	}
 }
 
 .body {
@@ -35,11 +35,19 @@
 
 /* NAVBAR */
 .navbar {
-	background: var(--Dark-Gradient-Fill, linear-gradient(180deg, #222C51 0%, rgba(0, 8, 34, 0.00) 100%, rgba(34, 44, 81, 0.00) 100%));
+	background: var(
+		--Dark-Gradient-Fill,
+		linear-gradient(
+			180deg,
+			#222c51 0%,
+			rgba(0, 8, 34, 0) 100%,
+			rgba(34, 44, 81, 0) 100%
+		)
+	);
 }
 
-.navbar-title{
-	background: linear-gradient(93deg, #12E9F1 57.27%, #BF7FEA 112.43%);
+.navbar-title {
+	background: linear-gradient(93deg, #12e9f1 57.27%, #bf7fea 112.43%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -52,7 +60,10 @@
 	font-weight: 800;
 	border-radius: 6px;
 	color: #000000;
-	background: var(--Blue-Gradient, linear-gradient(99deg, #12E9F1 0%, #BF7FEA 100%));
+	background: var(
+		--Blue-Gradient,
+		linear-gradient(99deg, #12e9f1 0%, #bf7fea 100%)
+	);
 }
 
 /* HERO COMPONENT */
@@ -61,7 +72,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	
 }
 
 .homepage-title {
@@ -187,6 +197,62 @@
 	/* background-image: url('path/to/your-image.jpg');
 background-size: cover; */
 	margin-right: 10px;
+}
+
+.council-member-card {
+	border-radius: 16px;
+	background: var(--Background-Color, #21234b);
+	backdrop-filter: blur(2px);
+
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 12px; */
+	flex: 1 0 0;
+
+	width: 200px;
+	height: 200px;
+}
+
+@media (max-width: 800px) {
+	/* .member-card-container {
+    display: grid;
+  } */
+
+	.council-member-card {
+		width: 50%; /* Two columns per row */
+		padding-bottom: 10px;
+		display: inline-block; /* To ensure proper alignment */
+	}
+}
+
+.council-member-card {
+	border-radius: 16px;
+	background: var(--Background-Color, #21234b);
+	backdrop-filter: blur(2px);
+
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 12px; */
+	flex: 1 0 0;
+
+	width: 200px;
+	height: 200px;
+}
+
+@media (max-width: 800px) {
+	/* .member-card-container {
+    display: grid;
+  } */
+
+	.council-member-card {
+		width: 50%; /* Two columns per row */
+		padding-bottom: 10px;
+		display: inline-block; /* To ensure proper alignment */
+	}
 }
 
 .council-reply-prompt {
@@ -423,113 +489,217 @@ li {
 .hero-button {
 }
 
+.council-model-container {
+	display: flex;
+	justify-content: flex-end;
+	align-self: flex-end;
+	width: 80%;
+	margin: 0px;
+	padding: 0px;
+}
 /* Login Page */
 
 .usage-landingpage {
-  background-color: #21234B;
+	background-color: #21234b;
 }
 
 .usage-container {
-  padding: 64px 128px;
+	padding: 64px 128px;
 }
 
 .usage-container h1 {
-  color: #F2F6FF;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+	color: #f2f6ff;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
 }
 
 .usage-container p {
-  padding-top: 16px;
-  color: #FFF;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
+	padding-top: 16px;
+	color: #fff;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
 }
-
 
 /* Horizontal Scrollers */
 .quote {
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px;
-  color: white;
-  display: inline-block;
-  padding-left: 16px;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px;
+	color: white;
+	display: inline-block;
+	padding-left: 16px;
 }
 
 @keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
 }
 
 .scroller {
-  overflow: hidden;
-  padding: 24px 0;
-  /* background: white; */
-  white-space: nowrap;
-  position: relative;
+	overflow: hidden;
+	padding: 24px 0;
+	/* background: white; */
+	white-space: nowrap;
+	position: relative;
 
-  border-top: 2px solid var(--Blue-Gradient, #12E9F1);
-  border-bottom: 2px solid var(--Blue-Gradient, #12E9F1);
-  background: var(--Dark-Background-Color, #000822);
+	border-top: 2px solid var(--Blue-Gradient, #12e9f1);
+	border-bottom: 2px solid var(--Blue-Gradient, #12e9f1);
+	background: var(--Dark-Background-Color, #000822);
 }
 
 .upper-scroller {
-  margin-bottom: 50px;
+	/* margin-bottom: 50px; */
 }
 
 .scroller:before,
 .scroller:after {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  content: "";
-  z-index: 2;
+	position: absolute;
+	top: 0;
+	width: 250px;
+	height: 100%;
+	content: "";
+	z-index: 2;
 }
 
 .scroller:hover .quotes-scroller {
-  animation-play-state: paused;
+	animation-play-state: paused;
 }
 
 .quotes-scroller {
-  display: inline-block;
-  animation: 20s slide infinite linear;
+	display: inline-block;
+	animation: 20s slide infinite linear;
 }
 
+/* ABOUT THE COUNCIL */
+.about-council-component {
+	background-color: #21234b;
+}
+
+.about-council-content {
+	background: url("/img/choose-council.png") top right no-repeat;
+}
+
+.about-council-div {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	margin-left: 10%;
+	/* margin-bottom: 48px; */
+}
+
+.how-it-works-div {
+	display: flex;
+	justify-content: flex-start;
+	margin-right: 10%;
+	margin-bottom: 48px;
+	/* align-items: center;  */
+}
+
+.how-it-works-image {
+	margin-right: 10%;
+}
+
+.how-we-started-div {
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.about-council-h2 {
+	font-size: 48px;
+	font-weight: 900;
+	margin-bottom: 24px;
+}
+
+.about-council-p2 {
+	margin-top: 5%;
+}
+
+.about-council-p1,
+.about-council-p2,
+.about-council-p3 {
+	width: 40%;
+	font-size: 20px;
+}
+
+.team-landingpage {
+	background-color: #111637;
+}
+
+.team-container {
+	padding: 100px 118px 100px 118px;
+}
+
+.team-header {
+	color: #f2f6ff;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.team-text {
+	color: #fff;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px; /* 140% */
+}
+
+.team-name {
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.team-role {
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.team-container {
+	padding: 100px 118px 100px 118px;
+}
 
 /* Footer */
 .footer-landingpage {
-  background-color: #000822;
+	background-color: #000822;
 }
 
 .footer-container {
-  padding: 100px 300px 100px 128px;
+	padding: 100px 300px 100px 128px;
 }
 
 .footer-title {
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 40px;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 40px;
 
-  background: linear-gradient(93deg, #12E9F1 24.27%, #BF7FEA 112.43%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+	background: linear-gradient(93deg, #12e9f1 24.27%, #bf7fea 112.43%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .footer-text {
-  color: #fff;
+	color: #fff;
 }
 
 /* Finale Page */
@@ -614,4 +784,3 @@ li {
 	bottom: 0px;
 	width: 100%;
 }
-
