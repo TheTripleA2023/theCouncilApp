@@ -33,6 +33,28 @@
 	font-family: "Plus Jakarta Sans", sans-serif;
 }
 
+/* NAVBAR */
+.navbar {
+	background: var(--Dark-Gradient-Fill, linear-gradient(180deg, #222C51 0%, rgba(0, 8, 34, 0.00) 100%, rgba(34, 44, 81, 0.00) 100%));
+}
+
+.navbar-title{
+	background: linear-gradient(93deg, #12E9F1 57.27%, #BF7FEA 112.43%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: Plus Jakarta Sans;
+	font-style: normal;
+	font-weight: 800;
+}
+
+.navbar-button {
+	font-weight: 800;
+	border-radius: 6px;
+	color: #000000;
+	background: var(--Blue-Gradient, linear-gradient(99deg, #12E9F1 0%, #BF7FEA 100%));
+}
+
 /* HERO COMPONENT */
 .homepage-content {
 	display: flex;
@@ -592,3 +614,4 @@ li {
 	bottom: 0px;
 	width: 100%;
 }
+
