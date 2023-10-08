@@ -1,7 +1,8 @@
-import { Layout } from "@/components/dom/Layout";
-import { ChakraProvider } from "@chakra-ui/react";
-import "@/global.css";
-import { Providers } from "@/components/dom/Providers";
+import { Layout } from '@/components/dom/Layout'
+import '@/global.css'
+import { Providers } from '@/components/dom/Providers'
+import Background from '@/components/canvas/Background'
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
 	title: "The Council",
@@ -22,12 +23,16 @@ export default function RootLayout({ children }) {
 					rel="stylesheet"
 				/>
 			</head>
-			<body>
-				{/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-				<Layout>
-					<Providers>{children}</Providers>
-				</Layout>
-			</body>
-		</html>
-	);
+      <body>
+        {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
+        <Layout>   
+          <Providers>
+            <Navbar/>      
+            {children}
+          </Providers>
+        </Layout>
+        <Background />
+      </body>
+    </html>
+  )
 }
