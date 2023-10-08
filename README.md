@@ -1,4 +1,4 @@
-[![](https://github.com/adipoluri/tidbit/blob/main/social/banner.png)](https://github.com/TheTripleA2023/theCouncilApp/blob/main/promo/titlecard.png)
+[![](https://github.com/TheTripleA2023/theCouncilApp/blob/main/promo/titlecard.png)]
 
 <p align="center">
   <em>Title</em></br>
