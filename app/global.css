@@ -79,10 +79,11 @@
 
 .homepage-h1 {
 	font-size: 80px;
-	font-weight: 900;
+	font-weight: 800;
 	color: #ffffff;
 	line-height: 1em;
 	text-align: center;
+	letter-spacing: -2px;
 }
 
 .homepage-gradient-text {
@@ -120,8 +121,7 @@
 
 .dots-gif {
 	width: 10%;
-	position: absolute;
-	top: 250px;
+	padding: 16px;
 	justify-content: center;
 	z-index: 10;
 }

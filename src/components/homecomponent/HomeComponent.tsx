@@ -84,6 +84,7 @@ function HomeComponent(props) {
 							}}
 							colorScheme="gray"
 							variant="filled"
+							textColor={'black'}
 							_focus={{
 								borderColor: "gray",
 								textColor: "gray",

@@ -3,7 +3,7 @@ import '@/global.css'
 export default function Background() {
   return (
     <>
-        <div className="absolute -top-1/4 left-0 h-1/3 w-1/3 -z-10">
+        <div className="absolute bottom-0 right-0 h-1/3 w-1/3 -z-10">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" style={{opacity: 1}} transform="rotate(70)">
                 <defs>
                 <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -16,8 +16,8 @@ export default function Background() {
                 </path>
             </svg>
         </div>
-        <div className="absolute bottom-0 left-0 h-1/3 w-1/3 -z-10">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" style={{opacity: 1}} transform="rotate(120)">
+        <div className="absolute -top-1/4 left-0 h-1/3 w-1/3 -z-10">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" style={{opacity: 1}} transform="rotate(0)">
                 <defs>
                 <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" style={{stopColor: "#bf7fea"}}></stop>
@@ -29,8 +29,8 @@ export default function Background() {
                 </path>
             </svg>
         </div>
-        <div className="absolute bottom-0 right-0 h-1/3 w-1/3 -z-10">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" style={{opacity: 1}} transform="rotate(330)">
+        <div className="absolute -bottom-0 -left-1/4 h-1/3 w-1/3 -z-10">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="150%" id="blobSvg" style={{opacity: 1}} transform="rotate(330)">
                 <defs>
                 <linearGradient id="gradient3" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" style={{stopColor: "#bf7fea"}}></stop>
@@ -43,7 +43,7 @@ export default function Background() {
             </svg>
         </div>
         <div className="absolute -top-1/2 right-0 h-1/2 w-1/2 -z-10">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" style={{opacity: 1}} transform="rotate(90)">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="120%" id="blobSvg" style={{opacity: 1}} transform="rotate(30)">
                 <defs>
                 <linearGradient id="gradient4" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" style={{stopColor: "#9efd69"}} ></stop>
