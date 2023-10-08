@@ -4,10 +4,11 @@ import { Auth } from '@supabase/auth-ui-react'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { useEffect, useState } from 'react'
-import UpperScroll from '@/components/UpperScroll'
-import LowerScroll from '@/components/LowerScroll'
+import UpperScroll from '@/components/landingpage/UpperScroll'
+import LowerScroll from '@/components/landingpage/LowerScroll'
 import UsageDisclaimer from '@/components/UsageDisclaimer'
-import Footer from '@/components/Footer'
+import Footer from '@/components/landingpage/Footer'
+import Team from '@/components/landingpage/Team'
 
 
 const supabase = createClientComponentClient();
@@ -36,6 +37,7 @@ export default function Page() {
 					/>
 				</div>
         <UpperScroll/>
+		<Team/>
         <LowerScroll/>
         <UsageDisclaimer/>
         <Footer/>
