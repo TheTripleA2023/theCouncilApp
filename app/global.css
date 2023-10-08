@@ -203,14 +203,11 @@ background-size: cover; */
 	border-radius: 16px;
 	background: var(--Background-Color, #21234b);
 	backdrop-filter: blur(2px);
-
 	display: flex;
 	padding: 20px;
 	flex-direction: column;
 	align-items: center;
-	/* gap: 12px; */
 	flex: 1 0 0;
-
 	width: 200px;
 	height: 200px;
 }
@@ -493,7 +490,7 @@ li {
 	display: flex;
 	justify-content: flex-end;
 	align-self: flex-end;
-	max-height: calc(100vh - 30vh);
+	max-height: calc(100vh - 34vh);
 	overflow: hidden;
 	width: 100%;
 	margin: 0px;
@@ -660,6 +657,67 @@ li {
 
 .team-container {
 	padding: 100px 118px 100px 118px;
+}
+
+.team-gradient-text {
+	background-image: linear-gradient(to right, #12e9f1, #bf7fea);
+	background-clip: text;
+	color: transparent;
+	margin-left: 2px;
+}
+
+.team-member-card {
+	border-radius: 16px;
+	background: var(--Background-Color, #21234b);
+	backdrop-filter: blur(2px);
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+	flex: 1 0 0;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.team-member-card:first-child {
+	margin-left: 0px;
+}
+
+.team-member-card:last-child {
+	margin-right: 0px;
+}
+
+.team-picture-container {
+	position: relative;
+	width: 150px;
+	height: 150px;
+}
+
+.team-picture {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.team-picture-human {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.team-member-card:hover .team-picture {
+	opacity: 0;
+}
+
+.team-member-card:hover .team-picture-human {
+	opacity: 1;
 }
 
 .team-header {
