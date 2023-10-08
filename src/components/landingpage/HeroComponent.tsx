@@ -15,7 +15,7 @@ const View = dynamic(
 	{
 		ssr: false,
 		loading: () => (
-			<div className="flex h-96 w-full flex-col items-center justify-center">
+			<div className="flex h-96">
 				<svg
 					className="-ml-1 mr-3 h-5 w-5 animate-spin text-black"
 					fill="none"
@@ -46,7 +46,7 @@ const Common = dynamic(
 
 function HeroComponent() {
 	return (
-		<div className="flex flex-col h-screen ">
+		<div className=" h-screen ">
 			{/* Header Components */}
 			<div className="hero-content">
 				<div className="hero-text">
@@ -96,7 +96,7 @@ function HeroComponent() {
 
 			{/* Model Components */}
 
-			<div className="council-model-container relative mt-auto h-1/2 pt-6">
+			<div className="council-model-container relative mb-auto h-full">
 				<View className="council-model relative h-full sm:w-full">
 					<Suspense fallback={null}>
 						<CouncilTable

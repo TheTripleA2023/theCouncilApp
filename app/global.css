@@ -493,7 +493,9 @@ li {
 	display: flex;
 	justify-content: flex-end;
 	align-self: flex-end;
-	width: 80%;
+	max-height: calc(100vh - 30vh);
+	overflow: hidden;
+	width: 100%;
 	margin: 0px;
 	padding: 0px;
 }

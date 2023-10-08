@@ -24,7 +24,6 @@ export default function Page() {
 	return (
 		<>
 			<div className="root">
-				<HeroComponent />
 				<Auth
 					supabaseClient={supabase}
 					providers={["google", "github"]}
@@ -33,6 +32,8 @@ export default function Page() {
 					theme="dark"
 					redirectTo={callback}
 				/>
+				<HeroComponent />
+
 				<UpperScroll />
 				<AboutCouncilComponent />
 				<Team />
