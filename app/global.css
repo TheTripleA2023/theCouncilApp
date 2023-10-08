@@ -59,7 +59,6 @@
 .navbar-button {
 	font-weight: 800;
 	border-radius: 6px;
-	color: #000000;
 	background: var(
 		--Blue-Gradient,
 		linear-gradient(99deg, #12e9f1 0%, #bf7fea 100%)
