@@ -43,9 +43,12 @@ function AboutCouncilComponent(props) {
 						the amazing reception and feedback from the judges, we
 						decided to bring the Council to life!
 					</Text>
+					<Button>Watch our demo at HTN 2023</Button>
 				</div>
-				<Image className="how-we-started-image" />
-				<Button>Watch our demo at HTN 2023</Button>
+				<Image
+					className="how-we-started-image"
+					src="/img/how-we-started.png"
+				/>
 			</div>
 		</div>
 	);
