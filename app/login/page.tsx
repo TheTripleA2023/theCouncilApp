@@ -1,15 +1,14 @@
 "use client";
-import HeroComponent from "@/components/landingpage/HeroComponent";
-import { Auth } from '@supabase/auth-ui-react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { ThemeSupa } from '@supabase/auth-ui-shared'
-import { useEffect, useState } from 'react'
-import UpperScroll from '@/components/landingpage/UpperScroll'
-import LowerScroll from '@/components/landingpage/LowerScroll'
-import UsageDisclaimer from '@/components/UsageDisclaimer'
-import Footer from '@/components/landingpage/Footer'
-import Team from '@/components/landingpage/Team'
 
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useEffect, useState } from "react";
+import HeroComponent from "@/components/pages/landing/HeroComponent";
+import AboutCouncilComponent from "@/components/pages/landing/AboutCouncilComponent";
+import UpperScroll from "@/components/pages/landing/UpperScroll";
+import LowerScroll from "@/components/pages/landing/LowerScroll";
+import UsageDisclaimer from "@/components/pages/misc/UsageDisclaimer";
+import Footer from "@/components/pages/landing/Footer";
+import Team from "@/components/pages/landing/Team";
 
 const supabase = createClientComponentClient();
 
@@ -20,28 +19,25 @@ export default function Page() {
 		setCallback(window.location.origin + "/auth/v1/callback");
 	});
 
-
-  return (
-    <>
-      <div className='root'>
-        {/* <div className="mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5"> */}
-				<div>
-					<HeroComponent />
-					<Auth
-						supabaseClient={supabase}
-						providers={["google", "github"]}
-						onlyThirdPartyProviders
-						appearance={{ theme: ThemeSupa }}
-						theme="dark"
-						redirectTo={callback}
-					/>
-				</div>
-        <UpperScroll/>
-		<Team/>
-        <LowerScroll/>
-        <UsageDisclaimer/>
-        <Footer/>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<div className="root">
+				{/* <Auth
+					supabaseClient={supabase}
+					providers={["google", "github"]}
+					onlyThirdPartyProviders
+					appearance={{ theme: ThemeSupa }}
+					theme="dark"
+					redirectTo={callback}
+				/> */}
+				<HeroComponent />
+				<UpperScroll />
+				<AboutCouncilComponent />
+				<Team />
+				<LowerScroll />
+				<UsageDisclaimer />
+				<Footer />
+			</div>
+		</>
+	);
 }

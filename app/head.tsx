@@ -30,8 +30,12 @@ export default function Head() {
 			<meta property="og:image" content={"/icons/share.png"} />
 			<meta property="og:site_name" content={title} />
 			<meta property="og:description" content={description} />
+			<link rel="shortcut icon" href="/icons/favicon.ico" />
+			<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+			<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"/>
+			<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"/>
 
-			<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+			{/* <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 			<link
 				rel="apple-touch-icon"
 				sizes="16x16"
@@ -53,11 +57,11 @@ export default function Head() {
 				color="#000000"
 				href="/icons/safari-pinned-tab.svg"
 			/>
-			<link rel="apple-touch-startup-image" href="/startup.png" />
+			<link rel="apple-touch-startup-image" href="/startup.png" /> */}
 
 			{/* Meta Tags for HTML pages on Mobile */}
 			{/* <meta name="format-detection" content="telephone=yes"/>
-        <meta name="HandheldFriendly" content="true"/>  */}
+       	 <meta name="HandheldFriendly" content="true"/>  */}
 			<meta
 				name="viewport"
 				content="width=device-width, minimum-scale=1, initial-scale=1.0"

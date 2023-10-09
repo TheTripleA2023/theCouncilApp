@@ -2,9 +2,8 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import { Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { Suspense } from "react";
+import LoginButton from "../misc/LoginButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -15,7 +14,7 @@ const View = dynamic(
 	{
 		ssr: false,
 		loading: () => (
-			<div className="flex h-96 w-full flex-col items-center justify-center">
+			<div className="flex h-96">
 				<svg
 					className="-ml-1 mr-3 h-5 w-5 animate-spin text-black"
 					fill="none"
@@ -46,7 +45,7 @@ const Common = dynamic(
 
 function HeroComponent() {
 	return (
-		<div className="flex flex-col h-screen justify-between">
+		<div className=" h-screen ">
 			{/* Header Components */}
 			<div className="hero-content">
 				<div className="hero-text">
@@ -79,7 +78,8 @@ function HeroComponent() {
 							need.
 						</h1>
 					</div>
-					<Button
+					<LoginButton text={"Lets Go!"} />
+					{/* <Button
 						className="hero-button"
 						style={{
 							background:
@@ -90,14 +90,14 @@ function HeroComponent() {
 						// onClick={}
 					>
 						Let's go!
-					</Button>
+					</Button> */}
 				</div>
 			</div>
 
-			{/* Table Components */}
+			{/* Model Components */}
 
-			<div className="relative mt-auto h-1/2 w-full pt-6">
-				<View className="relative h-full sm:w-full">
+			<div className="council-model-container relative mb-auto h-full">
+				<View className="council-model relative h-full sm:w-full">
 					<Suspense fallback={null}>
 						<CouncilTable
 							route="/about"

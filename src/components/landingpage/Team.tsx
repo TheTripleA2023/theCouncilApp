@@ -2,7 +2,6 @@ import { Box, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
 // import CatAvatar from './../../../../CatAvatar.png'
-import CatAvator from './../../images/CatAvatar.png'
 
 const Team = () => {
 

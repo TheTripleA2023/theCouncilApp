@@ -1,8 +1,9 @@
-import { Layout } from '@/components/dom/Layout'
 import '@/global.css'
+import { Layout } from '@/components/dom/Layout'
 import { Providers } from '@/components/dom/Providers'
 import Background from '@/components/canvas/Background'
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/pages/navbar/Navbar';
+import Head from './head';
 
 export const metadata = {
 	title: "The Council",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
 					href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap"
 					rel="stylesheet"
 				/>
+        <Head/>
 			</head>
       <body>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
