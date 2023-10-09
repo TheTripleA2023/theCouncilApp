@@ -919,3 +919,18 @@ ul.hero li {
 	bottom: 0px;
 	width: 100%;
 }
+
+
+.fade-in-image { animation: fadeIn 4s; }
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.tableView {
+	position:absolute;
+	height: 50vh;
+	width: 50vw;
+	left: 0;
+}

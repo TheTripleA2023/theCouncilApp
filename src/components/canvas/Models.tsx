@@ -15,6 +15,14 @@ import { a } from '@react-spring/three'
 
 //Default Model Component 
 export default function Model({ ...props }) {
+
+  //Prevent Initializing empty models
+  if(props.name==""){
+    return (
+      Blob(props)
+    )
+  }
+
   const fbx = useFBX("/models/"+props.name+".fbx") as THREE.Group;
   const mapT = useLoader(TextureLoader, '/img/textures/T_'+props.name+'.png');
 
@@ -38,10 +46,11 @@ export default function Model({ ...props }) {
   const ref = useRef(null);
 
 	useFrame((state, delta) => {
-	 	ref.current.position.y = (props.height?props.height:0) + Math.sin((props.offset?props.offset:0) + Math.PI * state.clock.getElapsedTime()) * 0.015;
+    if(props.name !== ""){
+      ref.current.position.y = (props.height?props.height:0) + Math.sin((props.offset?props.offset:0) + Math.PI * state.clock.getElapsedTime()) * 0.015;
+    } 
 	}); 
   
-  const vec = new THREE.Vector3(props.position[0], props.offset?props.offset:0+props.offset+5, props.position[2])
   return (
       <>
         <group ref={ref} {...props} dispose={null}>
@@ -56,6 +65,60 @@ export default function Model({ ...props }) {
     )
 }
 
+export function StaticModel({ ...props }) {
+
+  //Prevent Initializing empty models
+  if(props.name==""){
+    return (
+      Blob(props)
+    )
+  }
+
+  const fbx = useFBX("/models/"+props.name+".fbx") as THREE.Group;
+  const mapT = useLoader(TextureLoader, '/img/textures/T_'+props.name+'.png');
+
+  const customMaterial = new THREE.MeshToonMaterial({
+    color: 0x777777, // Set the color of the material to white
+    emissive: 0x111111, // Set the emissive color of the material
+    map: mapT, // Assign the alpha map texture
+    emissiveMap: mapT, // Assign the emissive map texture
+    alphaMap: mapT, // Assign the alpha map texture
+    wireframe: props.wireframe?props.wireframe:false,
+    transparent: props.transparent?props.transparent:false, // Set the material to transparent
+  });
+
+  // Assign the custom material to the FBX model
+  fbx.traverse((child: THREE.Mesh) => {
+    if (child.isMesh) {
+      child.material = customMaterial;
+    }
+  });
+
+  const ref = useRef(null);
+  
+  return (
+      <>
+        <group ref={ref} {...props} dispose={null}>
+          {props.chosen?          
+            <spotLight color='red' intensity={500} angle={0.4} penumbra={0.1} />
+              :
+              null 
+          }
+          <primitive object={fbx} scale={0.01} />;
+        </group>
+      </>
+    )
+}
+
+export const Blob = ({ ...props }) => {
+  return (
+    <mesh
+      {...props}>
+      <sphereGeometry args={[1, 64, 64]} />
+      <MeshDistortMaterial roughness={0} color={'#1fb2f5'} />
+    </mesh>
+  )
+}
 
 export function CouncilTable({...props }) {
 	// This reference gives us direct access to the THREE.Mesh object
@@ -222,6 +285,58 @@ export function IsoCouncilTable({ route = '/', ...props }) {
           height={0.35}
           offset={7*Math.PI/4}
           name="Frog"
+        />
+      </mesh>
+    </group>
+	);
+}
+
+
+export function SelectionTable({...props }) {
+	// This reference gives us direct access to the THREE.Mesh object
+	const ref = useRef(null);
+
+	useFrame((state, delta) => {
+    ref.current.rotation.x = 0.4;
+    ref.current.scale.x =
+    ref.current.scale.y =
+    ref.current.scale.z =
+      THREE.MathUtils.lerp(ref.current.scale.z, 1.0, 0.025);
+    //if(scale<1){setScale(Math.min(scale+delta,1))}
+	});
+
+	// Return the view, these are regular Threejs elements expressed in JSX
+	return (
+    <group ref={ref} {...props}>
+      <mesh scale={props.scale}>
+        <Table position={[0, 0, 0]} scale={0.012} />
+        <StaticModel 
+          position={[-1.2, 0, 1.2]}
+          scale={props.members[0]?1.0:0.5}
+          height={1.0}
+          rotation={[0, 3*Math.PI / 4, 0]}
+          name={props.members[0]?props.members[0]:""}
+        />
+        <StaticModel
+          position={[1.2, 0, -1.2]}
+          scale={props.members[1]?1.0:0.5}
+          height={1.0}
+          rotation={[0, -Math.PI / 4, 0]}
+          name={props.members[1]?props.members[1]:""}
+        />
+        <StaticModel
+          position={[1, 0, 1]}
+          scale={props.members[2]?1.0:0.5}
+          rotation={[0.2, (-3 * Math.PI) / 4, 0]}
+          height={1.0}
+          name={props.members[2]?props.members[2]:""}
+        />      
+        <StaticModel
+          position={[-1, 0, -1]}
+          scale={props.members[3]?1.0:0.5}
+          rotation={[0, Math.PI / 4, 0]}
+          height={1.0}
+          name={props.members[3]?props.members[3]:""}
         />
       </mesh>
     </group>

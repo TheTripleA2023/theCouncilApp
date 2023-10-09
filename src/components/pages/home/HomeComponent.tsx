@@ -3,12 +3,14 @@
 import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Input, Button, Center } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Input, Button, Center, VStack, HStack, Heading, Spacer } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import {LuWrench} from 'react-icons/lu'
 import { Suspense } from "react";
 import Link from "next/link";
 import GenericButton from "../misc/GenericButton";
+import { Text } from "@chakra-ui/react";
+import TitleComponent from "./Title";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -51,7 +53,6 @@ const Common = dynamic(
 function HomeComponent(props) {
 	const [inputField, setInputField] = useState("");
 	const [hover, setHover] = useState(false);
-	let CouncilController = useRef(props.CouncilController);
 
 	const handleInputChange = (e) => {
 		setInputField(e.target.value);
@@ -60,6 +61,7 @@ function HomeComponent(props) {
 	const handleSubmit = () => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
+		console.log(inputField)
 		if (props.onButtonClick) {
 			props.onButtonClick(inputField);
 		}
@@ -76,24 +78,15 @@ function HomeComponent(props) {
 	return (
 		<div className="flex flex-col relative h-screen justify-between overflow-hidden overscroll-none">
 			{/* Header Components */}
-			<Center>
-				<div className="homepage-content">
-					<div className="homepage-title">
-						<h1 className="homepage-h1">In a dilemma?</h1>
-						<h1 className="homepage-h1">
-							Consult
-							<span className="homepage-gradient-text">
-								the Council.
-							</span>
-						</h1>
-					</div>
-					<div className="homepage-prompt">
+			<Center paddingTop={['4em','5em']}>
+				<VStack maxW={['100%','75%']} lineHeight={['48px','80px']}>
+					<TitleComponent/>
+					<Spacer maxH={'24px'}/>
+					<HStack>
 						<Input
-							className="prompt-input"
 							placeholder="Tell us what's going on"
-							style={{
-								width: "488px",
-							}}
+							size={['lg']}
+							minW={['75%','480px']}
 							colorScheme="gray"
 							variant="filled"
 							textColor={"black"}
@@ -121,10 +114,9 @@ function HomeComponent(props) {
 						>
 							OK
 						</Button>
-					</div>
-				</div>	
-			</Center>
-
+					</HStack>
+				</VStack>
+         	</Center>
 			{/* Table Components */}
 			<>
 				<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 -z-1000">

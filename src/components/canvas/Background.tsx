@@ -3,7 +3,7 @@ import '@/global.css'
 export default function Background() {
   return (
     <>
-        <div>
+        <div className="fade-in-image">
             <div className="absolute bottom-0 right-0 h-1/3 w-1/3 -z-10">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" id="blobSvg" style={{opacity: 1}} transform="rotate(70)">
                     <defs>

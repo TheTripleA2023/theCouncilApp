@@ -55,6 +55,10 @@ export class Council {
 		return this.activeMembers;
 	}
 
+	public getAllMembers(): Map<string, Member> {
+		return this.members;
+	}
+
 	public setMembers(members: string[]): void {
 		members.slice(0, 4);
 		this.activeMembers = members.map((name) => this.members.get(name));

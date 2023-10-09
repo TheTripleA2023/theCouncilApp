@@ -87,6 +87,8 @@ export default function Page() {
 				{!isLoading && pageStage === PageStage.selection && (
 					<SelectionComponent
 						onSelectionClosed={handleSelectionClosed}
+						members={CouncilController.current.getMembers().map((member) => member.name)}
+						allMembers={Array.from(CouncilController.current.getAllMembers().values())}
 					/>
 				)}
 				{!isLoading && pageStage === PageStage.council && (
