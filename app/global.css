@@ -425,18 +425,12 @@ background-size: cover; */
 
 .hero-swappable-1 {
 	background-image: linear-gradient(to bottom, #ff8e90, #ffa95c);
-	background-clip: text;
-	color: transparent;
 }
 .hero-swappable-2 {
 	background-image: linear-gradient(to bottom, #9efd69, #12e9f1);
-	background-clip: text;
-	color: transparent;
 }
 .hero-swappable-3 {
 	background-image: linear-gradient(to bottom, #bf7fea, #ff8e90);
-	background-clip: text;
-	color: transparent;
 }
 
 .hero-h1 {
@@ -484,16 +478,24 @@ background-size: cover; */
 		transform: translateY(70%);
 	}
 }
-ul {
+ul.hero {
 	position: relative;
 	width: 100%; /* Set the width of the parent ul */
 	height: 64px; /* Set the height of the parent ul */
 	overflow: hidden; /* Hide overflow to prevent stacking */
+	display: flex;
+	align-items: centre;
 }
 
-li {
+ul.hero li {
 	position: absolute; /* Use absolute positioning */
 	top: 0;
+	background-clip: text;
+	color: transparent;	
+	margin: 0 10px;
+	white-space: nowrap;
+	font-size: 48px;
+	font-weight: 900;
 	animation: rotateWords 9s ease-in-out infinite backwards;
 
 	white-space: nowrap;
@@ -504,9 +506,7 @@ li {
 	&:nth-child(3) {
 		animation-delay: 6s;
 	}
-}
-
-.hero-button {
+	
 }
 
 .council-model-container {
