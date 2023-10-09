@@ -14,6 +14,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 import LogOutButton from './LogOutButton'
 import GetStartedButton from './GetStartedButton'
+import LoginButton from '../landingpage/LoginButton'
 
 interface Props {
   children: React.ReactNode
@@ -90,7 +91,7 @@ export default function Navbar() {
                 (
                   <LogOutButton>Log Out</LogOutButton>
                 ) : (
-                  <GetStartedButton>Get Started</GetStartedButton>
+                  <LoginButton text={"Get Started!"}/>
                 )
               )}
             </HStack>
@@ -115,7 +116,7 @@ export default function Navbar() {
               ) : (session ? (
                   <LogOutButton>Log Out</LogOutButton>
                 ) : (
-                  <GetStartedButton>Get Started</GetStartedButton>
+                  <LoginButton text={"Get Started!"}/>
                 )
               )}
             </Stack>

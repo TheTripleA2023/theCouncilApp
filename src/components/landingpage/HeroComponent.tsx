@@ -3,9 +3,11 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Button, useDisclosure } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { Suspense } from "react";
-import LetsGoButton from "./LetsGoButton";
+import LetsGoButton from "./LoginButton";
+import LoginDrawer from "./LoginDrawer";
+import LoginButton from "./LoginButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -80,9 +82,7 @@ function HeroComponent() {
 							need.
 						</h1>
 					</div>
-					<LetsGoButton>
-						Let's go!
-					</LetsGoButton>
+					<LoginButton text={"Lets Go!"} />
 					{/* <Button
 						className="hero-button"
 						style={{
