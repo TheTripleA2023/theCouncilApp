@@ -9,7 +9,6 @@ import {
   useDisclosure,
   Stack,
   Spacer,
-
   Modal,
   ModalOverlay,
   ModalContent,
@@ -188,9 +187,8 @@ export default function Navbar() {
             </Box>
             <Spacer />
             <HStack as={'nav'} spacing={5}  marginRight={[4, 12, 24, 48]} display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-              ))}
+              <NavLink key="About">About</NavLink>
+              <NavLink key="Usage Disclaimer">Usage Disclaimer</NavLink>
               {!loading ? (
                 null
               ) : (session ? 
