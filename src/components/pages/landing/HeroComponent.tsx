@@ -2,12 +2,8 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import { Button, useDisclosure } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { Suspense } from "react";
-import LetsGoButton from "./LoginButton";
-import LoginDrawer from "./LoginDrawer";
-import LoginButton from "./LoginButton";
+import LoginButton from "../misc/LoginButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),

@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Input, Button, Center } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import { Suspense } from "react";
-import LogoutButton from "../pages/LogoutButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),

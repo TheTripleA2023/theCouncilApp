@@ -13,8 +13,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 import LogOutButton from './LogOutButton'
-import GetStartedButton from './GetStartedButton'
-import LoginButton from '../landingpage/LoginButton'
+import LoginButton from '../misc/LoginButton'
 
 interface Props {
   children: React.ReactNode

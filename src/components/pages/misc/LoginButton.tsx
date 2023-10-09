@@ -1,7 +1,7 @@
 import {
     Box, useDisclosure,
   } from '@chakra-ui/react'
-import LoginDrawer from './LoginDrawer'
+import LoginDrawer from '../landing/LoginDrawer'
   
 interface Props {
     children: React.ReactNode

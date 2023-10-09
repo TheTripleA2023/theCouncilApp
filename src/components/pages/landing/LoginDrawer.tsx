@@ -3,18 +3,11 @@
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    useDisclosure,
     VStack,
-    Center,
-    Spacer,
     Flex,
-    StackDivider,
-    Box,
     Text,
     Image,
   } from '@chakra-ui/react'
