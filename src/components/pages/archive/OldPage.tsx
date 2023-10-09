@@ -4,9 +4,6 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Council } from '@/controller/council'
 
-const Logo = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Logo), { ssr: false })
-const Dog = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Dog), { ssr: false })
-const Duck = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Duck), { ssr: false })
 const CouncilTable = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.CouncilTable), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,

@@ -1,8 +1,12 @@
 'use client'
 
-import { Button } from '@chakra-ui/button';
+import { Box, Button, Grid, GridItem, HStack, SimpleGrid, Spacer, Text, VStack} from '@chakra-ui/react';
 import dynamic from 'next/dynamic'
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
+import GenericButton from '../misc/GenericButton';
+import { Center, Wrap, WrapItem } from '@chakra-ui/react';
+import { Image } from '@chakra-ui/react';
+import Model, { SelectionTable } from '@/components/canvas/Models';
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -22,29 +26,151 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function SelectionComponent(props) {
-	const [members, setMembers] = useState([]);
+	const [members, setMembers] = useState([...props.members]);
 
 	const handleBackButton = () => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
+    console.log(props)
 		if (props.onSelectionClosed) {
 			props.onSelectionClosed(members);
 		}
 	};
 
+  const handleCouncilClick = (name) => {
+		console.log(name);
+
+		if(members.includes(name)){
+			setMembers(members.filter((key) => key !== name));
+      console.log(members.filter((key) => key !== name))
+			return;
+		} else if(members.length === 4) {
+			return;
+		} else {
+			setMembers([...members, name]);
+		}
+  }
+  
+
   return (
     <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>We are team Triple A</h1>
-          <p className='mb-8 text-2xl leading-normal'>Hi!</p>
-        </div>
-        <Button onClick={handleBackButton}>
-          ur mom
-          </Button>
-
-      </div>
-      
+      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12}>
+        <GridItem w='100%' h='100%'>
+          <Center paddingTop={['1','15']}>
+            <VStack alignItems="start" maxW={['100%','75%']}>
+              <Text
+                fontWeight={700}
+                fontSize={['36px', '72px']}
+                >
+                Create your Council
+              </Text>
+              <Text 
+                fontWeight={700}
+                fontSize={['16px', '24px']}
+                >
+                Choose 4 council members you’d like to hear from.
+              </Text>
+              <GenericButton 
+                text={members.length === 4?"Let's Go!": members.length + "/4 Members Selected"}  
+                onClick={handleBackButton} 
+                display={{base:'none',md:'flex'}}
+                opacity={members.length === 4?1: 0.5}
+                disabled={members.length === 4?false: true}
+                />
+              <Box display={{base:'none',md:'flex'}}>
+                <div className='tableView'>
+                  <View orbit className='relative h-full w-full'>
+                    <Suspense fallback={null}>
+                      <SelectionTable scale={1.5} position={[0,-1,0]} members={members}/>
+                      <Common />
+                    </Suspense>
+                  </View>
+                </div>
+              </Box>
+            </VStack>
+          </Center>
+          <Box
+            background="var(--Dark-Gradient-Fill, linear-gradient(0deg, #222C51 0%, rgba(0, 8, 34, 0.00) 100%, rgba(34, 44, 81, 0.00) 100%));"
+            bottom={0}
+            left={0}
+            position={'fixed'} 
+            width={'100%'}
+            height={'25%'}
+            color={'white'}
+            display={{md:'none'}}
+            zIndex={10}
+          >
+            <GenericButton 
+              text={members.length === 4?"Let's Go!": members.length + "/4 Members Selected"} 
+              onClick={handleBackButton} 
+              width={'90vw'}
+              position={'fixed'} 
+              bottom={0}
+              left={0}
+              margin={'5vw'}
+              opacity={members.length === 4?1: 0.5}
+              disabled={members.length === 4?false: true}
+            />
+          </Box>
+        </GridItem>
+        <GridItem w='100%' h='100%'>
+          <VStack paddingTop={['5','15']}>
+            <Wrap spacing='8px' justify='center' zIndex={1}>
+              {props.allMembers.map((councilMember, index) => (
+                <WrapItem key={index} 
+                w='280px'
+                h='140px'
+                minW='300px'
+                className='transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300'
+                padding={members.includes(councilMember.name)?'0px':'8px'} 
+                >
+                  <Center
+                    flexDirection={'column'}
+                    alignItems={'start'}
+                    w='100%'
+                    h='100%'
+                    background={'linear-gradient(180deg, #46537A 0%, #203864 100%)'}
+                    border={members.includes(councilMember.name)?'8px':'0px'} 
+                    borderRadius={'16px'}
+                    borderColor={"#9EFD69"}
+                    onClick={() => handleCouncilClick(councilMember.name)}
+                  >
+                    <Center
+                      flexDirection={'row'}
+                      >
+                      <Image boxSize={'120px'} src={"/img/avatars/"+councilMember.imagePath} padding={'1em'}/>
+                      <VStack alignItems={'start'} paddingRight={'16px'}>
+                        <Text><b>{"The " + councilMember.name}</b></Text>
+                        <Text>{councilMember.description}</Text>
+                      </VStack>
+                    </Center>
+                  </Center>
+                </WrapItem>
+              ))}
+              <WrapItem
+                w='280px'
+                h='280px'
+                display={{md:'none'}}
+                />
+            </Wrap>
+          </VStack>
+        </GridItem>
+      </Grid>
     </>
   )
 }
+
+/*
+
+
+<WrapItem key={index}>
+									<Center w='220px' h='280px' bg='blackAlpha.500' className="council-member-portfolio" border={councilList.includes(index)?'8px':'0px'} borderColor={"#9EFD69"} animation={'ease-in'}>
+										<div onClick={() => handleCouncilClick(index)}>
+											<Image borderRadius="full" src={councilMember.imagePath} padding={'1em'}/>
+											<Text><b>{"The " + councilMember.name}</b></Text>
+											<Text>{councilMember.type}</Text>
+										</div>
+									</Center>
+								</WrapItem>
+
+        */

@@ -2,7 +2,7 @@ import {
     Box,
   } from '@chakra-ui/react'
 
-export default function GenericButton({text, onClick=null}) {
+export default function GenericButton({text='default button', onClick=null,...props}) {
     
     return (
       <>
@@ -19,6 +19,7 @@ export default function GenericButton({text, onClick=null}) {
                 borderColor: 'white',
             }}
             onClick={onClick}
+            {...props}
         >
           {text}
         </Box>
