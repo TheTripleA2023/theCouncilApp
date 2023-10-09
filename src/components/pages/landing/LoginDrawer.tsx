@@ -63,13 +63,13 @@ export default function LoginDrawer({ onOpen, onClose, isOpen}) {
                             },
                           }}
                         />
-                        <Image
-                            marginTop={['65%','40%']}
-                            marginRight={'10%'}
-                            position={'absolute'}
-                            w="100%"
+                        <div className="absolute right-0 bot-0 -z-10">
+                          <Image
+                            marginTop={['65%','50%']}
                             src='img/Possum.png'
-                        />
+                          />
+                        </div>
+
                     </VStack>
                 </Flex>
             </DrawerBody>
