@@ -59,7 +59,6 @@
 .navbar-button {
 	font-weight: 800;
 	border-radius: 6px;
-	color: #000000;
 	background: var(
 		--Blue-Gradient,
 		linear-gradient(99deg, #12e9f1 0%, #bf7fea 100%)
@@ -80,10 +79,11 @@
 
 .homepage-h1 {
 	font-size: 80px;
-	font-weight: 900;
+	font-weight: 800;
 	color: #ffffff;
 	line-height: 1em;
 	text-align: center;
+	letter-spacing: -2px;
 }
 
 .homepage-gradient-text {
@@ -121,8 +121,7 @@
 
 .dots-gif {
 	width: 10%;
-	position: absolute;
-	top: 250px;
+	padding: 16px;
 	justify-content: center;
 	z-index: 10;
 }

@@ -6,7 +6,7 @@ interface Props {
     children: React.ReactNode
 }
 
-export default function GetStartedButton (props: Props) {
+export default function LogOutButton(props: Props) {
     const { children } = props
   
     return (
@@ -18,13 +18,17 @@ export default function GetStartedButton (props: Props) {
       className='navbar-button'
       borderWidth={'2px'}
       borderColor={'RGBA(0,0,0,0.5)'}
+      textColor={'black'}
       _hover={{
           borderColor: 'white',
       }}
       >
-        {children}
+        <form action="/auth/v1/sign-out" method="post">
+          <button>
+            {children}
+          </button>
+        </form>
       </Box>
     )
-  }
+}
   
-

@@ -13,7 +13,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 import LogOutButton from './LogOutButton'
-import GetStartedButton from './GetStartedButton'
+import LoginButton from '../misc/LoginButton'
 
 interface Props {
   children: React.ReactNode
@@ -55,15 +55,14 @@ export default function Navbar() {
   useEffect(() => {
     const getSession = async () => {
       const { data: { session }} = await supabase.auth.getSession()
-
-      if (session) {
-        setSession(session !== undefined)
-        setLoading(true)
-      }
+      setSession(session !== null)
+      setLoading(true)
+      
     }
 
     getSession()
   }, [supabase, setSession])
+
 
   return (
     <>
@@ -91,7 +90,7 @@ export default function Navbar() {
                 (
                   <LogOutButton>Log Out</LogOutButton>
                 ) : (
-                  <GetStartedButton>Get Started</GetStartedButton>
+                  <LoginButton text={"Get Started!"}/>
                 )
               )}
             </HStack>
@@ -116,7 +115,7 @@ export default function Navbar() {
               ) : (session ? (
                   <LogOutButton>Log Out</LogOutButton>
                 ) : (
-                  <GetStartedButton>Get Started</GetStartedButton>
+                  <LoginButton text={"Get Started!"}/>
                 )
               )}
             </Stack>

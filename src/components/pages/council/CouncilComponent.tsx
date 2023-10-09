@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { Input, Button, Text } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
-import CouncilCard from "@/components/councilcardcomponent/CouncilCard";
+import CouncilCard from "@/components/pages/council/CouncilCard";
 
 function CouncilComponent(props) {
 	const [inputField, setInputField] = useState("");
