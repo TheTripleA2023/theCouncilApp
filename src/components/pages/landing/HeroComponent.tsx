@@ -52,7 +52,7 @@ function HeroComponent() {
 					<div className="hero-title">
 						<div className="hero-swappable-line">
 							<h1 className="hero-h2">Need a</h1>
-							<ul className="hero-swappable">
+							<ul className= "hero">
 								<li className="hero-swappable-1">
 									reality check?
 								</li>
