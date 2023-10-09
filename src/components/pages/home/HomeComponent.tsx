@@ -83,7 +83,7 @@ function HomeComponent(props) {
 							}}
 							colorScheme="gray"
 							variant="filled"
-							textColor={'black'}
+							textColor={"black"}
 							_focus={{
 								borderColor: "gray",
 								textColor: "gray",
@@ -111,7 +111,6 @@ function HomeComponent(props) {
 					</div>
 				</div>
 			</Center>
-
 
 			{/* Table Components */}
 
