@@ -27,7 +27,7 @@ function MoreDetailsComponent(props) {
 			props.handleClose();
 		}
 	};
-
+	console.log(memberPic)
 	return (
 		<div>
 			<div className="overlay"></div>
@@ -42,7 +42,7 @@ function MoreDetailsComponent(props) {
 				<div className="pop-up-image-convo">
 					<Image
 						className="pop-up-image"
-						src={"/img/" + memberPic}
+						src={"/img/avatars/" + memberPic}
 						alt="Council Member Image"
 						boxSize="200px"
 						objectFit="cover"

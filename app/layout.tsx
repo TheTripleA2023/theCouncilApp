@@ -7,7 +7,7 @@ import Head from './head';
 
 export const metadata = {
 	title: "The Council",
-	description: "",
+	description: "Give the Council your problem, and you can get a bunch of (imaginary AI-generated) friends to weigh in on your dilemmas, even if you're all alone!",
 };
 
 export default function RootLayout({ children }) {
@@ -18,11 +18,6 @@ export default function RootLayout({ children }) {
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
 			<head>
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap"
-					rel="stylesheet"
-				/>
         <Head/>
 			</head>
       <body>

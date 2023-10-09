@@ -14,37 +14,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 import LogOutButton from './LogOutButton'
 import LoginButton from '../misc/LoginButton'
-
-interface Props {
-  children: React.ReactNode
-}
-
-const Links = ['About', 'Usage Disclaimer']
-
-const NavLink = (props: Props) => {
-  const { children } = props
-  return (
-    <Box
-      as="a"
-      px={5}
-      py={2}
-      rounded={'md'}
-      fontWeight={600}
-      borderWidth={'2px'}
-      borderColor={'RGBA(0,0,0,0)'}
-      _hover={{
-        textDecoration: 'none',
-        borderColor: 'white',
-        bg: 'gray.700',
-      }}
-      href={'#'}>
-      {children}
-    </Box>
-  )
-}
-
-
-
+import NavLink from './Navlink'
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -63,7 +33,6 @@ export default function Navbar() {
     getSession()
   }, [supabase, setSession])
 
-
   return (
     <>
         <Flex   
@@ -81,9 +50,8 @@ export default function Navbar() {
             </Box>
             <Spacer />
             <HStack as={'nav'} spacing={5}  marginRight={[4, 12, 24, 48]} display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-              ))}
+              <NavLink key="About">About</NavLink>
+              <NavLink key="Usage Disclaimer">Usage Disclaimer</NavLink>
               {!loading ? (
                 null
               ) : (session ? 
@@ -107,9 +75,8 @@ export default function Navbar() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4} alignItems={'right'}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))}
+                <NavLink key="About">About</NavLink>
+                <NavLink key="Usage Disclaimer">Usage Disclaimer</NavLink>
               {!loading ? (
                 null
               ) : (session ? (

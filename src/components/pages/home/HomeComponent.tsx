@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Input, Button, Center } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
+import {LuWrench} from 'react-icons/lu'
 import { Suspense } from "react";
+import Link from "next/link";
+import GenericButton from "../misc/GenericButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -47,6 +50,8 @@ const Common = dynamic(
 
 function HomeComponent(props) {
 	const [inputField, setInputField] = useState("");
+	const [hover, setHover] = useState(false);
+	let CouncilController = useRef(props.CouncilController);
 
 	const handleInputChange = (e) => {
 		setInputField(e.target.value);
@@ -57,6 +62,14 @@ function HomeComponent(props) {
 		// Call the callback function passed from the main page
 		if (props.onButtonClick) {
 			props.onButtonClick(inputField);
+		}
+	};
+	
+	const handleSelection = () => {
+		// Handle button click logic here
+		// Call the callback function passed from the main page
+		if (props.onSelectionClick) {
+			props.onSelectionClick();
 		}
 	};
 
@@ -109,24 +122,36 @@ function HomeComponent(props) {
 							OK
 						</Button>
 					</div>
-				</div>
+				</div>	
 			</Center>
 
 			{/* Table Components */}
+			<>
+				<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 -z-1000">
+					<View className="relative animate-pulse h-full sm:w-full overflow-hidden overscroll-none">
+						<Suspense fallback={null}>
+							<CouncilTable
+								scale={2}
+								position={[0, -0.5, 0]}
+								callback={setHover}
+								setSelctionCallback={handleSelection}
+							/>
+							<Common />
+						</Suspense>
+					</View>
+				</div>
+				<div className="selection-input">
+					<div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+							<Button colorScheme={hover?'white':'whiteAlpha'} variant={hover?'outline':'outline'} opacity={hover?1:0.2} onClick={handleSelection}>
+								Choose your Council
+							</Button>
+					</div>
+				</div>
+				
+			</>
 
-			<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
-				<View className="relative animate-pulse h-full sm:w-full overflow-hidden overscroll-none">
-					<Suspense fallback={null}>
-						<CouncilTable
-							route="/about"
-							scale={2}
-							position={[0, -0.5, 0]}
-						/>
-						<Common />
-					</Suspense>
-				</View>
-			</div>
 		</div>
+
 	);
 }
 
