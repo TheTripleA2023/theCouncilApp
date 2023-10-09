@@ -37,7 +37,7 @@ function CouncilComponent(props) {
 					{props.data ? (
 						props.data.map((councilMember, index) => {
 							// Construct the image source URL based on the council member's data
-							const imagePath = `/img/${councilMember.imagePath}`;
+							const imagePath = `/img/avatars/${councilMember.imagePath}`;
 
 							return (
 								<CouncilCard

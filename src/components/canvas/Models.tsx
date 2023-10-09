@@ -16,7 +16,7 @@ import { a } from '@react-spring/three'
 //Default Model Component 
 export default function Model({ ...props }) {
   const fbx = useFBX("/models/"+props.name+".fbx") as THREE.Group;
-  const mapT = useLoader(TextureLoader, '/img/T_'+props.name+'.png');
+  const mapT = useLoader(TextureLoader, '/img/textures/T_'+props.name+'.png');
 
   const customMaterial = new THREE.MeshToonMaterial({
     color: 0x777777, // Set the color of the material to white
