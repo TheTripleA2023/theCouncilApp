@@ -5,8 +5,8 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import LoginButton from "../misc/LoginButton";
 
-const CouncilTable = dynamic(
-	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
+const IsoCouncilTable = dynamic(
+	() => import("@/components/canvas/Models").then((mod) => mod.IsoCouncilTable),
 	{ ssr: false }
 );
 const View = dynamic(
@@ -14,7 +14,7 @@ const View = dynamic(
 	{
 		ssr: false,
 		loading: () => (
-			<div className="flex h-96">
+			<div className="flex h-96 w-full flex-col items-center justify-center">
 				<svg
 					className="-ml-1 mr-3 h-5 w-5 animate-spin text-black"
 					fill="none"
@@ -99,10 +99,10 @@ function HeroComponent() {
 			<div className="council-model-container relative mb-auto h-full">
 				<View className="council-model relative h-full sm:w-full">
 					<Suspense fallback={null}>
-						<CouncilTable
+						<IsoCouncilTable
 							route="/about"
-							scale={2}
-							position={[0, -0.5, 0]}
+							scale={1.5}
+							position={[1.5, -0.5, 0]}
 						/>
 						<Common />
 					</Suspense>

@@ -1,4 +1,6 @@
 import { Image, Text, Button } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import GenericButton from "../misc/GenericButton";
+import Link from "next/link";
 
 function AboutCouncilComponent(props) {
 	return (
@@ -43,18 +45,11 @@ function AboutCouncilComponent(props) {
 						the amazing reception and feedback from the judges, we
 						decided to bring the Council to life!
 					</Text>
-					<Button
-						className="watch-demo-button"
-						// colorScheme="teal"
-						style={{
-							background:
-								"linear-gradient(to right, #12e9f1, #bf7fea)",
-						}}
-						variant="solid"
-						ml={2}
-					>
-						Watch our demo at HTN 2023
-					</Button>
+					<Link href='https://www.youtube.com/live/7sVzflHqHAo?si=dgz5CnZy8PRJd-Xl&t=955'
+						target="_blank" 
+						rel="noopener noreferrer">
+						<GenericButton text="Watch our demo at HTN 2023"/>
+					</Link>
 				</div>
 				<div className="image-container">
 					<Image

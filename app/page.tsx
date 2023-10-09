@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Council } from "@/controller/council";
 import HomeComponent from "@/components/pages/home/HomeComponent";
 import CouncilComponent from "@/components/pages/council/CouncilComponent";
-import LoadingComponent from "@/components/pages/loadingcomponent/LoadingComponent";
+import LoadingComponent from "@/components/pages/misc/LoadingComponent";
 import MoreDetailsComponent from "@/components/pages/council/MoreDetailsComponent";
 
 export default function Page() {
