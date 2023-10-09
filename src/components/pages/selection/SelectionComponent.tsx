@@ -1,8 +1,9 @@
 'use client'
 
+import { Button } from '@chakra-ui/button';
 import dynamic from 'next/dynamic'
+import { useState } from 'react';
 
-const Blob = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Blob), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => (
@@ -20,7 +21,17 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
-export default function Page() {
+export default function SelectionComponent(props) {
+	const [members, setMembers] = useState([]);
+
+	const handleBackButton = () => {
+		// Handle button click logic here
+		// Call the callback function passed from the main page
+		if (props.onSelectionClosed) {
+			props.onSelectionClosed(members);
+		}
+	};
+
   return (
     <>
       <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
@@ -28,14 +39,12 @@ export default function Page() {
           <h1 className='my-4 text-5xl font-bold leading-tight'>We are team Triple A</h1>
           <p className='mb-8 text-2xl leading-normal'>Hi!</p>
         </div>
+        <Button onClick={handleBackButton}>
+          ur mom
+          </Button>
+
       </div>
-
       
-
-      <View className='absolute top-0 flex h-screen w-full flex-col items-center justify-center'>
-        <Blob />
-        <Common />
-      </View>
     </>
   )
 }

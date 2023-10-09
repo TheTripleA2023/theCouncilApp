@@ -68,6 +68,23 @@
 	);
 }
 
+.navbar-prototype-button {
+	font-weight: 800;
+	border: 4px solid transparent;
+	border-radius: 8px;
+	background: 
+	  linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0)), 
+	  linear-gradient(93deg, #12e9f1 27.27%, #bf7fea 112.43%);
+	background-clip: padding-box, border-box;
+	background-origin: padding-box, border-box;
+	background-color: rgba(
+			0,
+			0,
+			0,
+			0
+		);
+}
+
 /* HERO COMPONENT */
 .homepage-content {
 	display: flex;
@@ -115,6 +132,10 @@
 	min-width: 488px;
 	vertical-align: middle;
 	margin-right: 12px;
+	z-index: 11;
+}
+
+.selection-input {
 	z-index: 11;
 }
 
@@ -731,12 +752,43 @@ li {
 }
 
 .team-text {
+  color: #FFF;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 140% */
+}
+
+.council-member-card {
+  border-radius: 16px;
+  background: var(--Background-Color, #21234B);
+  backdrop-filter: blur(2px);
+
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 12px; */
+  flex: 1 0 0;
+
+  width: 200px;
+  height: 200px;
+}
+
+
+/* @media (max-width: 800px) {
+
+  .council-member-card {
+    width: 50%;
+    padding-bottom: 10px;
+    display: inline-block;
+  }
 	color: #fff;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 28px; /* 140% */
-}
+	line-height: 28px;
+} */
 
 .team-name {
 	color: #fff;

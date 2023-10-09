@@ -57,10 +57,9 @@ export default function Model({ ...props }) {
 }
 
 
-export function CouncilTable({ route = '/', ...props }) {
+export function CouncilTable({...props }) {
 	// This reference gives us direct access to the THREE.Mesh object
 	const ref = useRef(null);
-  const router = useRouter()
   const [hovered, hover] = useState(false)
   useCursor(hovered)
   //const [scale, setScale] = useState(0)
@@ -81,9 +80,9 @@ export function CouncilTable({ route = '/', ...props }) {
     <group ref={ref} {...props}>
       <mesh
       {...props}
-        onClick={() => router.push(route)}
-        onPointerOver={() => hover(true)}
-        onPointerOut={() => hover(false)}
+        onClick={() => props.setSelctionCallback()}
+        onPointerOver={() => props.callback(true)}
+        onPointerOut={() => props.callback(false)}
       >
         <Table position={[0, 0, 0]} scale={0.012} />
         <Model 

@@ -8,7 +8,7 @@ export async function middleware(req: NextRequest) {
   const supabase = createMiddlewareClient({ req, res })
 
   const { data: { session }} = await supabase.auth.getSession()
-  const paths = ['/','/about','/finale','/selection']
+  const paths = ['/','/finale','/selection']
 
   /* WORK AROUND FOR SETTING REFRESH TOKEN COOKIE
   if (session) {

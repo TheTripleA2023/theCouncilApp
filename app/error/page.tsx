@@ -11,7 +11,7 @@ export default function Page() {
     <>
       <div className='mx-auto flex h-3/4 w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5 z-10'>
         <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>Oops! We can’t seem to find the page you’re looking for.</h1>
+          <h1 className='my-4 text-5xl font-bold leading-tight'>Oops! Seems like we ran into a problem.</h1>
           <p className='mb-8 text-2xl leading-normal'>Head home and try again next time.</p>
           <Link href='/'>
             <GenericButton text='Take me back!'/>
