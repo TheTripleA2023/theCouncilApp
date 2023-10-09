@@ -24,14 +24,14 @@ export default function Page() {
 	return (
 		<>
 			<div className="root">
-				{/* <Auth
+				<Auth
 					supabaseClient={supabase}
 					providers={["google", "github"]}
 					onlyThirdPartyProviders
 					appearance={{ theme: ThemeSupa }}
 					theme="dark"
 					redirectTo={callback}
-				/> */}
+				/>
 				<HeroComponent />
 
 				<UpperScroll />

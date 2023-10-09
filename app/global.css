@@ -490,7 +490,7 @@ li {
 	display: flex;
 	justify-content: flex-end;
 	align-self: flex-end;
-	max-height: calc(100vh - 34vh);
+	max-height: calc(100vh - 53vh);
 	overflow: hidden;
 	width: 100%;
 	margin: 0px;
