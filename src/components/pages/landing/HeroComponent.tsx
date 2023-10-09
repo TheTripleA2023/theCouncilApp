@@ -45,7 +45,7 @@ const Common = dynamic(
 
 function HeroComponent() {
 	return (
-		<div className=" h-screen ">
+		<div className="h-screen">
 			{/* Header Components */}
 			<div className="hero-content">
 				<div className="hero-text">
