@@ -36,7 +36,7 @@ export default function LoginDrawer({ onOpen, onClose, isOpen}) {
       <>
         <Drawer onClose={onClose} isOpen={isOpen} size={['xs', 'md']}>
           <DrawerOverlay />
-          <DrawerContent bg={"#21234B"}  borderLeftRadius={'24px'} >
+          <DrawerContent bg={"#21234B"}  borderLeftRadius={'40px'} >
             <DrawerCloseButton size={'lg'} />
             <DrawerBody>
                 <Flex   
