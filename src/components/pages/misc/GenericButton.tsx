@@ -2,10 +2,6 @@ import {
     Box,
   } from '@chakra-ui/react'
 
-interface Props {
-    children: React.ReactNode
-}
-
 export default function GenericButton({text, onClick=null}) {
     
     return (
