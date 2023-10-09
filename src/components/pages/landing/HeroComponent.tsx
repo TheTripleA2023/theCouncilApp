@@ -100,9 +100,8 @@ function HeroComponent() {
 				<View className="council-model relative h-full sm:w-full">
 					<Suspense fallback={null}>
 						<IsoCouncilTable
-							route="/about"
 							scale={1.5}
-							position={[1.5, -0.5, 0]}
+							position={[1.5, 0, 0]}
 						/>
 						<Common />
 					</Suspense>
