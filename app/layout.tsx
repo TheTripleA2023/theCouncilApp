@@ -1,8 +1,8 @@
-import { Layout } from '@/components/dom/Layout'
 import '@/global.css'
+import { Layout } from '@/components/dom/Layout'
 import { Providers } from '@/components/dom/Providers'
 import Background from '@/components/canvas/Background'
-import Navbar from '@/components/Navbar/Navbar';
+import Navbar from '@/components/pages/navbar/Navbar';
 import Head from './head';
 
 export const metadata = {

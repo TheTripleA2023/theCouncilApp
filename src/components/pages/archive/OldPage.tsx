@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import LogoutButton from './LogoutButton'
 import { Council } from '@/controller/council'
 
 const Logo = dynamic(() => import('@/components/canvas/Models').then((mod) => mod.Logo), { ssr: false })
@@ -44,7 +43,6 @@ export default async function OldPage() {
                 <p className='w-full uppercase'>In a Dilemma?</p>
                 <h1 className='my-4 text-5xl font-bold leading-tight'>Consulted the Council!</h1>
                 <p className='mb-8 text-2xl leading-normal'>The bear is always watching!!</p>
-                <LogoutButton />
             </div>
             </div>
                 
