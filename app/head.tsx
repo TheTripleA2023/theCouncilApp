@@ -1,8 +1,7 @@
 const title = "The Council";
 const url = "";
-const description = "";
-const author = "";
-const twitter = "";
+const description = "Give the Council your problem, and you can get a bunch of (imaginary AI-generated) friends to weigh in on your dilemmas, even if you're all alone!";
+const author = "Aditya Poluri, Alexandra Hernandez, Taryn Wou, Alan Wang";
 
 export default function Head() {
 	return (
@@ -34,7 +33,11 @@ export default function Head() {
 			<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
 			<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"/>
 			<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"/>
-
+			<link rel="preconnect" href="https://fonts.gstatic.com" />
+			<link
+				href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+				rel="stylesheet"
+			/>
 			{/* <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 			<link
 				rel="apple-touch-icon"
@@ -74,7 +77,6 @@ export default function Head() {
         documentation: https://dev.twitter.com/cards/getting-started
         Be sure validate your Twitter card markup on the documentation site. */}
 			<meta name="twitter:card" content="summary" />
-			<meta name="twitter:site" content={twitter} />
 		</>
 	);
 }
