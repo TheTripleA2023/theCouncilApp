@@ -44,11 +44,21 @@ export class Council {
 	}
 
 	private setDefaultMembers() {
+		if(this.isLocalStorageAvailable()){
+			// available
+			var members = localStorage.members;
+			if(members != null || members != undefined) {
+				this.setMembers(JSON.parse(members));
+				return;
+			}
+		}
+
 		this.activeMembers = [];
 		const defaultMembers = ["Platypus", "Possum", "Cat", "Reindeer"];
 		this.activeMembers = defaultMembers.map((name) =>
 			this.members.get(name)
 		);
+
 	}
 
 	public getMembers(): Member[] {
@@ -60,8 +70,15 @@ export class Council {
 	}
 
 	public setMembers(members: string[]): void {
-		members.slice(0, 4);
-		this.activeMembers = members.map((name) => this.members.get(name));
+		if(members != null || members != undefined) {
+			members.slice(0, 4);
+			this.activeMembers = members.map((name) => this.members.get(name));
+	
+			if(this.isLocalStorageAvailable()){
+				// available
+				localStorage.setItem("members", JSON.stringify(members));
+			}
+		}
 	}
 
 	public async consultCouncil(question: string): Promise<Member[]> {
@@ -73,16 +90,31 @@ export class Council {
 			method: "POST",
 			body: JSON.stringify(body),
 		});
+
+
 		if (res.ok) {
 			const data = await res.json();
 			this.activeMembers = data.data;
 		} else {
 			console.log("Error Occurred Processing Query");
+			throw new Error("Error Occurred Processing Query");
 		}
-		console.log("HEREE");
+
 
 		return this.activeMembers;
 	}
+
+	private isLocalStorageAvailable(){
+		var test = 'testString';
+		try {
+			localStorage.setItem(test, test);
+			localStorage.removeItem(test);
+			return true;
+		} catch(e) {
+			return false;
+		}
+	}
+	
 }
 
 export class Member {
