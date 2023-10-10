@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Input, Button, Center, VStack, HStack, Heading, Spacer } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Input, Button, Center, VStack, HStack, Heading, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import {LuWrench} from 'react-icons/lu'
 import { Suspense } from "react";
@@ -11,6 +11,7 @@ import Link from "next/link";
 import GenericButton from "../misc/GenericButton";
 import { Text } from "@chakra-ui/react";
 import TitleComponent from "./Title";
+import { SP } from "next/dist/shared/lib/utils";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -118,6 +119,7 @@ function HomeComponent(props) {
 				</VStack>
          	</Center>
 			{/* Table Components */}
+			<Box minH={['12px','48px']}/>
 			<>
 				<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 -z-1000">
 					<View className="relative animate-pulse h-full sm:w-full overflow-hidden overscroll-none">

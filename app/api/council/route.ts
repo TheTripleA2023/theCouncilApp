@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     console.log("Unauthenticated User Attempted to Access Council API")
     return NextResponse.json({ error: 'Not authorized' }, { status: 401 })
   }
+
   try {
     //init OpenAI key
     const openai = new OpenAI({
@@ -39,11 +40,10 @@ export async function POST(request: Request) {
         content: verdict.choices[0].message.content,
       });
     });
+    
     await Promise.all(obj);
-    console.log(reqData.members)
     return NextResponse.json({ data: reqData.members }, { status: 200 })
   } catch (error) {
-    console.log(error.message)
     return NextResponse.json({ error: "Error Occurred Processing Query" }, { status: 500 })
   }    
 }
