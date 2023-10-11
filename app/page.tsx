@@ -6,9 +6,15 @@ import HomeComponent from "@/components/pages/home/HomeComponent";
 import CouncilComponent from "@/components/pages/council/CouncilComponent";
 import LoadingComponent from "@/components/pages/misc/LoadingComponent";
 import MoreDetailsComponent from "@/components/pages/council/MoreDetailsComponent";
+import SelectionComponent from "@/components/pages/selection/SelectionComponent";
 
+enum PageStage {
+	"home",
+	"selection",
+	"council",
+}
 export default function Page() {
-	const [pageStage, setPageStage] = useState("home");
+	const [pageStage, setPageStage] = useState(PageStage.home);
 	const [inputValue, setInputValue] = useState("");
 	const [replyValue, setReplyValue] = useState("");
 	const [detailsPageBool, setdetailsPageBool] = useState(false);
@@ -31,10 +37,9 @@ export default function Page() {
 		setLoading(true);
 		const response =
 			await CouncilController.current.consultCouncil(inputValue);
-		console.log(response);
 
 		setData(response);
-		setPageStage("council");
+		setPageStage(PageStage.council);
 		setLoading(false);
 	};
 
@@ -48,7 +53,7 @@ export default function Page() {
 
 		const response =
 			await CouncilController.current.consultCouncil(replyValue);
-		console.log(response);
+
 		setData(response);
 		setLoading(false);
 	};
@@ -64,13 +69,29 @@ export default function Page() {
 		setdetailsPageBool(false);
 	};
 
+	const handleSelectionOpened = () => {
+		setPageStage(PageStage.selection);
+	}
+
+	function handleSelectionClosed(members:string[]) {
+		CouncilController.current.setMembers(members);	
+		setPageStage(PageStage.home);
+	}
+
 	return (
 		<>
 			<div>
-				{!isLoading && pageStage === "home" && (
-					<HomeComponent onButtonClick={handleSubmit} />
+				{!isLoading && pageStage === PageStage.home && (
+					<HomeComponent onButtonClick={handleSubmit} onSelectionClick={handleSelectionOpened} />
 				)}
-				{!isLoading && pageStage === "council" && (
+				{!isLoading && pageStage === PageStage.selection && (
+					<SelectionComponent
+						onSelectionClosed={handleSelectionClosed}
+						members={CouncilController.current.getMembers().map((member) => member.name)}
+						allMembers={Array.from(CouncilController.current.getAllMembers().values())}
+					/>
+				)}
+				{!isLoading && pageStage === PageStage.council && (
 					<CouncilComponent
 						handleReply={handleReply}
 						handleMoreDetails={handleMoreDetails}

@@ -68,6 +68,27 @@
 	);
 }
 
+.navbar-prototype-button {
+	font-weight: 800;
+	border: 4px solid transparent;
+	border-radius: 8px;
+	background: 
+	  linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0)), 
+	  linear-gradient(93deg, #12e9f1 27.27%, #bf7fea 112.43%);
+	background-clip: padding-box, border-box;
+	background-origin: padding-box, border-box;
+	background-color: rgba(
+			0,
+			0,
+			0,
+			0
+		);
+}
+
+.modalName {
+	text-decoration: underline;
+}
+
 /* HERO COMPONENT */
 .homepage-content {
 	display: flex;
@@ -115,6 +136,10 @@
 	min-width: 488px;
 	vertical-align: middle;
 	margin-right: 12px;
+	z-index: 11;
+}
+
+.selection-input {
 	z-index: 11;
 }
 
@@ -404,18 +429,12 @@ background-size: cover; */
 
 .hero-swappable-1 {
 	background-image: linear-gradient(to bottom, #ff8e90, #ffa95c);
-	background-clip: text;
-	color: transparent;
 }
 .hero-swappable-2 {
 	background-image: linear-gradient(to bottom, #9efd69, #12e9f1);
-	background-clip: text;
-	color: transparent;
 }
 .hero-swappable-3 {
 	background-image: linear-gradient(to bottom, #bf7fea, #ff8e90);
-	background-clip: text;
-	color: transparent;
 }
 
 .hero-h1 {
@@ -463,16 +482,24 @@ background-size: cover; */
 		transform: translateY(70%);
 	}
 }
-ul {
+ul.hero {
 	position: relative;
 	width: 100%; /* Set the width of the parent ul */
 	height: 64px; /* Set the height of the parent ul */
 	overflow: hidden; /* Hide overflow to prevent stacking */
+	display: flex;
+	align-items: centre;
 }
 
-li {
+ul.hero li {
 	position: absolute; /* Use absolute positioning */
 	top: 0;
+	background-clip: text;
+	color: transparent;	
+	margin: 0 10px;
+	white-space: nowrap;
+	font-size: 48px;
+	font-weight: 900;
 	animation: rotateWords 9s ease-in-out infinite backwards;
 
 	white-space: nowrap;
@@ -483,16 +510,14 @@ li {
 	&:nth-child(3) {
 		animation-delay: 6s;
 	}
-}
-
-.hero-button {
+	
 }
 
 .council-model-container {
 	display: flex;
 	justify-content: flex-end;
 	align-self: flex-end;
-	max-height: calc(100vh - 34vh);
+	max-height: calc(100vh - 53vh);
 	overflow: hidden;
 	width: 100%;
 	margin: 0px;
@@ -897,4 +922,19 @@ li {
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
+}
+
+
+.fade-in-image { animation: fadeIn 4s; }
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.tableView {
+	position:absolute;
+	height: 50vh;
+	width: 50vw;
+	left: 0;
 }

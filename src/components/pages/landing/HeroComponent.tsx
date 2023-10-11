@@ -45,14 +45,14 @@ const Common = dynamic(
 
 function HeroComponent() {
 	return (
-		<div className=" h-screen ">
+		<div className="h-screen">
 			{/* Header Components */}
 			<div className="hero-content">
 				<div className="hero-text">
 					<div className="hero-title">
 						<div className="hero-swappable-line">
 							<h1 className="hero-h2">Need a</h1>
-							<ul className="hero-swappable">
+							<ul className= "hero">
 								<li className="hero-swappable-1">
 									reality check?
 								</li>
@@ -100,9 +100,8 @@ function HeroComponent() {
 				<View className="council-model relative h-full sm:w-full">
 					<Suspense fallback={null}>
 						<IsoCouncilTable
-							route="/about"
 							scale={1.5}
-							position={[1.5, -0.5, 0]}
+							position={[1.5, 0, 0]}
 						/>
 						<Common />
 					</Suspense>

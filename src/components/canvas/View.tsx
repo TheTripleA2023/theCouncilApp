@@ -31,7 +31,7 @@ const View = forwardRef<HTMLElement, ViewProps>(({ children, orbit, ...props }, 
       <Three>
         <ViewImpl track={localRef}>
           {children}
-          {orbit && <OrbitControls />}
+          {orbit && <OrbitControls maxZoom={1}/>}
         </ViewImpl>
       </Three>
     </>

@@ -1,11 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Input, Button, Center } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Input, Button, Center, VStack, HStack, Heading, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
+import {LuWrench} from 'react-icons/lu'
 import { Suspense } from "react";
+import Link from "next/link";
+import GenericButton from "../misc/GenericButton";
+import { Text } from "@chakra-ui/react";
+import TitleComponent from "./Title";
+import { SP } from "next/dist/shared/lib/utils";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -47,6 +53,7 @@ const Common = dynamic(
 
 function HomeComponent(props) {
 	const [inputField, setInputField] = useState("");
+	const [hover, setHover] = useState(false);
 
 	const handleInputChange = (e) => {
 		setInputField(e.target.value);
@@ -55,35 +62,35 @@ function HomeComponent(props) {
 	const handleSubmit = () => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
+		console.log(inputField)
 		if (props.onButtonClick) {
 			props.onButtonClick(inputField);
+		}
+	};
+	
+	const handleSelection = () => {
+		// Handle button click logic here
+		// Call the callback function passed from the main page
+		if (props.onSelectionClick) {
+			props.onSelectionClick();
 		}
 	};
 
 	return (
 		<div className="flex flex-col relative h-screen justify-between overflow-hidden overscroll-none">
 			{/* Header Components */}
-			<Center>
-				<div className="homepage-content">
-					<div className="homepage-title">
-						<h1 className="homepage-h1">In a dilemma?</h1>
-						<h1 className="homepage-h1">
-							Consult
-							<span className="homepage-gradient-text">
-								the Council.
-							</span>
-						</h1>
-					</div>
-					<div className="homepage-prompt">
+			<Center paddingTop={['4em','5em']}>
+				<VStack maxW={['100%','75%']} lineHeight={['48px','80px']}>
+					<TitleComponent/>
+					<Spacer maxH={'24px'}/>
+					<HStack>
 						<Input
-							className="prompt-input"
 							placeholder="Tell us what's going on"
-							style={{
-								width: "488px",
-							}}
+							size={['lg']}
+							minW={['75%','480px']}
 							colorScheme="gray"
 							variant="filled"
-							textColor={'black'}
+							textColor={"black"}
 							_focus={{
 								borderColor: "gray",
 								textColor: "gray",
@@ -108,26 +115,37 @@ function HomeComponent(props) {
 						>
 							OK
 						</Button>
+					</HStack>
+				</VStack>
+         	</Center>
+			{/* Table Components */}
+			<Box minH={['12px','48px']}/>
+			<>
+				<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 -z-1000">
+					<View className="relative animate-pulse h-full sm:w-full overflow-hidden overscroll-none">
+						<Suspense fallback={null}>
+							<CouncilTable
+								scale={2}
+								position={[0, -0.5, 0]}
+								callback={setHover}
+								setSelctionCallback={handleSelection}
+							/>
+							<Common />
+						</Suspense>
+					</View>
+				</div>
+				<div className="selection-input">
+					<div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+							<Button colorScheme={hover?'white':'whiteAlpha'} variant={hover?'outline':'outline'} opacity={hover?1:0.2} onClick={handleSelection}>
+								Choose your Council
+							</Button>
 					</div>
 				</div>
-			</Center>
+				
+			</>
 
-
-			{/* Table Components */}
-
-			<div className="relative mt-auto h-full w-full pt-6 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
-				<View className="relative animate-pulse h-full sm:w-full overflow-hidden overscroll-none">
-					<Suspense fallback={null}>
-						<CouncilTable
-							route="/about"
-							scale={2}
-							position={[0, -0.5, 0]}
-						/>
-						<Common />
-					</Suspense>
-				</View>
-			</div>
 		</div>
+
 	);
 }
 

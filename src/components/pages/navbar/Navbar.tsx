@@ -76,7 +76,11 @@ const NavLink = (props: Props) => {
               fontWeight="400"
               lineHeight="28px">
                 <Text paddingBottom="20px">
-                  The Council was born out of a hackathon project! It was a top 12 winning project at Hack the North 2023. 
+                  <Text>
+                    The Council was born out of a hackathon project! It was a top 12 winning project at  
+                  </Text>
+                  <a className='modalName' href='https://www.youtube.com/live/7sVzflHqHAo?si=dgz5CnZy8PRJd-Xl&t=955' target="_blank" rel="noopener noreferrer">Hack the North 2023.</a>
+                  {/* The Council was born out of a hackathon project! It was a top 12 winning project at Hack the North 2023.  */}
                 </Text>
                 <Text paddingBottom="15px">
                   We’re a team of students from the University of British Columbia (please hire us we’re looking for jobs)
@@ -84,8 +88,14 @@ const NavLink = (props: Props) => {
                 <Text paddingBottom="15px">
                   Thanks for using the Council!
                 </Text>
-                <Text>
+                {/* <Text>
                   Alex, Adi, Alan, and Taryn
+                </Text> */}
+                <Text>
+                  <a className='modalName' href="https://www.linkedin.com/in/alexdshernandez/" target="_blank">Alex</a>,{' '}
+                  <a className='modalName' href="https://www.linkedin.com/in/adityapoluri/" target="_blank">Adi</a>,{' '}
+                  <a className='modalName' href="https://www.linkedin.com/in/alan-wang-a577b81b5/" target="_blank">Alan</a>, and{' '}
+                  <a className='modalName' href="https://www.linkedin.com/in/tarynwou/" target="_blank">Taryn</a>
                 </Text>
             </ModalBody>
 
