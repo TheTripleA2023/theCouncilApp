@@ -23,7 +23,6 @@ export default function Page() {
 	const [memberName, setMemberName] = useState("");
 	const [memberPic, setMemberPic] = useState("");
 	const [memberConvo, setMemberConvo] = useState([]);
-	const [councilList, setCouncilList] = useState([]);
 	let CouncilController = useRef(new Council());
 
 	const ref = useRef();
