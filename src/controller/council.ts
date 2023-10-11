@@ -1,3 +1,5 @@
+import { url } from "@/helpers/global";
+
 export class Council {
 	private trial: number;
 	private credits: number;
@@ -83,7 +85,7 @@ export class Council {
 
 	public async consultCouncil(question: string): Promise<Member[]> {
 		const body = { question: question, members: this.activeMembers };
-		const res = await fetch("http://localhost:3000/api/council", {
+		const res = await fetch(url+"/api/council", {
 			headers: {
 				"Content-Type": "application/json",
 			},
