@@ -128,9 +128,6 @@ const NavLink = (props: Props) => {
         </Modal>
       </Box>
 
-
-
-      
     </Box>
     // <Box
     //   as="a"
