@@ -43,6 +43,7 @@ function CouncilComponent(props) {
 								<CouncilCard
 									key={index}
 									name={councilMember.name}
+									description={councilMember.description}
 									imagePath={imagePath} // Use the dynamically constructed image path
 									onCardClick={() =>
 										handleMoreDetails(
