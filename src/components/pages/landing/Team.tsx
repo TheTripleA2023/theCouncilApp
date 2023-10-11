@@ -19,7 +19,7 @@ const Team = () => {
 		},
 		{
 			name: "Alan Wang",
-			role: "Bear Creator",
+			role: "Engineer",
 			animalPicture: "./img/avatars/FrogAvatar.png",
 			humanPicture: "./img/headshots/alan-headshot.png",
 			linkedin: "https://www.linkedin.com/in/alan-wang-a577b81b5/",
