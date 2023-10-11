@@ -58,7 +58,7 @@ export default function Page() {
 				</Text>
 
 				<Text className="end-h2">We hope our advice helped.</Text>
-				<a href="url">
+				<a href={url}>
 					<Button
 						className="refresh-button"
 						id="refresh"
