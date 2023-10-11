@@ -16,6 +16,9 @@ function CouncilCard(props) {
 				<Text className="council-card-member-name">
 					The {props.name}
 				</Text>
+				<Text className="council-card-member-name">
+					{props.description}
+				</Text>
 			</div>
 		</div>
 	);
