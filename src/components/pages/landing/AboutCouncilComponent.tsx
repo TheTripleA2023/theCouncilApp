@@ -23,7 +23,7 @@ function AboutCouncilComponent(props) {
 				<div className="how-it-works-div">
 					<Image
 						className="how-it-works-image"
-						src="/img/how-it-works.png"
+						src="https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/how-it-works.png"
 					/>
 					<Text className="about-council-p2">
 						Give the Council your problem, and it'll answer with
@@ -54,7 +54,7 @@ function AboutCouncilComponent(props) {
 				<div className="image-container">
 					<Image
 						className="how-we-started-image"
-						src="/img/how-we-started.png"
+						src="https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/how-we-started.png"
 					/>
 				</div>
 			</div>
