@@ -85,6 +85,10 @@
 		);
 }
 
+.modalName {
+	text-decoration: underline;
+}
+
 /* HERO COMPONENT */
 .homepage-content {
 	display: flex;

@@ -37,12 +37,13 @@ function CouncilComponent(props) {
 					{props.data ? (
 						props.data.map((councilMember, index) => {
 							// Construct the image source URL based on the council member's data
-							const imagePath = `/img/avatars/${councilMember.imagePath}`;
+							const imagePath = `https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/${councilMember.imagePath}`;
 
 							return (
 								<CouncilCard
 									key={index}
 									name={councilMember.name}
+									description={councilMember.description}
 									imagePath={imagePath} // Use the dynamically constructed image path
 									onCardClick={() =>
 										handleMoreDetails(
