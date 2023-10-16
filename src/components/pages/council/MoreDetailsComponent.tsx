@@ -42,7 +42,7 @@ function MoreDetailsComponent(props) {
 				<div className="pop-up-image-convo">
 					<Image
 						className="pop-up-image"
-						src={"/img/avatars/" + memberPic}
+						src={"https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/" + memberPic}
 						alt="Council Member Image"
 						boxSize="200px"
 						objectFit="cover"
