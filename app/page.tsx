@@ -96,6 +96,7 @@ export default function Page() {
 						handleReply={handleReply}
 						handleMoreDetails={handleMoreDetails}
 						inputValue={inputValue}
+						replayValue={replyValue}
 						data={data}
 					/>
 				)}

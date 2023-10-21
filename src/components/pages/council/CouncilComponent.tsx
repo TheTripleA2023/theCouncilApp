@@ -24,14 +24,14 @@ function CouncilComponent(props) {
 			props.handleMoreDetails(name, index);
 		}
 	};
-
+	console.log(props)
 	return (
 		<div className="flex flex-col h-screen justify-between">
 			<div className="council-content">
 				<Text className="council-title">The Council says...</Text>
 				<Text className="council-query-label">You said:</Text>
 
-				<Text className="council-query">{props.inputValue}</Text>
+				<Text className="council-query">{props.replayValue!=="" ? props.replayValue : props.inputValue}</Text>
 
 				<div className="council-cards">
 					{props.data ? (
