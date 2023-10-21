@@ -924,6 +924,16 @@ ul.hero li {
 	width: 100%;
 }
 
+.animals {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	width: 80%;
+	z-index: 3;
+	margin: auto;
+}
+
 
 .fade-in-image { animation: fadeIn 4s; }
 
