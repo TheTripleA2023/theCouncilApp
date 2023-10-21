@@ -103,7 +103,6 @@ function HomeComponent(props) {
 							onChange={handleInputChange}
 						/>
 						<Button
-							className="submit-button"
 							style={{
 								background:
 									"linear-gradient(to right, #12e9f1, #bf7fea)",
@@ -111,7 +110,13 @@ function HomeComponent(props) {
 							rightIcon={<AiOutlineCheck />}
 							variant="solid"
 							ml={2}
+							size={'lg'}
 							onClick={handleSubmit}
+							_hover={{
+								borderColor: 'white',
+							}}
+							borderWidth={'2px'}
+							borderColor={'RGBA(0,0,0,0.4)'}
 						>
 							OK
 						</Button>
