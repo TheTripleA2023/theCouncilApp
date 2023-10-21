@@ -12,6 +12,8 @@ import GenericButton from "../misc/GenericButton";
 import { Text } from "@chakra-ui/react";
 import TitleComponent from "./Title";
 import { SP } from "next/dist/shared/lib/utils";
+import {KeyboardEvent} from "react"
+import SubmitButton from "../misc/SubmitButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -52,19 +54,13 @@ const Common = dynamic(
 );
 
 function HomeComponent(props) {
-	const [inputField, setInputField] = useState("");
 	const [hover, setHover] = useState(false);
 
-	const handleInputChange = (e) => {
-		setInputField(e.target.value);
-	};
-
-	const handleSubmit = () => {
+	const handleSubmit = (inputVal) => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
-		console.log(inputField)
 		if (props.onButtonClick) {
-			props.onButtonClick(inputField);
+			props.onButtonClick(inputVal);
 		}
 	};
 	
@@ -75,7 +71,7 @@ function HomeComponent(props) {
 			props.onSelectionClick();
 		}
 	};
-
+	
 	return (
 		<div className="flex flex-col relative h-screen justify-between overflow-hidden overscroll-none">
 			{/* Header Components */}
@@ -83,44 +79,7 @@ function HomeComponent(props) {
 				<VStack maxW={['100%','75%']} lineHeight={['48px','56px','80px']}>
 					<TitleComponent/>
 					<Spacer maxH={'24px'}/>
-					<HStack>
-						<Input
-							placeholder="Tell us what's going on"
-							size={['lg']}
-							minW={['75%','320px','480px']}
-							colorScheme="gray"
-							variant="filled"
-							textColor={"black"}
-							_focus={{
-								borderColor: "gray",
-								textColor: "gray",
-								bg: "white",
-								boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
-								overflowY: "auto",
-								resize: "vertical",
-							}}
-							value={inputField}
-							onChange={handleInputChange}
-						/>
-						<Button
-							style={{
-								background:
-									"linear-gradient(to right, #12e9f1, #bf7fea)",
-							}}
-							rightIcon={<AiOutlineCheck />}
-							variant="solid"
-							ml={2}
-							size={'lg'}
-							onClick={handleSubmit}
-							_hover={{
-								borderColor: 'white',
-							}}
-							borderWidth={'2px'}
-							borderColor={'RGBA(0,0,0,0.4)'}
-						>
-							OK
-						</Button>
-					</HStack>
+					<SubmitButton onButtonClick={handleSubmit}/>
 				</VStack>
          	</Center>
 			{/* Table Components */}

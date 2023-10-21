@@ -5,17 +5,12 @@ import { useState } from "react";
 import { Input, Button, Text, HStack } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import CouncilCard from "@/components/pages/council/CouncilCard";
+import SubmitButton from "../misc/SubmitButton";
 
 function CouncilComponent(props) {
-	const [inputField, setInputField] = useState("");
-
-	const handleInputChange = (e) => {
-		setInputField(e.target.value);
-	};
-
-	const handleReply = () => {
+	const handleReply = (value) => {
 		if (props.handleReply) {
-			props.handleReply(inputField);
+			props.handleReply(value);
 		}
 	};
 
@@ -24,7 +19,7 @@ function CouncilComponent(props) {
 			props.handleMoreDetails(name, index);
 		}
 	};
-	console.log(props)
+
 	return (
 		<div className="flex flex-col h-screen justify-between">
 			<div className="council-content">
@@ -68,44 +63,7 @@ function CouncilComponent(props) {
 					)}
 				</div>
 
-				<HStack>
-					<Input
-						placeholder="Tell us what's going on"
-						size={['lg']}
-						minW={['75%','320px','480px']}
-						colorScheme="gray"
-						variant="filled"
-						textColor={"black"}
-						_focus={{
-							borderColor: "gray",
-							textColor: "gray",
-							bg: "white",
-							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
-							overflowY: "auto",
-							resize: "vertical",
-						}}
-						value={inputField}
-						onChange={handleInputChange}
-					/>
-					<Button
-						style={{
-							background:
-								"linear-gradient(to right, #12e9f1, #bf7fea)",
-						}}
-						rightIcon={<AiOutlineCheck />}
-						variant="solid"
-						ml={2}
-						size={'lg'}
-						onClick={handleReply}
-						_hover={{
-							borderColor: 'white',
-						}}
-						borderWidth={'2px'}
-						borderColor={'RGBA(0,0,0,0.4)'}
-					>
-						OK
-					</Button>
-				</HStack>
+				<SubmitButton onButtonClick={handleReply}/>
 				<a
 					href="http://localhost:3000/finale"
 					rel="noopener noreferrer"
