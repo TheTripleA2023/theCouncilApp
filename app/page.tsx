@@ -29,14 +29,16 @@ export default function Page() {
 	const ref = useRef();
 
 	const handleSubmit = async (value) => {
-		console.log("submit button clicked");
+		console.log("Submit clicked");
+
 		setInputValue(value);
-		if (inputValue === "") {
+		if (value === "") {
 			return;
 		}
+
 		setLoading(true);
 		const response =
-			await CouncilController.current.consultCouncil(inputValue);
+			await CouncilController.current.consultCouncil(value);
 
 		setData(response);
 		setPageStage(PageStage.council);
@@ -44,15 +46,15 @@ export default function Page() {
 	};
 
 	const handleReply = async (value) => {
-		console.log("handleReply pressed");
+		console.log("Reply clicked");
 		setReplyValue(value);
-		if (replyValue === "") {
+		if (value === "") {
 			return;
 		}
 		setLoading(true);
 
 		const response =
-			await CouncilController.current.consultCouncil(replyValue);
+			await CouncilController.current.consultCouncil(value);
 
 		setData(response);
 		setLoading(false);
