@@ -1,10 +1,9 @@
 "use client";
 
 import { Text, Button, Image } from "@chakra-ui/react";
-import { url } from "@/helpers/global";
 
 // import DiscoGif from "./../../public/img/Disco1.gif"
-import dynamic from "next/dynamic";
+import Link from "next/link";
 
 
 export default function Page() {
@@ -21,7 +20,7 @@ export default function Page() {
 				</Text>
 
 				<Text className="end-h2">We hope our advice helped.</Text>
-				<a href={url}>
+				<Link href={"/"}>
 					<Button
 						className="refresh-button"
 						id="refresh"
@@ -29,7 +28,7 @@ export default function Page() {
 					>
 						Ask another question
 					</Button>
-				</a>
+				</Link>
 
 				<Image className="pink-floor" src="./img/Pinkfloor.svg" />
 			</div>
