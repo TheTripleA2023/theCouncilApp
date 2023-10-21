@@ -85,7 +85,7 @@ export default function Navbar() {
             marginRight={4}
           />
         </Flex>
-        <Drawer placement={'top'} onClose={onClose} isOpen={isOpen} >
+        <Drawer placement={'top'} onClose={onClose} isOpen={isOpen} key={'mobile_navbar'}>
         <DrawerOverlay />
         <DrawerContent bg={"#21234B"}  borderBottomRadius={'20px'} padding={'20px'}>
           <Flex direction={'row'}>
