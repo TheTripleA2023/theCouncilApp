@@ -10,37 +10,37 @@ export default function TitleComponent() {
 		<>
             <Text
                 fontWeight={900}
-                fontSize={['48px', '78px']}
+                fontSize={['48px','64px', '78px']}
                 fontStyle={'bold'}
             >
                 In a dilemma?
             </Text>
-            <HStack display={{base:'none',md:'flex'}}>
+            <HStack display={{base:'none',lg:'flex'}}>
                 <Text 
                     fontWeight={900}
-                    fontSize={['48px', '78px']}
+                    fontSize={['48px','64px', '78px']}
                     >
                     Consult
                 </Text>
                 <Text 
                     fontWeight={900}
-                    fontSize={['48px', '78px']}
+                    fontSize={['48px','64px', '78px']}
                     background="linear-gradient(93deg, #12E9F1 24.27%, #BF7FEA 112.43%)"
                     backgroundClip={'text'}
                     >
                     the Council.
                 </Text>
             </HStack>
-            <HStack display={{base:'flex',md:'none'}}>
+            <HStack display={{base:'flex',lg:'none'}}>
                 <Text 
                     fontWeight={900}
-                    fontSize={['48px', '78px']}
+                    fontSize={['48px','64px', '78px']}
                     >
                     Consult
                 </Text>
                 <Text 
                     fontWeight={900}
-                    fontSize={['48px', '78px']}
+                    fontSize={['48px','64px', '78px']}
                     background="linear-gradient(93deg, #12E9F1 24.27%, #BF7FEA 112.43%)"
                     backgroundClip={'text'}
                     >
@@ -49,10 +49,10 @@ export default function TitleComponent() {
             </HStack>
             <Text 
                 fontWeight={900}
-                fontSize={['48px', '78px']}
+                fontSize={['48px','64px', '78px']}
                 background="linear-gradient(93deg, #12E9F1 24.27%, #BF7FEA 112.43%)"
                 backgroundClip={'text'}
-                display={{md:'none'}}
+                display={{lg:'none'}}
                 >
                 Council.
             </Text>

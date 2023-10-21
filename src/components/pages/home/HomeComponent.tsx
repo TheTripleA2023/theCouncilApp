@@ -79,15 +79,15 @@ function HomeComponent(props) {
 	return (
 		<div className="flex flex-col relative h-screen justify-between overflow-hidden overscroll-none">
 			{/* Header Components */}
-			<Center paddingTop={['4em','5em']}>
-				<VStack maxW={['100%','75%']} lineHeight={['48px','80px']}>
+			<Center paddingTop={['3em','4em']}>
+				<VStack maxW={['100%','75%']} lineHeight={['48px','56px','80px']}>
 					<TitleComponent/>
 					<Spacer maxH={'24px'}/>
 					<HStack>
 						<Input
 							placeholder="Tell us what's going on"
 							size={['lg']}
-							minW={['75%','480px']}
+							minW={['75%','320px','480px']}
 							colorScheme="gray"
 							variant="filled"
 							textColor={"black"}
