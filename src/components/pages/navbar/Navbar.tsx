@@ -73,7 +73,18 @@ export default function Navbar() {
             </Box>
             <Spacer />
             <HStack as={'nav'} spacing={5}  marginRight={[4, 12, 24, 48]} display={{ base: 'none', md: 'flex' }}>
-              
+              {Links.map((link) => (
+                <NavLink key={link}>{link}</NavLink>
+              ))}
+              {!loading ? (
+                null
+              ) : (session ? 
+                (
+                  <LogOutButton>Log Out</LogOutButton>
+                ) : (
+                  <LoginButton text={"Get Started!"}/>
+                )
+              )}
             </HStack>
           <IconButton
             size={'lg'}
