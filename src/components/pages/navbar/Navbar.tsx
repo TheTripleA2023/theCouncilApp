@@ -74,7 +74,7 @@ export default function Navbar() {
             <Spacer />
             <HStack as={'nav'} spacing={5}  marginRight={[4, 12, 24, 48]} display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link+"_desktop"}>{link}</NavLink>
               ))}
               {!loading ? (
                 null
@@ -96,43 +96,44 @@ export default function Navbar() {
             marginRight={4}
           />
         </Flex>
-        <Drawer placement={'top'} onClose={onClose} isOpen={isOpen} key={'mobile_navbar'}>
-        <DrawerOverlay />
-        <DrawerContent bg={"#21234B"}  borderBottomRadius={'20px'} padding={'20px'}>
-          <Flex direction={'row'}>
-            <Box 
-              fontSize={['24px', '32px']}
-              className='navbar-title'>
-                <Link href={"/"} replace={true}>
-                  the Council.
-                </Link>
-            </Box>
-            <Spacer/>
-            <IconButton
-              size={'lg'}
-              icon={<CloseIcon />}
-              aria-label={'Open Menu'}
-              display={{ md: 'none' }}
-              onClick={onClose}
-              color={'white'}
-            />
-          </Flex>
-          {Links.map((link) => (
+        <Drawer placement={'top'} onClose={onClose} isOpen={isOpen}>
+          <DrawerOverlay />
+          <DrawerContent bg={"#21234B"}  borderBottomRadius={'20px'} padding={'20px'}>
+            <Flex direction={'row'}>
+              <Box 
+                fontSize={['24px', '32px']}
+                className='navbar-title'>
+                  <Link href={"/"} replace={true}>
+                    the Council.
+                  </Link>
+              </Box>
+              <Spacer/>
+              <IconButton
+                size={'lg'}
+                icon={<CloseIcon />}
+                aria-label={'Open Menu'}
+                display={{ md: 'none' }}
+                onClick={onClose}
+                color={'white'}
+              />
+            </Flex>
             <Box marginTop={'20px'}>
-                  <NavLink key={link}>{link}</NavLink>
+                  <NavLink>{"About"}</NavLink>
             </Box>
-          ))}
-          <Box marginTop={'20px'}/>
-          {!loading ? (
-            null
-          ) : (session ? 
-            (
-              <LogOutButton>Log Out</LogOutButton>
-            ) : (
-              <LoginButton text={"Get Started!"}/>
-            )
-          )}
-        </DrawerContent>
+            <Box marginTop={'20px'}>
+                  <NavLink>{"Usage Disclaimer"}</NavLink>
+            </Box>
+            <Box marginTop={'20px'}/>
+            {!loading ? (
+              null
+            ) : (session ? 
+              (
+                <LogOutButton>Log Out</LogOutButton>
+              ) : (
+                <LoginButton text={"Get Started!"}/>
+              )
+            )}
+          </DrawerContent>
         </Drawer>
     </>
   )
