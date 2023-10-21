@@ -66,7 +66,8 @@ export default function NavLink(props: Props) {
             <ModalBody
               fontSize="20px"
               fontWeight="400"
-              lineHeight="28px">
+              lineHeight="28px"
+              >
                 <Text paddingBottom="20px">
                   <Text>
                     The Council was born out of a hackathon project! It was a top 12 winning project at  
