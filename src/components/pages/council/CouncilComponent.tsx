@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import { Input, Button, Text } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Input, Button, Text, HStack } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import CouncilCard from "@/components/pages/council/CouncilCard";
 
@@ -68,35 +68,44 @@ function CouncilComponent(props) {
 					)}
 				</div>
 
-				<div className="council-reply-prompt">
+				<HStack>
 					<Input
-						className="council-reply-prompt-input"
-						placeholder="I'm thinking about..."
-						style={{ width: "488px" }}
+						placeholder="Tell us what's going on"
+						size={['lg']}
+						minW={['75%','320px','480px']}
+						colorScheme="gray"
 						variant="filled"
+						textColor={"black"}
 						_focus={{
-							borderColor: "gray", // Set the border color when the input is focused
+							borderColor: "gray",
 							textColor: "gray",
 							bg: "white",
-							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)", // Add a focus shadow
+							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
+							overflowY: "auto",
+							resize: "vertical",
 						}}
+						value={inputField}
 						onChange={handleInputChange}
 					/>
 					<Button
-						className="reply-button"
-						colorScheme="teal"
 						style={{
 							background:
 								"linear-gradient(to right, #12e9f1, #bf7fea)",
 						}}
 						rightIcon={<AiOutlineCheck />}
 						variant="solid"
-						ml={2} // Add margin-left to create space between the input and button
-						onClick={handleReply} // Call the handleSubmit function on button click
+						ml={2}
+						size={'lg'}
+						onClick={handleReply}
+						_hover={{
+							borderColor: 'white',
+						}}
+						borderWidth={'2px'}
+						borderColor={'RGBA(0,0,0,0.4)'}
 					>
 						OK
 					</Button>
-				</div>
+				</HStack>
 				<a
 					href="http://localhost:3000/finale"
 					rel="noopener noreferrer"
