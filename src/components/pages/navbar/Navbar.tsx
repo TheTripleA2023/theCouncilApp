@@ -24,6 +24,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useEffect, useState } from 'react'
 import LogOutButton from './LogOutButton'
 import LoginButton from '../misc/LoginButton'
+import Link from 'next/link'
 
 interface Props {
   children: React.ReactNode
@@ -166,7 +167,10 @@ export default function Navbar() {
   const [session, setSession] = useState(null)
   const [loading, setLoading] = useState(false)
   const supabase = createClientComponentClient()
-
+  // const router = useRouter();
+  // const handleRefresh = () => {
+  //   router.reload();
+  // };
   useEffect(() => {
     const getSession = async () => {
       const { data: { session }} = await supabase.auth.getSession()
@@ -177,6 +181,7 @@ export default function Navbar() {
 
     getSession()
   }, [supabase, setSession])
+  
 
   return (
     <>
@@ -186,12 +191,14 @@ export default function Navbar() {
         alignItems={'center'} 
         justifyContent={'space-between'}
         minWidth='max-content'
-        >
+        > 
             <Box 
                 marginLeft={[4, 12, 24, 48]}
                 fontSize={['24px', '32px']}
                 className='navbar-title'>
-                the Council.
+                  <Link href={"/"} replace={true}>
+                    the Council.
+                  </Link>
             </Box>
             <Spacer />
             <HStack as={'nav'} spacing={5}  marginRight={[4, 12, 24, 48]} display={{ base: 'none', md: 'flex' }}>
