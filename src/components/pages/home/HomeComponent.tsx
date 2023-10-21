@@ -136,7 +136,10 @@ function HomeComponent(props) {
 				</div>
 				<div className="selection-input">
 					<div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-							<Button colorScheme={hover?'white':'whiteAlpha'} variant={hover?'outline':'outline'} opacity={hover?1:0.2} onClick={handleSelection}>
+							<Button colorScheme={hover?'white':'whiteAlpha'} variant={hover?'outline':'outline'} opacity={hover?1:0.5} onClick={handleSelection} display={{base:'none',md:'flex'}}>
+								Choose your Council
+							</Button>
+							<Button colorScheme={'white'} variant={hover?'outline':'outline'} opacity={0.8} onClick={handleSelection} display={{base:'flex',md:'none'}}>
 								Choose your Council
 							</Button>
 					</div>
