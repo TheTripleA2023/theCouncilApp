@@ -852,7 +852,7 @@ ul.hero li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: -1; 
+	z-index: -1; /* Ensure it's above other content */
 	background: rgba(
 		0,
 		0,
