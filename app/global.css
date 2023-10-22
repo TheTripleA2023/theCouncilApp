@@ -240,14 +240,15 @@ background-size: cover; */
 }
 
 @media (max-width: 800px) {
-	/* .member-card-container {
+	/* /* .member-card-container {
     display: grid;
   } */
 
 	.council-member-card {
-		width: 50%; /* Two columns per row */
+		/* width: 50%;
 		padding-bottom: 10px;
-		display: inline-block; /* To ensure proper alignment */
+		display: inline-block; */
+		flex-direction: column;
 	}
 }
 
