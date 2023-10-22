@@ -20,7 +20,7 @@ function CouncilComponent(props) {
 	};
 
 	return (
-		<Stack alignItems={'center'} marginTop={'2%'} margin={'4px'}>
+		<Stack alignItems={'center'} marginTop={'2%'} margin={'4px'}  overflowY={'scroll'} overflowX={'visible'} >
 			<Text fontSize={['24px','48px','64px']} fontWeight={900} align={'center'}>The Council has spoken.</Text>
 			<Text fontSize={'16px'}>You said:</Text>
 			<Text fontSize={'20px'} fontWeight={600} align={'center'}>"{props.inputValue}"</Text>

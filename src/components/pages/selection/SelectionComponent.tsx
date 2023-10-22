@@ -53,7 +53,7 @@ export default function SelectionComponent(props) {
 
   return (
     <>
-      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12} >
+      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12}  overflowY={'scroll'} overflowX={'visible'} >
         <GridItem w='100%' h='100%'>
           <Center paddingTop={['1','15']}>
             <VStack alignItems="start" maxW={['100%','75%']}>
@@ -116,7 +116,7 @@ export default function SelectionComponent(props) {
               display={{base:'flex',md:'none'}}
             />
         </GridItem>
-        <GridItem w='100%' h='100%' overflowY={'scroll'} overflowX={'visible'} >
+        <GridItem w='100%' h='100%'>
           <VStack paddingTop={['5','15']}>
             <Wrap spacing='8px' justify='center' zIndex={1}>
               {props.allMembers.map((councilMember, index) => (
