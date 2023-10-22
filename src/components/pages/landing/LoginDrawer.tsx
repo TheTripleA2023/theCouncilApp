@@ -67,6 +67,7 @@ export default function LoginDrawer({ onOpen, onClose, isOpen}) {
                           <Image
                             marginTop={['65%','50%']}
                             src='img/Possum.png'
+                            pointerEvents={'none'}
                           />
                         </div>
 

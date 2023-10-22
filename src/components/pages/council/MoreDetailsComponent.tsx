@@ -51,6 +51,7 @@ function MoreDetailsComponent(props) {
 			minH={'100%'}
 			width={'100%'}
 			padding={['1em','6em']}
+			overflowY={'auto'}
 			>
 				<Text fontSize={['32px','64px']} fontWeight={900}>The {memberName} says...</Text>
 				<IconButton
