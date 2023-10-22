@@ -3,8 +3,8 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import { Input, Button, Center, VStack, HStack, Heading, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
-import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import {KeyboardEvent} from "react"
+import { IoSend } from 'react-icons/io5';
 
 function SubmitButton(props) {
 	const [inputField, setInputField] = useState("");
@@ -37,9 +37,10 @@ function SubmitButton(props) {
         <>
             <HStack>
                 <Input
-                    placeholder="Tell us what's going on..."
+                    placeholder="Tell us what's going on"
                     size={['lg']}
                     minW={['75%','320px','480px']}
+                    maxH={['2.5em']}
                     colorScheme="gray"
                     variant="filled"
                     textColor={"black"}
@@ -61,10 +62,11 @@ function SubmitButton(props) {
                         background:
                             "linear-gradient(to right, #12e9f1, #bf7fea)",
                     }}
-                    rightIcon={<AiOutlineCheck />}
+                    rightIcon={<IoSend/>}
                     variant="solid"
-                    ml={2}
+                    maxH={['2.5em']}
                     size={'lg'}
+                    ml={2}
                     onClick={handleSubmit}
                     _hover={{
                         borderColor: 'white',
