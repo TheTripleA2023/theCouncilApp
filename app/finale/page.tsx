@@ -1,6 +1,7 @@
 "use client";
 
-import { Text, Button, Image } from "@chakra-ui/react";
+
+import { Text, Button, Image, Box } from "@chakra-ui/react";
 import { url } from "@/helpers/global";
 
 // import DiscoGif from "./../../public/img/Disco1.gif"
@@ -69,6 +70,7 @@ export default function Page() {
 				</a>
 
 				<Image className="pink-floor" src="./img/Pinkfloor.svg" />
+				<Image className="animals" src="./img/Animals.png" />
 			</div>
 		</div>
 	);
