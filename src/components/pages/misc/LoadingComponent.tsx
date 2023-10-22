@@ -2,14 +2,12 @@ import { Image, Text, VStack } from "@chakra-ui/react";
 
 function LoadingComponent(props) {
 	return (
-		<div className="council-content">
-			<VStack>
-				<Text className="council-title">The Council is thinking...</Text>
-				<Text className="council-query-label">You said:</Text>
-				<Text className="council-query">{props.prompt}</Text>
-				<Image className="dots-gif" src="/img/dots-same-time.gif" />
-			</VStack>
-		</div>
+		<VStack>
+			<Text fontSize={['32px','64px']} padding={['8px',0]} align={'center'} fontWeight={900} marginTop={'100px'}>The Council is thinking...</Text>
+			<Text fontSize={'16px'}>You said:</Text>
+			<Text fontSize={'20px'} fontWeight={600}>"{props.prompt}"</Text>
+			<Image minWidth={'150px'} width={'10%'} padding={'16px'} justifyContent={'center'} zIndex={10} src="/img/dots-same-time.gif" />
+		</VStack>
 	);
 }
 
