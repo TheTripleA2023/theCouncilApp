@@ -113,6 +113,7 @@ export default function SelectionComponent(props) {
               opacity={members.length === 4?1: 0.5}
               disabled={members.length === 4?false: true}
               zIndex={11}
+              display={{base:'flex',md:'none'}}
             />
         </GridItem>
         <GridItem w='100%' h='100%'>

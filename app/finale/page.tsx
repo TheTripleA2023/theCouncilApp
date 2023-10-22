@@ -1,5 +1,6 @@
 "use client";
 
+import GenericButton from "@/components/pages/misc/GenericButton";
 import { Text, Button, Image, Stack } from "@chakra-ui/react";
 
 // import DiscoGif from "./../../public/img/Disco1.gif"
@@ -22,13 +23,7 @@ export default function Page() {
 
 					<Text className="end-h2">We hope our advice helped.</Text>
 					<Link href={"/"}>
-						<Button
-							className="refresh-button"
-							id="refresh"
-							// onClick={refreshPage}
-						>
-							Ask another question
-						</Button>
+						<GenericButton text="Ask another question"/>
 					</Link>
 				</Stack>
 				
