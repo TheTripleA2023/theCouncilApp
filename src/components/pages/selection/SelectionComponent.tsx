@@ -116,7 +116,7 @@ export default function SelectionComponent(props) {
               display={{base:'flex',md:'none'}}
             />
         </GridItem>
-        <GridItem w='100%' h='100%'>
+        <GridItem w='100%' h='100%' overflowY={'scroll'} overflowX={'visible'} >
           <VStack paddingTop={['5','15']}>
             <Wrap spacing='8px' justify='center' zIndex={1}>
               {props.allMembers.map((councilMember, index) => (
