@@ -37,7 +37,7 @@ function SubmitButton(props) {
         <>
             <HStack>
                 <Input
-                    placeholder="Tell us what's going on"
+                    placeholder="Tell us what's going on..."
                     size={['lg']}
                     minW={['75%','320px','480px']}
                     colorScheme="gray"

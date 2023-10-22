@@ -6,6 +6,7 @@ import { Input, Button, Text, HStack } from "@chakra-ui/react"; // Import necess
 import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
 import CouncilCard from "@/components/pages/council/CouncilCard";
 import SubmitButton from "../misc/SubmitButton";
+import { url } from "@/helpers/global";
 
 function CouncilComponent(props) {
 	const handleReply = (value) => {
@@ -21,12 +22,10 @@ function CouncilComponent(props) {
 	};
 
 	return (
-		<div className="flex flex-col h-screen justify-between">
 			<div className="council-content">
-				<Text className="council-title">The Council says...</Text>
-				<Text className="council-query-label">You said:</Text>
-
-				<Text className="council-query">{props.replayValue!=="" ? props.replayValue : props.inputValue}</Text>
+				<Text fontSize={['24px','64px']}fontWeight={900} align={'center'}>The Council has spoken.</Text>
+				<Text fontSize={'16px'}>You said:</Text>
+				<Text fontSize={'20px'} fontWeight={600}>"{props.replayValue!=="" ? props.replayValue : props.inputValue}"</Text>
 
 				<div className="council-cards">
 					{props.data ? (
@@ -65,13 +64,12 @@ function CouncilComponent(props) {
 
 				<SubmitButton onButtonClick={handleReply}/>
 				<a
-					href="http://localhost:3000/finale"
+					href="/finale"
 					rel="noopener noreferrer"
 				>
-					<Text className="done-text">No thanks, I’m all done!</Text>
+					<Text className="done-text"><b>I have come to a conclusion, I’m all done!</b></Text>
 				</a>
 			</div>
-		</div>
 	);
 }
 
