@@ -42,7 +42,6 @@ export default function SelectionComponent(props) {
 
 		if(members.includes(name)){
 			setMembers(members.filter((key) => key !== name));
-      console.log(members.filter((key) => key !== name))
 			return;
 		} else if(members.length === 4) {
 			return;
@@ -138,7 +137,7 @@ export default function SelectionComponent(props) {
                     <Center
                       flexDirection={'row'}
                       >
-                      <Image boxSize={'120px'} src={"/img/avatars/"+councilMember.imagePath} padding={'1em'}/>
+                      <Image boxSize={'120px'} src={"https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/"+councilMember.imagePath} padding={'1em'}/>
                       <VStack alignItems={'start'} paddingRight={'16px'}>
                         <Text><b>{"The " + councilMember.name}</b></Text>
                         <Text>{councilMember.description}</Text>

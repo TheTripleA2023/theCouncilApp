@@ -87,6 +87,9 @@ const NavLink = (props: Props) => {
                 <Text paddingBottom="15px">
                   Thanks for using the Council!
                 </Text>
+                {/* <Text>
+                  Alex, Adi, Alan, and Taryn
+                </Text> */}
                 <Text>
                   <a className='modalName' href="https://www.linkedin.com/in/alexdshernandez/" target="_blank">Alex</a>,{' '}
                   <a className='modalName' href="https://www.linkedin.com/in/adityapoluri/" target="_blank">Adi</a>,{' '}

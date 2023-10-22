@@ -1,6 +1,8 @@
 "use client";
 
+
 import { Text, Button, Image, Box } from "@chakra-ui/react";
+import { url } from "@/helpers/global";
 
 // import DiscoGif from "./../../public/img/Disco1.gif"
 import dynamic from "next/dynamic";
@@ -57,7 +59,7 @@ export default function Page() {
 				</Text>
 
 				<Text className="end-h2">We hope our advice helped.</Text>
-				<a href="http://localhost:3000/">
+				<a href={url}>
 					<Button
 						className="refresh-button"
 						id="refresh"
