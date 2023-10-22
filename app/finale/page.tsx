@@ -34,6 +34,7 @@ export default function Page() {
 				
 
 				<Image className="pink-floor" src="./img/Pinkfloor.svg" />
+				<Image className="animals" src="./img/Animals.png" />
 			</div>
 		</div>
 	);

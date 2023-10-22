@@ -581,7 +581,7 @@ ul.hero li {
 
 .quotes-scroller {
 	display: inline-block;
-	animation: 20s slide infinite linear;
+	animation: 40s slide infinite linear;
 }
 
 /* ABOUT THE COUNCIL */
@@ -901,6 +901,16 @@ ul.hero li {
 	position: absolute;
 	bottom: 0px;
 	min-width: 100%;
+}
+
+.animals {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+	width: 80%;
+	z-index: 3;
+	margin: auto;
 }
 
 
