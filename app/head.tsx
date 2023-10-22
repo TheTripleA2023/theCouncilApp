@@ -1,5 +1,5 @@
 const title = "The Council";
-const url = "";
+const url = "https://thecouncil.vercel.app/";
 const description = "Give the Council your problem, and you can get a bunch of (imaginary AI-generated) friends to weigh in on your dilemmas, even if you're all alone!";
 const author = "Aditya Poluri, Alexandra Hernandez, Taryn Wou, Alan Wang";
 
@@ -17,7 +17,7 @@ export default function Head() {
 			{/* Search Engine Optimization Meta Tags */}
 			<title>{title}</title>
 			<meta name="description" content={description} />
-			<meta name="keywords" content="" />
+			<meta name="keywords" content="AI Council, Council, Hack the north, " />
 			<meta name="robots" content="index,follow" />
 			<meta name="distribution" content="web" />
 			{/* 

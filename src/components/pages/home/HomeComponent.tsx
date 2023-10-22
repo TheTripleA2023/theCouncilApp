@@ -1,17 +1,12 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Input, Button, Center, VStack, HStack, Heading, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
-import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
-import {LuWrench} from 'react-icons/lu'
+import {  Button, Center, VStack, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { Suspense } from "react";
-import Link from "next/link";
-import GenericButton from "../misc/GenericButton";
-import { Text } from "@chakra-ui/react";
 import TitleComponent from "./Title";
-import { SP } from "next/dist/shared/lib/utils";
+import SubmitButton from "../misc/SubmitButton";
 
 const CouncilTable = dynamic(
 	() => import("@/components/canvas/Models").then((mod) => mod.CouncilTable),
@@ -52,19 +47,13 @@ const Common = dynamic(
 );
 
 function HomeComponent(props) {
-	const [inputField, setInputField] = useState("");
 	const [hover, setHover] = useState(false);
 
-	const handleInputChange = (e) => {
-		setInputField(e.target.value);
-	};
-
-	const handleSubmit = () => {
+	const handleSubmit = (inputVal) => {
 		// Handle button click logic here
 		// Call the callback function passed from the main page
-		console.log(inputField)
 		if (props.onButtonClick) {
-			props.onButtonClick(inputField);
+			props.onButtonClick(inputVal);
 		}
 	};
 	
@@ -75,47 +64,15 @@ function HomeComponent(props) {
 			props.onSelectionClick();
 		}
 	};
-
+	
 	return (
 		<div className="flex flex-col relative h-screen justify-between overflow-hidden overscroll-none">
 			{/* Header Components */}
-			<Center paddingTop={['4em','5em']}>
-				<VStack maxW={['100%','75%']} lineHeight={['48px','80px']}>
+			<Center paddingTop={['3em','4em']}>
+				<VStack maxW={['100%','75%']} lineHeight={['48px','56px','80px']}>
 					<TitleComponent/>
 					<Spacer maxH={'24px'}/>
-					<HStack>
-						<Input
-							placeholder="Tell us what's going on"
-							size={['lg']}
-							minW={['75%','480px']}
-							colorScheme="gray"
-							variant="filled"
-							textColor={"black"}
-							_focus={{
-								borderColor: "gray",
-								textColor: "gray",
-								bg: "white",
-								boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)",
-								overflowY: "auto",
-								resize: "vertical",
-							}}
-							value={inputField}
-							onChange={handleInputChange}
-						/>
-						<Button
-							className="submit-button"
-							style={{
-								background:
-									"linear-gradient(to right, #12e9f1, #bf7fea)",
-							}}
-							rightIcon={<AiOutlineCheck />}
-							variant="solid"
-							ml={2}
-							onClick={handleSubmit}
-						>
-							OK
-						</Button>
-					</HStack>
+					<SubmitButton onButtonClick={handleSubmit}/>
 				</VStack>
          	</Center>
 			{/* Table Components */}
@@ -136,7 +93,10 @@ function HomeComponent(props) {
 				</div>
 				<div className="selection-input">
 					<div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-							<Button colorScheme={hover?'white':'whiteAlpha'} variant={hover?'outline':'outline'} opacity={hover?1:0.2} onClick={handleSelection}>
+							<Button colorScheme={hover?'white':'whiteAlpha'} variant={hover?'outline':'outline'} opacity={hover?1:0.5} onClick={handleSelection} display={{base:'none',md:'flex'}}>
+								Choose your Council
+							</Button>
+							<Button colorScheme={'white'} variant={hover?'outline':'outline'} opacity={0.8} onClick={handleSelection} display={{base:'flex',md:'none'}}>
 								Choose your Council
 							</Button>
 					</div>
