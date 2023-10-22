@@ -900,7 +900,7 @@ ul.hero li {
 .pink-floor {
 	position: absolute;
 	bottom: 0px;
-	width: 100%;
+	min-width: 100%;
 }
 
 
