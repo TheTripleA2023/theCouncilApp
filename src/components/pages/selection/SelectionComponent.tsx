@@ -53,7 +53,7 @@ export default function SelectionComponent(props) {
 
   return (
     <>
-      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12} >
+      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12}  overflowY={'scroll'} overflowX={'visible'} >
         <GridItem w='100%' h='100%'>
           <Center paddingTop={['1','15']}>
             <VStack alignItems="start" maxW={['100%','75%']}>
