@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   const { data, error} = await supabase.from('queries').select().filter('id','eq',session.user.id).gt('created_at',date.toUTCString());
   await supabase.from('queries').insert({id:session.user.id})
 
-  const queryCount = data.length-20
+  const queryCount = data.length
   if(queryCount >= HARD_QUERY_QUOTA) { 
     return NextResponse.json({ error: "Query Quota Reached" }, { status: 501 })
   }
