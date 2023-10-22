@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Input, Button, Center, VStack, HStack, Heading } from "@chakra-ui/react"; // Import necessary Chakra UI components;
+import { HStack } from "@chakra-ui/react"; // Import necessary Chakra UI components;
 import { Text } from "@chakra-ui/react";
 
 

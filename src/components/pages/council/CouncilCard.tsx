@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, Flex, Heading, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, useDisclosure } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import { Card, CardBody, CardFooter, Flex, Image, Stack, Text } from "@chakra-ui/react"; // Import necessary Chakra UI components
 
 function CouncilCard(props) {
 

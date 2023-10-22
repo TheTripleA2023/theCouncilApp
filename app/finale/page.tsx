@@ -1,7 +1,7 @@
 "use client";
 
 import GenericButton from "@/components/pages/misc/GenericButton";
-import { Text, Button, Image, Stack } from "@chakra-ui/react";
+import { Text, Image, Stack } from "@chakra-ui/react";
 
 // import DiscoGif from "./../../public/img/Disco1.gif"
 import Link from "next/link";

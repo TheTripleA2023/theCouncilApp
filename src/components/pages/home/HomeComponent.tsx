@@ -1,18 +1,11 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { Input, Button, Center, VStack, HStack, Heading, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
-import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
-import {LuWrench} from 'react-icons/lu'
+import {  Button, Center, VStack, Spacer, Box } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import { Suspense } from "react";
-import Link from "next/link";
-import GenericButton from "../misc/GenericButton";
-import { Text } from "@chakra-ui/react";
 import TitleComponent from "./Title";
-import { SP } from "next/dist/shared/lib/utils";
-import {KeyboardEvent} from "react"
 import SubmitButton from "../misc/SubmitButton";
 
 const CouncilTable = dynamic(

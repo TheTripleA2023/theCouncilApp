@@ -1,12 +1,9 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
-import { Input, Button, Text, HStack, Box, Stack, Flex, Grid } from "@chakra-ui/react"; // Import necessary Chakra UI components
-import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
+import {Text, Box, Stack, Grid } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import CouncilCard from "@/components/pages/council/CouncilCard";
 import SubmitButton from "../misc/SubmitButton";
-import { url } from "@/helpers/global";
 import Link from "next/link";
 
 function CouncilComponent(props) {
@@ -26,7 +23,7 @@ function CouncilComponent(props) {
 		<Stack alignItems={'center'} marginTop={'2%'} margin={'4px'}>
 			<Text fontSize={['24px','48px','64px']} fontWeight={900} align={'center'}>The Council has spoken.</Text>
 			<Text fontSize={'16px'}>You said:</Text>
-			<Text fontSize={'20px'} fontWeight={600} align={'center'}>"{props.replayValue!=="" ? props.replayValue : props.inputValue}"</Text>
+			<Text fontSize={'20px'} fontWeight={600} align={'center'}>"{props.inputValue}"</Text>
 			<Grid templateColumns={['repeat(1, 1fr)','repeat(1, 1fr)','repeat(2, 1fr)']} gap={6} margin={'20px'} maxW={['90%',"66%"]}>
 				{props.data ? (
 					props.data.map((councilMember, index) => {
@@ -105,7 +102,6 @@ function CouncilComponent(props) {
 					<SubmitButton onButtonClick={handleReply}/>
 					<Link
 						href="/finale"
-						rel="noopener noreferrer"
 					>
 						<Text className="done-text"><b>I have come to a conclusion, I’m all done!</b></Text>
 					</Link>

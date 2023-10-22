@@ -7,6 +7,7 @@ import CouncilComponent from "@/components/pages/council/CouncilComponent";
 import LoadingComponent from "@/components/pages/misc/LoadingComponent";
 import MoreDetailsComponent from "@/components/pages/council/MoreDetailsComponent";
 import SelectionComponent from "@/components/pages/selection/SelectionComponent";
+import { useRouter } from "next/navigation";
 
 enum PageStage {
 	"home",
@@ -16,16 +17,15 @@ enum PageStage {
 export default function Page() {
 	const [pageStage, setPageStage] = useState(PageStage.home);
 	const [inputValue, setInputValue] = useState("");
-	const [replyValue, setReplyValue] = useState("");
 	const [detailsPageBool, setdetailsPageBool] = useState(false);
 	const [data, setData] = useState(null);
 	const [isLoading, setLoading] = useState(false);
 	const [memberName, setMemberName] = useState("");
 	const [memberPic, setMemberPic] = useState("");
 	const [memberConvo, setMemberConvo] = useState([]);
-	const [councilList, setCouncilList] = useState([]);
 	let CouncilController = useRef(new Council());
 
+	const router = useRouter()
 	const ref = useRef();
 
 	const handleSubmit = async (value) => {
@@ -39,24 +39,14 @@ export default function Page() {
 		setLoading(true);
 		const response =
 			await CouncilController.current.consultCouncil(value);
+		
+		if(response== null) {
+			setLoading(false);
+			router.push("/quotalimit")
+		}
 
 		setData(response);
 		setPageStage(PageStage.council);
-		setLoading(false);
-	};
-
-	const handleReply = async (value) => {
-		console.log("Reply clicked");
-		setReplyValue(value);
-		if (value === "") {
-			return;
-		}
-		setLoading(true);
-
-		const response =
-			await CouncilController.current.consultCouncil(value);
-
-		setData(response);
 		setLoading(false);
 	};
 
@@ -95,18 +85,14 @@ export default function Page() {
 				)}
 				{!isLoading && pageStage === PageStage.council && (
 					<CouncilComponent
-						handleReply={handleReply}
+						handleReply={handleSubmit}
 						handleMoreDetails={handleMoreDetails}
 						inputValue={inputValue}
-						replayValue={replyValue}
 						data={data}
 					/>
 				)}
-				{isLoading && replyValue === "" && (
+				{isLoading && (
 					<LoadingComponent prompt={inputValue} />
-				)}
-				{isLoading && replyValue !== "" && (
-					<LoadingComponent prompt={replyValue} />
 				)}
 				{detailsPageBool && (
 					<MoreDetailsComponent

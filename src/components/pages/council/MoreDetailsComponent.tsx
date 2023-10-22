@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Card, Flex, IconButton, Image, Stack, Text } from "@chakra-ui/react";
+import { Card, IconButton, Image, Stack, Text } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 
 function UserMessage(props) {
