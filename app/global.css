@@ -229,17 +229,74 @@ background-size: cover; */
 	height: 200px;
 }
 
-@media (max-width: 800px) {
-	/* .member-card-container {
-    display: grid;
-  } */
 
-	.council-member-card {
-		width: 50%; /* Two columns per row */
-		padding-bottom: 10px;
-		display: inline-block; /* To ensure proper alignment */
+@media (max-width: 1110px) {
+	
+	.member-card-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.team-member-card:first-child {
+		margin-left: 10px !important;
+	}
+	
+	.team-member-card:last-child {
+		margin-right: 10px !important;
 	}
 }
+
+/* 1045 to 1100 needs to be fixed */
+/* works for 1044 px and under */
+@media (max-width: 1040px) {
+
+	.member-card-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.team-member-card {
+		/* flex: 0 0 calc(50% - 100px); */
+
+		/* margin-left: 0px !important;
+		margin-right: 0px !important; */
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-bottom: 20px;
+		gap: 20px;
+	}
+
+	.team-member-card:first-child {
+		margin-left: 10px !important;
+	}
+	
+	.team-member-card:last-child {
+		margin-right: 10px !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.footer-container {
+		padding-right: 50px !important;
+	}
+}
+
+@media (max-width: 440px) {
+	
+	.team-header {
+		font-size: 32px;
+	}
+
+	.team-container, .usage-container, .footer-container {
+		padding: 50px !important;
+	}
+
+
+}
+
 
 .council-member-card {
 	border-radius: 16px;
@@ -255,18 +312,6 @@ background-size: cover; */
 
 	width: 200px;
 	height: 200px;
-}
-
-@media (max-width: 800px) {
-	/* .member-card-container {
-    display: grid;
-  } */
-
-	.council-member-card {
-		width: 50%; /* Two columns per row */
-		padding-bottom: 10px;
-		display: inline-block; /* To ensure proper alignment */
-	}
 }
 
 .council-reply-prompt {
