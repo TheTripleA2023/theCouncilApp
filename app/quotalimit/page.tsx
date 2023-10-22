@@ -21,6 +21,7 @@ export default function Page() {
               <Image
                 w={'100%'}
                 src='img/Possum_large.png'
+                pointerEvents={'none'}
               />
             </div>
       </div>
