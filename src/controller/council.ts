@@ -1,4 +1,5 @@
 import { url } from "@/helpers/global";
+import { redirect } from "next/navigation";
 
 export class Council {
 	private trial: number;
@@ -98,6 +99,10 @@ export class Council {
 			const data = await res.json();
 			this.activeMembers = data.data;
 		} else {
+			if(res.status == 501) {
+				console.log("Quota Limit Reached");
+				return null;
+			}
 			console.log("Error Occurred Processing Query");
 			throw new Error("Error Occurred Processing Query");
 		}

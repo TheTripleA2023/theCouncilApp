@@ -1,21 +1,15 @@
 "use client";
 
 import React from "react";
-import { useState } from "react";
-import { Input, Button, Text } from "@chakra-ui/react"; // Import necessary Chakra UI components
-import { AiOutlineCheck } from "react-icons/ai"; // Import the Check icon
+import {Text, Box, Stack, Grid } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import CouncilCard from "@/components/pages/council/CouncilCard";
+import SubmitButton from "../misc/SubmitButton";
+import Link from "next/link";
 
 function CouncilComponent(props) {
-	const [inputField, setInputField] = useState("");
-
-	const handleInputChange = (e) => {
-		setInputField(e.target.value);
-	};
-
-	const handleReply = () => {
+	const handleReply = (value) => {
 		if (props.handleReply) {
-			props.handleReply(inputField);
+			props.handleReply(value);
 		}
 	};
 
@@ -26,85 +20,95 @@ function CouncilComponent(props) {
 	};
 
 	return (
-		<div className="flex flex-col h-screen justify-between">
-			<div className="council-content">
-				<Text className="council-title">The Council says...</Text>
-				<Text className="council-query-label">You said:</Text>
+		<Stack alignItems={'center'} marginTop={'2%'} margin={'4px'}  overflowY={'scroll'} overflowX={'visible'} >
+			<Text fontSize={['24px','48px','64px']} fontWeight={900} align={'center'}>The Council has spoken.</Text>
+			<Text fontSize={'16px'}>You said:</Text>
+			<Text fontSize={'20px'} fontWeight={600} align={'center'}>"{props.inputValue}"</Text>
+			<Grid templateColumns={['repeat(1, 1fr)','repeat(1, 1fr)','repeat(2, 1fr)']} gap={6} margin={'20px'} maxW={['90%',"66%"]}>
+				{props.data ? (
+					props.data.map((councilMember, index) => {
+						// Construct the image source URL based on the council member's data
+						const imagePath = `https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/${councilMember.imagePath}`;
 
-				<Text className="council-query">{props.inputValue}</Text>
-
-				<div className="council-cards">
-					{props.data ? (
-						props.data.map((councilMember, index) => {
-							// Construct the image source URL based on the council member's data
-							const imagePath = `https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/${councilMember.imagePath}`;
-
-							return (
-								<CouncilCard
-									key={index}
-									name={councilMember.name}
-									description={councilMember.description}
-									imagePath={imagePath} // Use the dynamically constructed image path
-									onCardClick={() =>
-										handleMoreDetails(
-											councilMember.name,
-											index
-										)
-									}
-									message={
-										councilMember.conversation &&
-										councilMember.conversation.length
-											? councilMember.conversation[
-													councilMember.conversation
-														.length - 1
-											  ]?.content || ""
-											: ""
-									}
-								/>
-							);
-						})
-					) : (
-						<div>Loading...</div>
-					)}
-				</div>
-
-				<div className="council-reply-prompt">
-					<Input
-						className="council-reply-prompt-input"
-						placeholder="I'm thinking about..."
-						style={{ width: "488px" }}
-						variant="filled"
-						_focus={{
-							borderColor: "gray", // Set the border color when the input is focused
-							textColor: "gray",
-							bg: "white",
-							boxShadow: "0 0 0 2px rgba(0, 0, 0, 0.1)", // Add a focus shadow
-						}}
-						onChange={handleInputChange}
-					/>
-					<Button
-						className="reply-button"
-						colorScheme="teal"
-						style={{
-							background:
-								"linear-gradient(to right, #12e9f1, #bf7fea)",
-						}}
-						rightIcon={<AiOutlineCheck />}
-						variant="solid"
-						ml={2} // Add margin-left to create space between the input and button
-						onClick={handleReply} // Call the handleSubmit function on button click
+						return (
+							<CouncilCard
+								key={index}
+								name={councilMember.name}
+								description={councilMember.description}
+								imagePath={imagePath} // Use the dynamically constructed image path
+								onCardClick={() =>
+									handleMoreDetails(
+										councilMember.name,
+										index
+									)
+								}
+								message={
+									councilMember.conversation &&
+									councilMember.conversation.length
+										? councilMember.conversation[
+												councilMember.conversation
+													.length - 1
+											]?.content || ""
+										: ""
+								}
+							/>
+						);
+					})
+				) : (
+					<div>Loading...</div>
+				)}
+				<Box height={'200px'} display={{base:"flex", md:"none"}}></Box>
+			</Grid>
+			{/* Desktop View */}
+			<Box
+				display={{base:'none',md:'flex'}}
+			>
+				<Stack align={'center'}>
+					<SubmitButton onButtonClick={handleReply}/>
+					<Link
+						href="/finale"
+						rel="noopener noreferrer"
 					>
-						OK
-					</Button>
-				</div>
-				<a
-					href="http://localhost:3000/finale"
-					rel="noopener noreferrer"
-				>
-					<Text className="done-text">No thanks, I’m all done!</Text>
-				</a>
-			</div>
-		</div>
+						<Text className="done-text"><b>I have come to a conclusion, I’m all done!</b></Text>
+					</Link>
+				</Stack>
+			</Box>
+
+
+			{/* Mobile View */}
+			<Box
+				background="var(--Dark-Gradient-Fill, linear-gradient(0deg, #222C51 0%, rgba(0, 8, 34, 0.00) 100%, rgba(34, 44, 81, 0.00) 100%));"
+				bottom={0}
+				left={0}
+				position={'fixed'} 
+				width={'100%'}
+				height={'25%'}
+				color={'white'}
+				display={{md:'none'}}
+				zIndex={10}
+				pointerEvents={'none'}
+			>
+			</Box>
+			<Box
+				bottom={0}
+				left={0}
+				position={'fixed'} 
+				width={'100%'}
+				display={{md:'none'}}
+				zIndex={11}
+				padding={'20px'}
+			>	
+				<Stack align={'center'}>
+					<SubmitButton onButtonClick={handleReply}/>
+					<Link
+						href="/finale"
+					>
+						<Text className="done-text"><b>I have come to a conclusion, I’m all done!</b></Text>
+					</Link>
+				</Stack>
+			</Box>
+
+		</Stack>
 	);
 }
 

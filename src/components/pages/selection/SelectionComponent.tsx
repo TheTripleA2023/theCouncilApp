@@ -53,7 +53,7 @@ export default function SelectionComponent(props) {
 
   return (
     <>
-      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12}>
+      <Grid templateColumns={['2','repeat(2, 1fr)']} gap={12} margin={12}  overflowY={'scroll'} overflowX={'visible'} >
         <GridItem w='100%' h='100%'>
           <Center paddingTop={['1','15']}>
             <VStack alignItems="start" maxW={['100%','75%']}>
@@ -98,8 +98,11 @@ export default function SelectionComponent(props) {
             color={'white'}
             display={{md:'none'}}
             zIndex={10}
+            pointerEvents={'none'}
           >
-            <GenericButton 
+
+          </Box>
+          <GenericButton 
               text={members.length === 4?"Let's Go!": members.length + "/4 Members Selected"} 
               onClick={handleBackButton} 
               width={'90vw'}
@@ -109,10 +112,11 @@ export default function SelectionComponent(props) {
               margin={'5vw'}
               opacity={members.length === 4?1: 0.5}
               disabled={members.length === 4?false: true}
+              zIndex={11}
+              display={{base:'flex',md:'none'}}
             />
-          </Box>
         </GridItem>
-        <GridItem w='100%' h='100%'>
+        <GridItem w='100%' h='100%' overflowY={'scroll'} overflowX={'visible'} >
           <VStack paddingTop={['5','15']}>
             <Wrap spacing='8px' justify='center' zIndex={1}>
               {props.allMembers.map((councilMember, index) => (
