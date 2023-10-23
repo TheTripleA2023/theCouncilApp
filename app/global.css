@@ -229,17 +229,120 @@ background-size: cover; */
 	height: 200px;
 }
 
-@media (max-width: 800px) {
-	/* .member-card-container {
-    display: grid;
-  } */
 
-	.council-member-card {
-		width: 50%; /* Two columns per row */
-		padding-bottom: 10px;
-		display: inline-block; /* To ensure proper alignment */
+@media (max-width: 1110px) {
+	
+	.member-card-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.team-member-card:first-child {
+		margin-left: 10px !important;
+	}
+	
+	.team-member-card:last-child {
+		margin-right: 10px !important;
 	}
 }
+
+
+@media (max-width: 1040px) {
+	.member-card-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.team-member-card {
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-bottom: 20px;
+		gap: 20px;
+	}
+
+	.team-member-card:first-child {
+		margin-left: 10px !important;
+	}
+	
+	.team-member-card:last-child {
+		margin-right: 10px !important;
+	}
+}
+
+
+@media (max-width: 925px) {
+	
+	/* Background image */
+	/* .about-council-content {
+		background: url("/img/choose-council.png") top right no-repeat;
+	} */
+
+
+	/* What's the Council? */
+	.about-council-p1 {
+		width: 80% !important;
+	}
+
+	
+	/* How it works */
+	.how-it-works-div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 !important;
+	}
+
+	.about-council-p2 {
+		width: 80% !important;
+	}
+
+
+	/* How we started */
+	.how-we-started-div {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	.about-council-h2 {
+		padding-top: 20px;
+	}
+}
+
+
+@media (max-width: 600px) {
+	.footer-container {
+		padding-right: 50px !important;
+	}
+}
+
+@media (max-width: 570px) {
+	.about-council-content {
+		background: none !important;
+	}
+
+	.about-council-div {
+		padding-top: 25px !important;
+	}
+}
+
+
+
+@media (max-width: 440px) {
+	
+	.team-header {
+		font-size: 32px;
+	}
+
+	.team-container, .usage-container, .footer-container {
+		padding: 50px !important;
+	}
+
+
+}
+
 
 .council-member-card {
 	border-radius: 16px;
@@ -255,18 +358,6 @@ background-size: cover; */
 
 	width: 200px;
 	height: 200px;
-}
-
-@media (max-width: 800px) {
-	/* .member-card-container {
-    display: grid;
-  } */
-
-	.council-member-card {
-		width: 50%; /* Two columns per row */
-		padding-bottom: 10px;
-		display: inline-block; /* To ensure proper alignment */
-	}
 }
 
 .council-reply-prompt {
@@ -397,6 +488,48 @@ background-size: cover; */
 	align-items: centre;
 	/* justify-content: center; */
 }
+
+@media (max-width: 745px) {
+
+	.hero-h2,
+	.hero-swappable-1,
+	.hero-swappable-2,
+	.hero-swappable-3 {
+	font-size: 32px !important;
+	margin: 0 5px !important;
+	}
+
+	.hero-h1, 
+	.hero-gradient-text {
+		font-size: 60px !important;
+		line-height: 80px !important;
+	}
+}
+
+
+@media (max-width: 480px) {
+
+	.hero-swappable-line {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.hero-h2,
+	.hero-swappable-1,
+	.hero-swappable-2,
+	.hero-swappable-3 {
+		font-size: 30px !important;
+		margin: 0 5px !important;
+	}
+
+	.hero-h1, 
+	.hero-gradient-text {
+		font-size: 50px !important;
+		line-height: 60px !important;
+	}
+}
+
+
 
 .hero-h2,
 .hero-swappable {
@@ -592,6 +725,7 @@ ul.hero li {
 
 .about-council-content {
 	background: url("/img/choose-council.png") top right no-repeat;
+	background-size: 50%;
 }
 
 .about-council-div {
