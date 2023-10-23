@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Card, IconButton, Image, Stack, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { Box, Card, IconButton, Image, Stack, Text } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 
 function UserMessage(props) {
@@ -39,8 +39,12 @@ function MoreDetailsComponent(props) {
 		}
 	};
 
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	  }, [])
+	  
 	return (
-		<Stack textColor={'white'}>
+		<Stack textColor={'white'}  overflowY={'scroll'} overflowX={'visible'} >
 			<div className="overlay"></div>
 			<Stack position={"absolute"}
 			top={0}
@@ -51,7 +55,7 @@ function MoreDetailsComponent(props) {
 			minH={'100%'}
 			width={'100%'}
 			padding={['1em','6em']}
-			overflowY={'auto'}
+			overflowY={'scroll'} overflowX={'visible'} 
 			>
 				<Text fontSize={['32px','64px']} fontWeight={900}>The {memberName} says...</Text>
 				<IconButton
@@ -62,7 +66,7 @@ function MoreDetailsComponent(props) {
 					color={'white'}
 					position={'absolute'} top={[0,16]} right={[0,16]}
 				/>
-				<Text className="pop-up-subtitle">
+				<Text fontSize={'20px'} fontWeight={600} color={'white'} marginBottom={'40px'} textAlign={'center'}>
 					Here’s what Council Member {memberName} had to say so far.
 				</Text>
 				<Stack direction={["column","column","row"]} spacing={["16px","64px"]} alignItems={['center','center','start']}>
@@ -95,6 +99,9 @@ function MoreDetailsComponent(props) {
 							) : (
 								<div>No conversation available</div> // Render a message if memberConvo is null
 							)}
+							<Box height={'100vh'} display={{md:"none"}}>
+
+							</Box>
 						</Stack>
 				</Stack>
 			</Stack>
