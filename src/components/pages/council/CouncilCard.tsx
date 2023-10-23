@@ -9,7 +9,7 @@ function CouncilCard(props) {
 	return (
 		<>
 			<Card
-				className="transition ease-in-out hover:-translate-y-1 hover:scale-101 duration-300 -z-1000"
+				className="transition ease-in-out md:hover:-translate-y-1 md:hover:scale-101 duration-300 -z-1000"
 				direction={{ base: 'column', sm: 'row' }}
 				background="linear-gradient(to bottom, #46537a, #203864)"
 				textColor={'white'}
