@@ -124,7 +124,7 @@ export default function SelectionComponent(props) {
                 w='280px'
                 h='140px'
                 minW='300px'
-                className='transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300'
+                className='transition ease-in-out md:hover:-translate-y-1 md:hover:scale-110 duration-300'
                 padding={members.includes(councilMember.name)?'0px':'8px'} 
                 >
                   <Center
