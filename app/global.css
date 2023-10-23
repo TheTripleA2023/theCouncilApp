@@ -392,7 +392,7 @@ background-size: cover; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow: hidden;
+	overflow-y: auto;
 }
 
 .pop-up-content {
