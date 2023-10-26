@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import {Text, Box, Stack, Grid } from "@chakra-ui/react"; // Import necessary Chakra UI components
+import {Text, Box, Stack, Grid, Fade } from "@chakra-ui/react"; // Import necessary Chakra UI components
 import CouncilCard from "@/components/pages/council/CouncilCard";
 import SubmitButton from "../misc/SubmitButton";
 import Link from "next/link";
@@ -31,7 +31,7 @@ function CouncilComponent(props) {
 						const imagePath = `https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/${councilMember.imagePath}`;
 
 						return (
-							<CouncilCard
+								<CouncilCard
 								key={index}
 								name={councilMember.name}
 								description={councilMember.description}
@@ -51,7 +51,7 @@ function CouncilComponent(props) {
 											]?.content || ""
 										: ""
 								}
-							/>
+								/>
 						);
 					})
 				) : (

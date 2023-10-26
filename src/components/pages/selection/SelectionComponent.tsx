@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Button, Grid, GridItem, HStack, SimpleGrid, Spacer, Text, VStack} from '@chakra-ui/react';
+import { Box, Button, Grid, GridItem, HStack, ScaleFade, SimpleGrid, Spacer, Text, VStack} from '@chakra-ui/react';
 import dynamic from 'next/dynamic'
 import { Suspense, useState } from 'react';
 import GenericButton from '../misc/GenericButton';
@@ -120,35 +120,37 @@ export default function SelectionComponent(props) {
           <VStack paddingTop={['5','15']}>
             <Wrap spacing='8px' justify='center' zIndex={1}>
               {props.allMembers.map((councilMember, index) => (
-                <WrapItem key={index} 
-                w='280px'
-                h='140px'
-                minW='300px'
-                className='transition ease-in-out md:hover:-translate-y-1 md:hover:scale-110 duration-300'
-                padding={members.includes(councilMember.name)?'0px':'8px'} 
-                >
-                  <Center
-                    flexDirection={'column'}
-                    alignItems={'start'}
-                    w='100%'
-                    h='100%'
-                    background={'linear-gradient(180deg, #46537A 0%, #203864 100%)'}
-                    border={members.includes(councilMember.name)?'8px':'0px'} 
-                    borderRadius={'16px'}
-                    borderColor={"#9EFD69"}
-                    onClick={() => handleCouncilClick(councilMember.name)}
+                <ScaleFade in={true} initialScale={0.5}>
+                  <WrapItem key={index} 
+                  w='280px'
+                  h='140px'
+                  minW='300px'
+                  className='transition ease-in-out md:hover:-translate-y-1 md:hover:scale-110 duration-300'
+                  padding={members.includes(councilMember.name)?'0px':'8px'} 
                   >
                     <Center
-                      flexDirection={'row'}
-                      >
-                      <Image boxSize={'120px'} src={"https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/"+councilMember.imagePath} padding={'1em'}/>
-                      <VStack alignItems={'start'} paddingRight={'16px'}>
-                        <Text><b>{"The " + councilMember.name}</b></Text>
-                        <Text>{councilMember.description}</Text>
-                      </VStack>
+                      flexDirection={'column'}
+                      alignItems={'start'}
+                      w='100%'
+                      h='100%'
+                      background={'linear-gradient(180deg, #46537A 0%, #203864 100%)'}
+                      border={members.includes(councilMember.name)?'8px':'0px'} 
+                      borderRadius={'16px'}
+                      borderColor={"#9EFD69"}
+                      onClick={() => handleCouncilClick(councilMember.name)}
+                    >
+                      <Center
+                        flexDirection={'row'}
+                        >
+                        <Image boxSize={'120px'} src={"https://raw.githubusercontent.com/TheTripleA2023/storage/main/img/avatars/"+councilMember.imagePath} padding={'1em'}/>
+                        <VStack alignItems={'start'} paddingRight={'16px'}>
+                          <Text><b>{"The " + councilMember.name}</b></Text>
+                          <Text>{councilMember.description}</Text>
+                        </VStack>
+                      </Center>
                     </Center>
-                  </Center>
-                </WrapItem>
+                  </WrapItem>
+                </ScaleFade>
               ))}
               <WrapItem
                 w='280px'
