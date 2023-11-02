@@ -72,17 +72,11 @@
 	font-weight: 800;
 	border: 4px solid transparent;
 	border-radius: 8px;
-	background: 
-	  linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0)), 
-	  linear-gradient(93deg, #12e9f1 27.27%, #bf7fea 112.43%);
+	background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+		linear-gradient(93deg, #12e9f1 27.27%, #bf7fea 112.43%);
 	background-clip: padding-box, border-box;
 	background-origin: padding-box, border-box;
-	background-color: rgba(
-			0,
-			0,
-			0,
-			0
-		);
+	background-color: rgba(0, 0, 0, 0);
 }
 
 .modalName {
@@ -142,7 +136,6 @@
 .selection-input {
 	z-index: 11;
 }
-
 
 .council-content {
 	color: white;
@@ -229,9 +222,7 @@ background-size: cover; */
 	height: 200px;
 }
 
-
 @media (max-width: 1110px) {
-	
 	.member-card-container {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -242,12 +233,11 @@ background-size: cover; */
 	.team-member-card:first-child {
 		margin-left: 10px !important;
 	}
-	
+
 	.team-member-card:last-child {
 		margin-right: 10px !important;
 	}
 }
-
 
 @media (max-width: 1040px) {
 	.member-card-container {
@@ -266,27 +256,23 @@ background-size: cover; */
 	.team-member-card:first-child {
 		margin-left: 10px !important;
 	}
-	
+
 	.team-member-card:last-child {
 		margin-right: 10px !important;
 	}
 }
 
-
 @media (max-width: 925px) {
-	
 	/* Background image */
 	/* .about-council-content {
 		background: url("/img/choose-council.png") top right no-repeat;
 	} */
-
 
 	/* What's the Council? */
 	.about-council-p1 {
 		width: 80% !important;
 	}
 
-	
 	/* How it works */
 	.how-it-works-div {
 		display: flex;
@@ -299,7 +285,6 @@ background-size: cover; */
 		width: 80% !important;
 	}
 
-
 	/* How we started */
 	.how-we-started-div {
 		display: flex;
@@ -310,7 +295,6 @@ background-size: cover; */
 		padding-top: 20px;
 	}
 }
-
 
 @media (max-width: 600px) {
 	.footer-container {
@@ -328,21 +312,21 @@ background-size: cover; */
 	}
 }
 
-
-
 @media (max-width: 440px) {
-	
 	.team-header {
 		font-size: 32px;
 	}
 
-	.team-container, .usage-container, .footer-container {
+	.team-container,
+	.usage-container,
+	.footer-container {
 		padding: 50px !important;
 	}
-
-
 }
 
+.footer-feedback-form-link {
+	text-decoration: underline;
+}
 
 .council-member-card {
 	border-radius: 16px;
@@ -386,7 +370,7 @@ background-size: cover; */
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.7);
-	 /* Adjust the background color and opacity as needed */
+	/* Adjust the background color and opacity as needed */
 	backdrop-filter: blur(5px); /* Adjust the blur amount as needed */
 	z-index: 999; /* Ensure the overlay is above other elements */
 	display: flex;
@@ -490,30 +474,27 @@ background-size: cover; */
 }
 
 @media (max-width: 745px) {
-
 	.hero-h2,
 	.hero-swappable-1,
 	.hero-swappable-2,
 	.hero-swappable-3 {
-	font-size: 32px !important;
-	margin: 0 5px !important;
+		font-size: 32px !important;
+		margin: 0 5px !important;
 	}
 
-	.hero-h1, 
+	.hero-h1,
 	.hero-gradient-text {
 		font-size: 60px !important;
 		line-height: 80px !important;
 	}
 }
 
-
 @media (max-width: 480px) {
-
 	.hero-swappable-line {
 		display: flex;
 		flex-direction: column;
 	}
-	
+
 	.hero-h2,
 	.hero-swappable-1,
 	.hero-swappable-2,
@@ -522,14 +503,12 @@ background-size: cover; */
 		margin: 0 5px !important;
 	}
 
-	.hero-h1, 
+	.hero-h1,
 	.hero-gradient-text {
 		font-size: 50px !important;
 		line-height: 60px !important;
 	}
 }
-
-
 
 .hero-h2,
 .hero-swappable {
@@ -607,7 +586,7 @@ ul.hero li {
 	position: absolute; /* Use absolute positioning */
 	top: 0;
 	background-clip: text;
-	color: transparent;	
+	color: transparent;
 	margin: 0 10px;
 	white-space: nowrap;
 	font-size: 48px;
@@ -622,7 +601,6 @@ ul.hero li {
 	&:nth-child(3) {
 		animation-delay: 6s;
 	}
-	
 }
 
 .council-model-container {
@@ -869,29 +847,28 @@ ul.hero li {
 }
 
 .team-text {
-  color: #FFF;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px; /* 140% */
+	color: #fff;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 28px; /* 140% */
 }
 
 .council-member-card {
-  border-radius: 16px;
-  background: var(--Background-Color, #21234B);
-  backdrop-filter: blur(2px);
+	border-radius: 16px;
+	background: var(--Background-Color, #21234b);
+	backdrop-filter: blur(2px);
 
-  display: flex;
-  padding: 20px;
-  flex-direction: column;
-  align-items: center;
-  /* gap: 12px; */
-  flex: 1 0 0;
+	display: flex;
+	padding: 20px;
+	flex-direction: column;
+	align-items: center;
+	/* gap: 12px; */
+	flex: 1 0 0;
 
-  width: 200px;
-  height: 200px;
+	width: 200px;
+	height: 200px;
 }
-
 
 /* @media (max-width: 800px) {
 
@@ -1047,16 +1024,21 @@ ul.hero li {
 	margin: auto;
 }
 
-
-.fade-in-image { animation: fadeIn 4s; }
+.fade-in-image {
+	animation: fadeIn 4s;
+}
 
 @keyframes fadeIn {
-	0% { opacity: 0; }
-	100% { opacity: 1; }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .tableView {
-	position:absolute;
+	position: absolute;
 	height: 50vh;
 	width: 50vw;
 	left: 0;
