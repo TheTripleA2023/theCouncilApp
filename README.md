@@ -8,10 +8,6 @@
   Insert Vercel Trackers and stuff here
 </p>
 
----
-
-## 📖 What is the Council?
-Long Description
 
 ## 🚀 Tech Stack
 
