@@ -1,8 +1,8 @@
-[![](https://github.com/TheTripleA2023/theCouncilApp/blob/main/promo/titlecard.png)]
+![https://thecouncil.vercel.app/login](https://github.com/TheTripleA2023/theCouncilApp/blob/main/promo/titlecard.png)
 
 <p align="center">
-  <em>Title</em></br>
-  <sub> short Description </sub>
+  <em>The Council</em></br>
+  <sub> Give the Council your problem, and you can get a bunch of (imaginary AI-generated) friends to weigh in on your dilemmas, even if you're all alone! </sub>
 </p>
 <p align="center">
   Insert Vercel Trackers and stuff here
