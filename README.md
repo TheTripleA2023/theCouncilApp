@@ -5,9 +5,10 @@
   <sub> Give the Council your problem, and you can get a bunch of (imaginary AI-generated) friends to weigh in on your dilemmas, even if you're all alone! </sub>
 </p>
 
-![https://ko-fi.com/thecouncilhtn2023](https://storage.ko-fi.com/cdn/brandasset/kofi_bg_tag_dark.png)
-
-
+  <a href="https://ko-fi.com/thecouncilhtn2023">
+    <img src="https://storage.ko-fi.com/cdn/brandasset/kofi_bg_tag_dark.png" />
+  </a>
+  
 ## 🚀 Tech Stack
 
 Updated Tech Stack Here
