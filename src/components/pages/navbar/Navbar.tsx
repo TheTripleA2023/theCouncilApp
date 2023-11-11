@@ -30,6 +30,7 @@ import LogOutButton from "./LogOutButton";
 import LoginButton from "../misc/LoginButton";
 import Link from "next/link";
 import NavLink from "./Navlink";
+import KofiButton from "kofi-button";
 
 const Links = ["About", "Usage Disclaimer"];
 
@@ -75,7 +76,7 @@ export default function Navbar() {
 				<Spacer />
 				<HStack
 					as={"nav"}
-					spacing={5}
+					spacing={3}
 					marginRight={[4, 12, 24, 48]}
 					display={{ base: "none", md: "flex" }}
 				>
@@ -103,7 +104,7 @@ export default function Navbar() {
 					>
 						Feedback Form
 					</Button>
-
+          <KofiButton color="#0a9396" title="Donate" kofiID="thecouncilhtn2023" />
 					{!loading ? null : session ? (
 						<LogOutButton>Log Out</LogOutButton>
 					) : (
@@ -152,7 +153,32 @@ export default function Navbar() {
 					<Box marginTop={"20px"}>
 						<NavLink>{"Usage Disclaimer"}</NavLink>
 					</Box>
-
+          <Box marginTop={"20px"}>
+            <Button
+            as="a"
+            href="https://forms.gle/L2yowVgJsdSHZW888"
+            target="_blank"
+            rel="noopener noreferrer"
+            px={5}
+            py={2}
+            rounded={"md"}
+            fontWeight={600}
+            borderWidth={"2px"}
+            borderColor={"transparent"}
+            color={"white"}
+            bg={"transparent"}
+            _hover={{
+              textDecoration: "none",
+              borderColor: "white",
+              bg: "gray.700",
+            }}
+            >
+              Feedback Form
+            </Button>
+          </Box>
+					<Box marginTop={"20px"}>
+            <KofiButton color="#0a9396" title="Donate" kofiID="thecouncilhtn2023" />
+					</Box>
 					<Box marginTop={"20px"} />
 					{!loading ? null : session ? (
 						<LogOutButton>Log Out</LogOutButton>
